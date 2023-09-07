@@ -124,7 +124,8 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 private: System::Windows::Forms::Button^ minimize;
 private: System::Windows::Forms::Label^ label1;
 private: System::Windows::Forms::Button^ closebutton;
-private: System::Windows::Forms::Panel^ panel3;
+private: System::Windows::Forms::Panel^ titlepnael;
+
 private: System::Windows::Forms::Button^ button1;
 
 
@@ -261,7 +262,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->minimize = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->closebutton = (gcnew System::Windows::Forms::Button());
-			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->titlepnael = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->tabControl1->SuspendLayout();
@@ -278,7 +279,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->panel9->SuspendLayout();
 			this->panel5->SuspendLayout();
 			this->panel4->SuspendLayout();
-			this->panel3->SuspendLayout();
+			this->titlepnael->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openyosys
@@ -1388,20 +1389,23 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->closebutton->UseVisualStyleBackColor = false;
 			this->closebutton->Click += gcnew System::EventHandler(this, &fileconv::closebutton_Click);
 			// 
-			// panel3
+			// titlepnael
 			// 
-			this->panel3->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
-			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(11)), static_cast<System::Int32>(static_cast<System::Byte>(7)),
+			this->titlepnael->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->titlepnael->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(11)), static_cast<System::Int32>(static_cast<System::Byte>(7)),
 				static_cast<System::Int32>(static_cast<System::Byte>(17)));
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel3->Controls->Add(this->button1);
-			this->panel3->Controls->Add(this->closebutton);
-			this->panel3->Controls->Add(this->label1);
-			this->panel3->Controls->Add(this->minimize);
-			this->panel3->Location = System::Drawing::Point(0, 3);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(836, 53);
-			this->panel3->TabIndex = 5;
+			this->titlepnael->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->titlepnael->Controls->Add(this->button1);
+			this->titlepnael->Controls->Add(this->closebutton);
+			this->titlepnael->Controls->Add(this->label1);
+			this->titlepnael->Controls->Add(this->minimize);
+			this->titlepnael->Location = System::Drawing::Point(0, 3);
+			this->titlepnael->Name = L"titlepnael";
+			this->titlepnael->Size = System::Drawing::Size(836, 53);
+			this->titlepnael->TabIndex = 5;
+			this->titlepnael->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &fileconv::titlepnael_MouseDown);
+			this->titlepnael->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &fileconv::titlepnael_MouseMove);
+			this->titlepnael->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &fileconv::titlepnael_MouseUp);
 			// 
 			// button1
 			// 
@@ -1423,7 +1427,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->panel3);
+			this->Controls->Add(this->titlepnael);
 			this->Controls->Add(this->tabControl1);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -1458,8 +1462,8 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->panel5->PerformLayout();
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
-			this->panel3->ResumeLayout(false);
-			this->panel3->PerformLayout();
+			this->titlepnael->ResumeLayout(false);
+			this->titlepnael->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -1587,6 +1591,27 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 		}
 		else {
 			stkat->Enabled = true;
+		}
+	}
+	private: 
+		bool isDragging = false;
+		Point offset;
+
+	private: System::Void titlepnael_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+			isDragging = true;
+			offset = Point(e->X, e->Y);
+		}
+	}
+	private: System::Void titlepnael_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (isDragging) {
+			Point newLocation = Point(Control::MousePosition.X - offset.X, Control::MousePosition.Y - offset.Y);
+			Location = newLocation;
+		}
+	}
+	private: System::Void titlepnael_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+			isDragging = false;
 		}
 	}
 };
