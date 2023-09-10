@@ -38,7 +38,8 @@ NodenValue PIBacktrace;
 NodenValue PISet;
 Gates G;
 Nodes N;
-string podem_prog;
+extern std::string podemProgText;
+
 
 int faultActFlag = 0;
 int status = 0;
@@ -63,7 +64,7 @@ public:
 		ostringstream s1;
 		ostringstream s2;
 
-		string inputFileName = "adder32.txt";
+		string inputFileName = "Circuit.txt";
 		string line = "";
 
 		ifstream inputFile(inputFileName);
@@ -169,6 +170,13 @@ public:
 		}
 	}
 
+	void clearfiles() {
+		std::ofstream piNodesFiles("PI Nodes.txt");
+		std::ofstream inputVectorFile("Input Vector.txt");
+		piNodesFiles.clear();
+		inputVectorFile.clear();
+	}
+
 	// Says whether the PODEM was successful or not!
 	int PODEM()
 	{
@@ -179,7 +187,7 @@ public:
 		for (int i = 0; i < PONodes.size(); i++)
 			if (node.at(PONodes.at(i)).faultFlag == 1)
 			{
-				podem_prog = "THE FAULT IS TESTABLE";
+				//podemProgress << "THE FAULT IS TESTABLE";
 				//cout << endl << endl << podem_prog;
 				//cout << endl << endl << "PI nodes" << endl;
 
@@ -229,7 +237,7 @@ public:
 
 		if (PODEM() == 1)
 		{
-			podem_prog = "THE FAULT IS TESTABLE";
+			//podemProgress << "THE FAULT IS TESTABLE";
 			//cout << endl << endl << podem_prog;
 			//cout << endl << endl << "PI nodes" << endl;
 
@@ -248,6 +256,8 @@ public:
 			}
 
 			return 1;
+
+			//podemProgText = podemProgress.str();
 			piNodesFiles.close();
 			inputVectorFile.close();
 		}

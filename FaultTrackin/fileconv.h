@@ -10,6 +10,7 @@ namespace FaultTrackin {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
+	using namespace System::Text;
 
 	/// <summary>
 	/// Summary for fileconv
@@ -69,7 +70,8 @@ namespace FaultTrackin {
 	private: System::Windows::Forms::Button^ back3;
 
 	private: System::Windows::Forms::Panel^ panel4;
-	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ podemprogress;
+
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Button^ home;
@@ -138,6 +140,8 @@ private: System::Windows::Forms::Label^ label21;
 private: System::Windows::Forms::Panel^ panel10;
 private: System::Windows::Forms::Button^ clear;
 private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+private: System::Windows::Forms::Button^ podem_action;
+
 
 
 
@@ -228,6 +232,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->home1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->podem_action = (gcnew System::Windows::Forms::Button());
 			this->panel8 = (gcnew System::Windows::Forms::Panel());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
@@ -260,7 +265,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->pinodes = (gcnew System::Windows::Forms::TextBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->podemprogress = (gcnew System::Windows::Forms::Label());
 			this->back3 = (gcnew System::Windows::Forms::Button());
 			this->minimize = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -821,6 +826,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage2->Controls->Add(this->podem_action);
 			this->tabPage2->Controls->Add(this->panel8);
 			this->tabPage2->Controls->Add(this->next2);
 			this->tabPage2->Controls->Add(this->label3);
@@ -835,6 +841,22 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->tabPage2->Size = System::Drawing::Size(833, 498);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Fault Injection";
+			// 
+			// podem_action
+			// 
+			this->podem_action->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->podem_action->Enabled = false;
+			this->podem_action->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->podem_action->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->podem_action->ForeColor = System::Drawing::Color::LightGray;
+			this->podem_action->Location = System::Drawing::Point(681, 284);
+			this->podem_action->Name = L"podem_action";
+			this->podem_action->Size = System::Drawing::Size(122, 42);
+			this->podem_action->TabIndex = 12;
+			this->podem_action->Text = L"PODEM";
+			this->podem_action->UseVisualStyleBackColor = false;
+			this->podem_action->Click += gcnew System::EventHandler(this, &fileconv::podem_action_Click);
 			// 
 			// panel8
 			// 
@@ -976,7 +998,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->next2->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
 			this->next2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->next2->ForeColor = System::Drawing::Color::LightGray;
-			this->next2->Location = System::Drawing::Point(655, 313);
+			this->next2->Location = System::Drawing::Point(714, 400);
 			this->next2->Name = L"next2";
 			this->next2->Size = System::Drawing::Size(84, 51);
 			this->next2->TabIndex = 6;
@@ -1047,7 +1069,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->back2->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
 			this->back2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back2->ForeColor = System::Drawing::Color::LightGray;
-			this->back2->Location = System::Drawing::Point(534, 313);
+			this->back2->Location = System::Drawing::Point(514, 400);
 			this->back2->Name = L"back2";
 			this->back2->Size = System::Drawing::Size(84, 51);
 			this->back2->TabIndex = 1;
@@ -1089,7 +1111,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->tabPage3->Controls->Add(this->label6);
 			this->tabPage3->Controls->Add(this->label5);
 			this->tabPage3->Controls->Add(this->panel4);
-			this->tabPage3->Controls->Add(this->label4);
+			this->tabPage3->Controls->Add(this->podemprogress);
 			this->tabPage3->Controls->Add(this->back3);
 			this->tabPage3->Location = System::Drawing::Point(4, 32);
 			this->tabPage3->Name = L"tabPage3";
@@ -1257,6 +1279,8 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->testvector->BackColor = System::Drawing::Color::LightGray;
 			this->testvector->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->testvector->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->testvector->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->testvector->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->testvector->Location = System::Drawing::Point(0, 0);
@@ -1303,6 +1327,8 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->pinodes->BackColor = System::Drawing::Color::LightGray;
 			this->pinodes->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->pinodes->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pinodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->pinodes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->pinodes->Location = System::Drawing::Point(0, 0);
@@ -1313,17 +1339,17 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->pinodes->Size = System::Drawing::Size(731, 124);
 			this->pinodes->TabIndex = 1;
 			// 
-			// label4
+			// podemprogress
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->podemprogress->AutoSize = true;
+			this->podemprogress->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::DeepSkyBlue;
-			this->label4->Location = System::Drawing::Point(292, 64);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(286, 28);
-			this->label4->TabIndex = 2;
-			this->label4->Text = L"ATPG PODEM IS SUCCESSFUL!";
+			this->podemprogress->ForeColor = System::Drawing::Color::DeepSkyBlue;
+			this->podemprogress->Location = System::Drawing::Point(291, 64);
+			this->podemprogress->Name = L"podemprogress";
+			this->podemprogress->Size = System::Drawing::Size(136, 28);
+			this->podemprogress->TabIndex = 2;
+			this->podemprogress->Text = L"ATPG PODEM";
 			// 
 			// back3
 			// 
@@ -1509,36 +1535,15 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 		}
 	}
 	private: System::Void next2_Click(System::Object^ sender, System::EventArgs^ e) {
-		int flag = 1;
-		int result = 0;
-
-		flag = P_func.readFile();
-		//if (flag == 0)
-		//	return 0;
-
-		Fault.nodeNumber = System::Convert::ToInt64(faultnode->Text);
-		Fault.nodeValue = System::Convert::ToInt64(stkat->Text);
-
-		P_func.setX();
-		result = P_func.PODEM();
-
-		if (status == 1)
-			podem_prog = "FAULT IS NOT TESTABLE";
-		
-		status = 0;
-
-		for (int i = 1; i < node.size(); i++) {
-			node.at(i).nodeFlag = 0;
-			node.at(i).faultFlag = 0;
-		}
-
-		for (int i = 0; i < gate.size(); i++) {
-			gate.at(i).gateFlag = 0;
-		}
-
-		faultActFlag = 0;
-
-		testvector->Text=;
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName1 = "PI Nodes.txt";
+		String^ fileName2 = "Input Vector.txt";
+		String^ filePath1 = System::IO::Path::Combine(appDirectory, fileName1);
+		String^ filePath2 = System::IO::Path::Combine(appDirectory, fileName2);
+		String^ fileContents1 = System::IO::File::ReadAllText(filePath1);
+		String^ fileContents2 = System::IO::File::ReadAllText(filePath2);
+		pinodes->Text = fileContents1;
+		testvector->Text = fileContents2;
 
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
@@ -1555,10 +1560,26 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 		}
 	}
 	private: System::Void back3_Click(System::Object^ sender, System::EventArgs^ e) {
+		//String^ appDirectory = Application::StartupPath;
+		//String^ filePath3 = System::IO::Path::Combine(appDirectory, "PI Nodes.txt");
+		//StreamWriter^ writer3 = gcnew StreamWriter(filePath3);
+		//writer3->Write("");
+		//writer3->Close();
+
+		//String^ filePath4 = System::IO::Path::Combine(appDirectory, "Input Vector.txt");
+		//StreamWriter^ writer4 = gcnew StreamWriter(filePath4);
+		//writer4->Write("");
+		//writer4->Close();
+
+		P_func.clearfiles();
+		pinodes->Text = "";
+		testvector->Text = "";
+
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[2];
 		}
+
 	}
 	private: System::Void homenext_Click(System::Object^ sender, System::EventArgs^ e) {
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
@@ -1593,10 +1614,10 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 	}
 	private: System::Void stkat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (stkat->SelectedIndex == -1) {
-			next2->Enabled = false;
+			podem_action->Enabled = false;
 		}
 		else {
-			next2->Enabled = true;
+			podem_action->Enabled = true;
 		}
 		
 	}
@@ -1649,5 +1670,52 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 		}
 	}
 
+	private: System::Void podem_action_Click(System::Object^ sender, System::EventArgs^ e) {
+		podemprogress->ForeColor = System::Drawing::Color::DeepSkyBlue;
+		int flag = 1;
+		int result = 0;
+		int check = 1;
+		
+		while (check == 1) {
+			flag = P_func.readFile();
+			//if (flag == 0)
+			//	return 0;
+			Fault.nodeNumber = System::Convert::ToInt64(faultnode->Text);
+			Fault.nodeValue = System::Convert::ToInt64(stkat->Text);
+
+			P_func.setX();
+			result = P_func.PODEM();
+
+
+
+			if (status == 1) {
+				podemprogress->Text = "THE FAULT IS NOT TESTABLE!";
+				podemprogress->ForeColor = System::Drawing::Color::Red;
+			}
+			else {
+				podemprogress->Text = "THE FAULT IS TESTABLE";
+				//podemprogress->ForeColor = System::Drawing::Color::FromArgb(32, 30, 45);
+			}
+			status = 0;
+
+			for (int i = 1; i < node.size(); i++) {
+				node.at(i).nodeFlag = 0;
+				node.at(i).faultFlag = 0;
+			}
+
+			for (int i = 0; i < gate.size(); i++) {
+				gate.at(i).gateFlag = 0;
+			}
+
+			faultActFlag = 0;
+			check = 0;
+		}
+		podem_action->Enabled = false;
+		next2->Enabled = true;
+		//	std::ostringstream podemProgText;
+			//podemprogress->Text = podemProgText;
+		//	System::String^ ab = "";
+	//		showyosys->Text = ab;
+	}
 };
 }
