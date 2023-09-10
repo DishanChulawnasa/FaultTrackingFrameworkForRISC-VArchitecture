@@ -1456,8 +1456,8 @@ private: System::Windows::Forms::Button^ podem_action;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->titlepnael);
+			this->Controls->Add(this->tabControl1);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -1678,8 +1678,6 @@ private: System::Windows::Forms::Button^ podem_action;
 		
 		while (check == 1) {
 			flag = P_func.readFile();
-			//if (flag == 0)
-			//	return 0;
 			Fault.nodeNumber = System::Convert::ToInt64(faultnode->Text);
 			Fault.nodeValue = System::Convert::ToInt64(stkat->Text);
 
@@ -1710,6 +1708,7 @@ private: System::Windows::Forms::Button^ podem_action;
 			faultActFlag = 0;
 			check = 0;
 		}
+		check = 0;
 		podem_action->Enabled = false;
 		next2->Enabled = true;
 		//	std::ostringstream podemProgText;

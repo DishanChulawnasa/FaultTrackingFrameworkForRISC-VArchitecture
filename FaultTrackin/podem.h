@@ -38,8 +38,6 @@ NodenValue PIBacktrace;
 NodenValue PISet;
 Gates G;
 Nodes N;
-extern std::string podemProgText;
-
 
 int faultActFlag = 0;
 int status = 0;
@@ -171,6 +169,8 @@ public:
 	}
 
 	void clearfiles() {
+		PINodes.clear();
+		PONodes.clear();
 		std::ofstream piNodesFiles("PI Nodes.txt");
 		std::ofstream inputVectorFile("Input Vector.txt");
 		piNodesFiles.clear();
