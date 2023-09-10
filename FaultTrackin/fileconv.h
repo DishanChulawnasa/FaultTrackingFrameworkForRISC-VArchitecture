@@ -1,4 +1,5 @@
 #pragma once
+#include "podem.h"
 
 namespace FaultTrackin {
 
@@ -63,7 +64,8 @@ namespace FaultTrackin {
 	private: System::Windows::Forms::ComboBox^ stkat;
 	private: System::Windows::Forms::Button^ next2;
 	private: System::Windows::Forms::TabPage^ tabPage3;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ pinodes;
+
 	private: System::Windows::Forms::Button^ back3;
 
 	private: System::Windows::Forms::Panel^ panel4;
@@ -72,7 +74,8 @@ namespace FaultTrackin {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Button^ home;
 	private: System::Windows::Forms::Panel^ panel5;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ testvector;
+
 	private: System::Windows::Forms::TabPage^ tabPage4;
 	private: System::Windows::Forms::Panel^ panel6;
 	private: System::Windows::Forms::Button^ home1;
@@ -252,11 +255,11 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->home3 = (gcnew System::Windows::Forms::Button());
 			this->home = (gcnew System::Windows::Forms::Button());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->testvector = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->pinodes = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->back3 = (gcnew System::Windows::Forms::Button());
 			this->minimize = (gcnew System::Windows::Forms::Button());
@@ -1243,25 +1246,25 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			// 
 			// panel5
 			// 
-			this->panel5->Controls->Add(this->textBox3);
+			this->panel5->Controls->Add(this->testvector);
 			this->panel5->Location = System::Drawing::Point(47, 330);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(731, 48);
 			this->panel5->TabIndex = 4;
 			// 
-			// textBox3
+			// testvector
 			// 
-			this->textBox3->BackColor = System::Drawing::Color::LightGray;
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+			this->testvector->BackColor = System::Drawing::Color::LightGray;
+			this->testvector->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->testvector->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->testvector->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->textBox3->Location = System::Drawing::Point(0, 0);
-			this->textBox3->Multiline = true;
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->ReadOnly = true;
-			this->textBox3->Size = System::Drawing::Size(731, 48);
-			this->textBox3->TabIndex = 1;
+			this->testvector->Location = System::Drawing::Point(0, 0);
+			this->testvector->Multiline = true;
+			this->testvector->Name = L"testvector";
+			this->testvector->ReadOnly = true;
+			this->testvector->Size = System::Drawing::Size(731, 48);
+			this->testvector->TabIndex = 1;
 			// 
 			// label6
 			// 
@@ -1289,26 +1292,26 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			// 
 			// panel4
 			// 
-			this->panel4->Controls->Add(this->textBox2);
+			this->panel4->Controls->Add(this->pinodes);
 			this->panel4->Location = System::Drawing::Point(47, 148);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(731, 124);
 			this->panel4->TabIndex = 3;
 			// 
-			// textBox2
+			// pinodes
 			// 
-			this->textBox2->BackColor = System::Drawing::Color::LightGray;
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+			this->pinodes->BackColor = System::Drawing::Color::LightGray;
+			this->pinodes->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->pinodes->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pinodes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->textBox2->Location = System::Drawing::Point(0, 0);
-			this->textBox2->Multiline = true;
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->ReadOnly = true;
-			this->textBox2->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-			this->textBox2->Size = System::Drawing::Size(731, 124);
-			this->textBox2->TabIndex = 1;
+			this->pinodes->Location = System::Drawing::Point(0, 0);
+			this->pinodes->Multiline = true;
+			this->pinodes->Name = L"pinodes";
+			this->pinodes->ReadOnly = true;
+			this->pinodes->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->pinodes->Size = System::Drawing::Size(731, 124);
+			this->pinodes->TabIndex = 1;
 			// 
 			// label4
 			// 
@@ -1427,8 +1430,8 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->titlepnael);
 			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->titlepnael);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -1506,6 +1509,37 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 		}
 	}
 	private: System::Void next2_Click(System::Object^ sender, System::EventArgs^ e) {
+		int flag = 1;
+		int result = 0;
+
+		flag = P_func.readFile();
+		//if (flag == 0)
+		//	return 0;
+
+		Fault.nodeNumber = System::Convert::ToInt64(faultnode->Text);
+		Fault.nodeValue = System::Convert::ToInt64(stkat->Text);
+
+		P_func.setX();
+		result = P_func.PODEM();
+
+		if (status == 1)
+			podem_prog = "FAULT IS NOT TESTABLE";
+		
+		status = 0;
+
+		for (int i = 1; i < node.size(); i++) {
+			node.at(i).nodeFlag = 0;
+			node.at(i).faultFlag = 0;
+		}
+
+		for (int i = 0; i < gate.size(); i++) {
+			gate.at(i).gateFlag = 0;
+		}
+
+		faultActFlag = 0;
+
+		testvector->Text=;
+
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[3];
@@ -1614,5 +1648,6 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			isDragging = false;
 		}
 	}
+
 };
 }
