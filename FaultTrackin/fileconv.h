@@ -1135,7 +1135,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->errlabel2->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->errlabel2->ForeColor = System::Drawing::Color::LightCoral;
-			this->errlabel2->Location = System::Drawing::Point(301, 201);
+			this->errlabel2->Location = System::Drawing::Point(294, 201);
 			this->errlabel2->Name = L"errlabel2";
 			this->errlabel2->Size = System::Drawing::Size(305, 30);
 			this->errlabel2->TabIndex = 14;
@@ -1197,7 +1197,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->ft4->Name = L"ft4";
 			this->ft4->Size = System::Drawing::Size(213, 40);
 			this->ft4->TabIndex = 10;
-			this->ft4->Text = L"FAULT TRCKING";
+			this->ft4->Text = L"FAULT TRACKING";
 			this->ft4->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->ft4->UseVisualStyleBackColor = false;
 			// 
@@ -1377,12 +1377,12 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// podemprogress
 			// 
 			this->podemprogress->AutoSize = true;
-			this->podemprogress->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->podemprogress->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->podemprogress->ForeColor = System::Drawing::Color::DeepSkyBlue;
 			this->podemprogress->Location = System::Drawing::Point(313, 66);
 			this->podemprogress->Name = L"podemprogress";
-			this->podemprogress->Size = System::Drawing::Size(136, 28);
+			this->podemprogress->Size = System::Drawing::Size(150, 30);
 			this->podemprogress->TabIndex = 2;
 			this->podemprogress->Text = L"ATPG PODEM";
 			// 
@@ -1564,6 +1564,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 
 	}
 	private: System::Void back2_Click(System::Object^ sender, System::EventArgs^ e) {
+		faultnode->Text = "";
 		comseq->SelectedIndex = -1;
 		convgnet->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
@@ -1619,7 +1620,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 		//writer4->Write("");
 		//writer4->Close();
 		errlabel->Visible = false;
-		stkat->SelectedIndex = -1;
+		//stkat->SelectedIndex = -1;
 		next2->Enabled = false;
 		P_func.clearfiles();
 		pinodes->Text = "";
