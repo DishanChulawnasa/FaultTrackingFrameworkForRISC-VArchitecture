@@ -141,6 +141,12 @@ private: System::Windows::Forms::Panel^ panel10;
 private: System::Windows::Forms::Button^ clear;
 private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 private: System::Windows::Forms::Button^ podem_action;
+private: System::Windows::Forms::Label^ errlabel;
+private: System::Windows::Forms::Label^ errlabel2;
+
+
+
+
 
 
 
@@ -250,6 +256,8 @@ private: System::Windows::Forms::Button^ podem_action;
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->gatenet = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->errlabel2 = (gcnew System::Windows::Forms::Label());
+			this->errlabel = (gcnew System::Windows::Forms::Label());
 			this->panel9 = (gcnew System::Windows::Forms::Panel());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->ft4 = (gcnew System::Windows::Forms::Button());
@@ -1105,6 +1113,8 @@ private: System::Windows::Forms::Button^ podem_action;
 			// 
 			this->tabPage3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage3->Controls->Add(this->errlabel2);
+			this->tabPage3->Controls->Add(this->errlabel);
 			this->tabPage3->Controls->Add(this->panel9);
 			this->tabPage3->Controls->Add(this->home);
 			this->tabPage3->Controls->Add(this->panel5);
@@ -1118,6 +1128,31 @@ private: System::Windows::Forms::Button^ podem_action;
 			this->tabPage3->Size = System::Drawing::Size(833, 498);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Fault Tracking";
+			// 
+			// errlabel2
+			// 
+			this->errlabel2->AutoSize = true;
+			this->errlabel2->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->errlabel2->ForeColor = System::Drawing::Color::LightCoral;
+			this->errlabel2->Location = System::Drawing::Point(301, 201);
+			this->errlabel2->Name = L"errlabel2";
+			this->errlabel2->Size = System::Drawing::Size(305, 30);
+			this->errlabel2->TabIndex = 14;
+			this->errlabel2->Text = L"THE FAULT IS NOT TESTABLE!";
+			// 
+			// errlabel
+			// 
+			this->errlabel->AutoSize = true;
+			this->errlabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->errlabel->ForeColor = System::Drawing::Color::LightCoral;
+			this->errlabel->Location = System::Drawing::Point(135, 235);
+			this->errlabel->Name = L"errlabel";
+			this->errlabel->Size = System::Drawing::Size(666, 28);
+			this->errlabel->TabIndex = 13;
+			this->errlabel->Text = L"PROCEED BACK TO ENTER DIFFERENT FAULT NODE OR STUCK-AT FAULT";
+			this->errlabel->Visible = false;
 			// 
 			// panel9
 			// 
@@ -1345,7 +1380,7 @@ private: System::Windows::Forms::Button^ podem_action;
 			this->podemprogress->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->podemprogress->ForeColor = System::Drawing::Color::DeepSkyBlue;
-			this->podemprogress->Location = System::Drawing::Point(291, 64);
+			this->podemprogress->Location = System::Drawing::Point(313, 66);
 			this->podemprogress->Name = L"podemprogress";
 			this->podemprogress->Size = System::Drawing::Size(136, 28);
 			this->podemprogress->TabIndex = 2;
@@ -1529,6 +1564,8 @@ private: System::Windows::Forms::Button^ podem_action;
 
 	}
 	private: System::Void back2_Click(System::Object^ sender, System::EventArgs^ e) {
+		comseq->SelectedIndex = -1;
+		convgnet->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[1];
@@ -1551,6 +1588,17 @@ private: System::Windows::Forms::Button^ podem_action;
 		}
 	}
 	private: System::Void home_Click(System::Object^ sender, System::EventArgs^ e) {
+		faultnode->Text = "";
+		errlabel->Visible = false;
+		stkat->SelectedIndex = -1;
+		comseq->SelectedIndex = -1;
+		next2->Enabled = false;
+		P_func.clearfiles();
+		pinodes->Text = "";
+		testvector->Text = "";
+		convgnet->Enabled = false;
+		comseq->Enabled = false;
+		clear->Enabled = false;
 		nextbutton->Enabled = false;
 		showyosys->Text = "";
 		gatenet->Text = "";
@@ -1570,7 +1618,9 @@ private: System::Windows::Forms::Button^ podem_action;
 		//StreamWriter^ writer4 = gcnew StreamWriter(filePath4);
 		//writer4->Write("");
 		//writer4->Close();
-
+		errlabel->Visible = false;
+		stkat->SelectedIndex = -1;
+		next2->Enabled = false;
 		P_func.clearfiles();
 		pinodes->Text = "";
 		testvector->Text = "";
@@ -1594,6 +1644,8 @@ private: System::Windows::Forms::Button^ podem_action;
 		convgnet->Enabled = false;
 		comseq->Enabled = false;
 		nextbutton->Enabled = false;
+		clear->Enabled = false;
+		comseq->SelectedIndex = -1;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[0];
@@ -1608,6 +1660,7 @@ private: System::Windows::Forms::Button^ podem_action;
 		StreamWriter^ writer = gcnew StreamWriter(filePath);
 		writer->Write(showyosys->Text);
 		writer->Close();
+		convgnet->Enabled = false;
 	
 
 
@@ -1684,15 +1737,33 @@ private: System::Windows::Forms::Button^ podem_action;
 			P_func.setX();
 			result = P_func.PODEM();
 
+			
 
-
-			if (status == 1) {
-				podemprogress->Text = "THE FAULT IS NOT TESTABLE!";
-				podemprogress->ForeColor = System::Drawing::Color::Red;
+			if (status == 1) {				
+				podemprogress->Visible = false;
+				errlabel2->Visible = true;
+				errlabel->Visible = true;
+				label5->Visible = false;
+				label6->Visible = false;
+				pinodes->Visible = false;
+				testvector->Visible = false;
+				
 			}
 			else {
-				podemprogress->Text = "THE FAULT IS TESTABLE";
-				//podemprogress->ForeColor = System::Drawing::Color::FromArgb(32, 30, 45);
+				podemprogress->Text = "THE FAULT IS TESTABLE!";
+				podemprogress->Visible = true;
+				errlabel2->Visible = false;
+				errlabel->Visible = false;
+				label5->Visible = true;
+				label6->Visible = true;
+				pinodes->Visible = true;
+				testvector->Visible = true;
+
+				if (stkat->Text=="0")
+					label6->Text = "Input Test Vector For Stuck-at-zero at " + faultnode->Text + "th Node: ";
+				else
+					label6->Text = "Input Test Vector For Stuck-at-one at " + faultnode->Text + "th Node: ";
+								
 			}
 			status = 0;
 
