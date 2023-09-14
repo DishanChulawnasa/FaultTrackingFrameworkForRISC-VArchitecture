@@ -1,5 +1,7 @@
 #pragma once
+#include <msclr/marshal_cppstd.h>
 #include "podem.h"
+#include "VerilogToText.h"
 
 namespace FaultTrackin {
 
@@ -1491,8 +1493,8 @@ private: System::Windows::Forms::Label^ errlabel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->titlepnael);
 			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->titlepnael);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -1557,7 +1559,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[2];
 		}
-		gatenet->Text = showyosys->Text;
+		//gatenet->Text = showyosys->Text;
 
 
 
@@ -1655,15 +1657,30 @@ private: System::Windows::Forms::Label^ errlabel2;
 	private: System::Void convgnet_Click(System::Object^ sender, System::EventArgs^ e) {
 		nextbutton->Enabled = true;
 
-		//save the converted (yosys gate-level verilog file) gate-level txt file in the same directory as the application
+
+		System::String^ filepath = openFileDialog1->FileName;
+		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
+		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
+		inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
+		   //showyosys->Text = msclr::interop::marshal_as<System::String^>(inputVeilogFileDirectory);
+		VeriToText();
 		String^ appDirectory = Application::StartupPath;
-		String^ filePath = System::IO::Path::Combine(appDirectory, "Circuit.txt");
-		StreamWriter^ writer = gcnew StreamWriter(filePath);
-		writer->Write(showyosys->Text);
-		writer->Close();
+		String^ fileName3 = "Circuit.txt";
+		String^ filePath3 = System::IO::Path::Combine(appDirectory, fileName3);
+		String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
+		gatenet->Text = fileContents3;
+
+		//add VerilogToText
+
+		//save the converted (yosys gate-level verilog file) gate-level txt file in the same directory as the application
+		//String^ appDirectory = Application::StartupPath;
+		//String^ filePath = System::IO::Path::Combine(appDirectory, "Circuit.txt");
+		//StreamWriter^ writer = gcnew StreamWriter(filePath);
+		//writer->Write(showyosys->Text);
+		//writer->Close();
+
 		convgnet->Enabled = false;
 	
-
 
 	}
 	private: System::Void stkat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
