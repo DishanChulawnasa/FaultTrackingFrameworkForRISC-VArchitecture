@@ -1546,8 +1546,8 @@ private: System::Windows::Forms::Label^ label4;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->titlepnael);
+			this->Controls->Add(this->tabControl1);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -1621,7 +1621,7 @@ private: System::Windows::Forms::Label^ label4;
 	}
 	private: System::Void back2_Click(System::Object^ sender, System::EventArgs^ e) {
 		faultnode->Text = "";
-		comseq->SelectedIndex = -1;
+		//comseq->SelectedIndex = -1;
 		convgnet->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
@@ -1709,32 +1709,37 @@ private: System::Windows::Forms::Label^ label4;
 		}
 	}
 	private: System::Void convgnet_Click(System::Object^ sender, System::EventArgs^ e) {
-		nextbutton->Enabled = true;
+		System::String^ selectedItem = comseq->SelectedItem->ToString();
 
+		if (selectedItem == "Combinational") {
 
-		System::String^ filepath = openFileDialog1->FileName;
-		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
-		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
-		inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
-		moduleNameLabel->Text = inputVeilogFileName;
+			nextbutton->Enabled = true;
 
-		   //showyosys->Text = msclr::interop::marshal_as<System::String^>(inputVeilogFileDirectory);
-		VeriToText();
-		String^ appDirectory = Application::StartupPath;
-		String^ fileName3 = "Circuit.txt";
-		String^ filePath3 = System::IO::Path::Combine(appDirectory, fileName3);
-		String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
-		gatenet->Text = fileContents3;
-		showyosys->Text = fileContents3;
-	    finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
-		//add VerilogToText
+			System::String^ filepath = openFileDialog1->FileName;
+			System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
+			System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
+			inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
+			moduleNameLabel->Text = inputVeilogFileName;
 
-		//save the converted (yosys gate-level verilog file) gate-level txt file in the same directory as the application
-		//String^ appDirectory = Application::StartupPath;
-		//String^ filePath = System::IO::Path::Combine(appDirectory, "Circuit.txt");
-		//StreamWriter^ writer = gcnew StreamWriter(filePath);
-		//writer->Write(showyosys->Text);
-		//writer->Close();
+			//showyosys->Text = msclr::interop::marshal_as<System::String^>(inputVeilogFileDirectory);
+			VeriToText();
+			String^ appDirectory = Application::StartupPath;
+			String^ fileName3 = "Circuit.txt";
+			String^ filePath3 = System::IO::Path::Combine(appDirectory, fileName3);
+			String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
+			gatenet->Text = fileContents3;
+			showyosys->Text = fileContents3;
+			finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
+			//add VerilogToText
+
+			//save the converted (yosys gate-level verilog file) gate-level txt file in the same directory as the application
+			//String^ appDirectory = Application::StartupPath;
+			//String^ filePath = System::IO::Path::Combine(appDirectory, "Circuit.txt");
+			//StreamWriter^ writer = gcnew StreamWriter(filePath);
+			//writer->Write(showyosys->Text);
+			//writer->Close();
+
+		}
 		
 		convgnet->Enabled = false;
 	
@@ -1750,6 +1755,23 @@ private: System::Windows::Forms::Label^ label4;
 		
 	}
 	private: System::Void comseq_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+//		System::String^ selectedItem0 = comseq->SelectedItem->ToString();
+
+		if (comseq->SelectedIndex == -1) {
+			showyosys->Text = "";
+		}
+		else {
+			System::String^ filepath0 = openFileDialog1->FileName;
+			System::String^ inputVeilogFileDirec0 = System::IO::Path::GetDirectoryName(filepath0);
+			System::String^ inputVeilogFileName0 = System::IO::Path::GetFileName(filepath0);
+
+			String^ filePath0 = System::IO::Path::Combine(inputVeilogFileDirec0, inputVeilogFileName0);
+			String^ fileContents0 = System::IO::File::ReadAllText(filePath0);
+			showyosys->Text = fileContents0;
+			
+		}
+		
+
 		convgnet->Enabled = true;
 	}
 	private: System::Void clear_Click(System::Object^ sender, System::EventArgs^ e) {
