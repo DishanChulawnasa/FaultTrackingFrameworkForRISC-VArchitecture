@@ -145,6 +145,10 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 private: System::Windows::Forms::Button^ podem_action;
 private: System::Windows::Forms::Label^ errlabel;
 private: System::Windows::Forms::Label^ errlabel2;
+private: System::Windows::Forms::Label^ finalNodeNumberLabel;
+private: System::Windows::Forms::Label^ moduleNameLabel;
+private: System::Windows::Forms::Label^ label4;
+
 
 
 
@@ -240,6 +244,9 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->home1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->moduleNameLabel = (gcnew System::Windows::Forms::Label());
+			this->finalNodeNumberLabel = (gcnew System::Windows::Forms::Label());
 			this->podem_action = (gcnew System::Windows::Forms::Button());
 			this->panel8 = (gcnew System::Windows::Forms::Panel());
 			this->label14 = (gcnew System::Windows::Forms::Label());
@@ -359,7 +366,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->nextbutton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
 			this->nextbutton->Enabled = false;
-			this->nextbutton->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->nextbutton->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
 			this->nextbutton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->nextbutton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -562,7 +569,8 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->homenext->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->homenext->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->homenext->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->homenext->FlatAppearance->BorderSize = 2;
 			this->homenext->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->homenext->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -676,7 +684,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->back1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->back1->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->back1->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
 			this->back1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -836,6 +844,9 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage2->Controls->Add(this->label4);
+			this->tabPage2->Controls->Add(this->moduleNameLabel);
+			this->tabPage2->Controls->Add(this->finalNodeNumberLabel);
 			this->tabPage2->Controls->Add(this->podem_action);
 			this->tabPage2->Controls->Add(this->panel8);
 			this->tabPage2->Controls->Add(this->next2);
@@ -852,17 +863,58 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Fault Injection";
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::LightGray;
+			this->label4->Location = System::Drawing::Point(483, 143);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(78, 23);
+			this->label4->TabIndex = 15;
+			this->label4->Text = L"Module :\r\n";
+			// 
+			// moduleNameLabel
+			// 
+			this->moduleNameLabel->AutoSize = true;
+			this->moduleNameLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->moduleNameLabel->ForeColor = System::Drawing::Color::LightGray;
+			this->moduleNameLabel->Location = System::Drawing::Point(698, 141);
+			this->moduleNameLabel->Name = L"moduleNameLabel";
+			this->moduleNameLabel->Size = System::Drawing::Size(69, 23);
+			this->moduleNameLabel->TabIndex = 14;
+			this->moduleNameLabel->Text = L"Module";
+			this->moduleNameLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// finalNodeNumberLabel
+			// 
+			this->finalNodeNumberLabel->AutoSize = true;
+			this->finalNodeNumberLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 11, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->finalNodeNumberLabel->ForeColor = System::Drawing::Color::PowderBlue;
+			this->finalNodeNumberLabel->Location = System::Drawing::Point(503, 59);
+			this->finalNodeNumberLabel->Name = L"finalNodeNumberLabel";
+			this->finalNodeNumberLabel->Size = System::Drawing::Size(223, 50);
+			this->finalNodeNumberLabel->TabIndex = 13;
+			this->finalNodeNumberLabel->Text = L"Choose A Node Between\r\n1 and to Inject Fault";
+			this->finalNodeNumberLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// podem_action
 			// 
 			this->podem_action->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
 			this->podem_action->Enabled = false;
-			this->podem_action->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->podem_action->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->podem_action->FlatAppearance->BorderSize = 3;
 			this->podem_action->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->podem_action->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->podem_action->ForeColor = System::Drawing::Color::LightGray;
-			this->podem_action->Location = System::Drawing::Point(681, 284);
+			this->podem_action->Location = System::Drawing::Point(689, 307);
 			this->podem_action->Name = L"podem_action";
-			this->podem_action->Size = System::Drawing::Size(122, 42);
+			this->podem_action->Size = System::Drawing::Size(99, 51);
 			this->podem_action->TabIndex = 12;
 			this->podem_action->Text = L"PODEM";
 			this->podem_action->UseVisualStyleBackColor = false;
@@ -1005,7 +1057,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->next2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
 			this->next2->Enabled = false;
-			this->next2->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->next2->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
 			this->next2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->next2->ForeColor = System::Drawing::Color::LightGray;
 			this->next2->Location = System::Drawing::Point(714, 400);
@@ -1022,7 +1074,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::LightGray;
-			this->label3->Location = System::Drawing::Point(464, 226);
+			this->label3->Location = System::Drawing::Point(483, 254);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(222, 23);
 			this->label3->TabIndex = 5;
@@ -1035,7 +1087,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 				static_cast<System::Byte>(0)));
 			this->faultnode->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->faultnode->Location = System::Drawing::Point(703, 155);
+			this->faultnode->Location = System::Drawing::Point(703, 188);
 			this->faultnode->Name = L"faultnode";
 			this->faultnode->Size = System::Drawing::Size(85, 30);
 			this->faultnode->TabIndex = 4;
@@ -1053,7 +1105,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->stkat->FormattingEnabled = true;
 			this->stkat->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"0", L"1" });
-			this->stkat->Location = System::Drawing::Point(703, 223);
+			this->stkat->Location = System::Drawing::Point(703, 246);
 			this->stkat->Name = L"stkat";
 			this->stkat->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->stkat->Size = System::Drawing::Size(85, 31);
@@ -1066,7 +1118,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::LightGray;
-			this->label2->Location = System::Drawing::Point(464, 158);
+			this->label2->Location = System::Drawing::Point(483, 195);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(187, 23);
 			this->label2->TabIndex = 2;
@@ -1076,7 +1128,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->back2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->back2->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->back2->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
 			this->back2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back2->ForeColor = System::Drawing::Color::LightGray;
 			this->back2->Location = System::Drawing::Point(514, 400);
@@ -1099,7 +1151,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->gatenet->BackColor = System::Drawing::Color::LightGray;
 			this->gatenet->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->gatenet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->gatenet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->gatenet->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
@@ -1292,7 +1344,8 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->home->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->home->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->home->FlatAppearance->BorderColor = System::Drawing::Color::LightCoral;
+			this->home->FlatAppearance->BorderSize = 2;
 			this->home->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->home->ForeColor = System::Drawing::Color::LightGray;
 			this->home->Location = System::Drawing::Point(423, 409);
@@ -1381,7 +1434,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			this->podemprogress->AutoSize = true;
 			this->podemprogress->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->podemprogress->ForeColor = System::Drawing::Color::DeepSkyBlue;
+			this->podemprogress->ForeColor = System::Drawing::Color::PowderBlue;
 			this->podemprogress->Location = System::Drawing::Point(313, 66);
 			this->podemprogress->Name = L"podemprogress";
 			this->podemprogress->Size = System::Drawing::Size(150, 30);
@@ -1392,7 +1445,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			// 
 			this->back3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->back3->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->back3->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
 			this->back3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back3->ForeColor = System::Drawing::Color::LightGray;
 			this->back3->Location = System::Drawing::Point(213, 409);
@@ -1551,6 +1604,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 			if (File::Exists(openFileDialog1->FileName)) {
 				clear->Enabled = true;
 				comseq->Enabled = true;
+				nextbutton->Enabled = false;
 			}
 		}
 	}
@@ -1662,6 +1716,8 @@ private: System::Windows::Forms::Label^ errlabel2;
 		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
 		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
 		inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
+		moduleNameLabel->Text = inputVeilogFileName;
+
 		   //showyosys->Text = msclr::interop::marshal_as<System::String^>(inputVeilogFileDirectory);
 		VeriToText();
 		String^ appDirectory = Application::StartupPath;
@@ -1669,7 +1725,8 @@ private: System::Windows::Forms::Label^ errlabel2;
 		String^ filePath3 = System::IO::Path::Combine(appDirectory, fileName3);
 		String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
 		gatenet->Text = fileContents3;
-
+		showyosys->Text = fileContents3;
+	    finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
 		//add VerilogToText
 
 		//save the converted (yosys gate-level verilog file) gate-level txt file in the same directory as the application
@@ -1678,7 +1735,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 		//StreamWriter^ writer = gcnew StreamWriter(filePath);
 		//writer->Write(showyosys->Text);
 		//writer->Close();
-
+		
 		convgnet->Enabled = false;
 	
 
@@ -1708,6 +1765,13 @@ private: System::Windows::Forms::Label^ errlabel2;
 		if (!Char::IsDigit(e->KeyChar) && !Char::IsControl(e->KeyChar)) {
 			e->Handled = true;
 		}
+		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
+		int inputValue;
+		if (Int32::TryParse(textBox->Text + e->KeyChar, inputValue) && (inputValue < 1 || inputValue > finalSignalNumber)) {
+			e->Handled = true;
+			MessageBox::Show("Please Choose a Node Between 1 and " + finalSignalNumber , "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+		
 	}
 	private: System::Void faultnode_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (faultnode->Text->Length == 0) {
@@ -1742,7 +1806,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 	}
 
 	private: System::Void podem_action_Click(System::Object^ sender, System::EventArgs^ e) {
-		podemprogress->ForeColor = System::Drawing::Color::DeepSkyBlue;
+		podemprogress->ForeColor = System::Drawing::Color::PowderBlue;
 		int flag = 1;
 		int result = 0;
 		int check = 1;

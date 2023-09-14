@@ -24,6 +24,7 @@ struct Module {
     vector<string> wires;
 };
 
+int finalSignalNumber = 0;
 string inputVeilogFileDirectory;
 
 int VeriToText() {
@@ -214,8 +215,10 @@ int VeriToText() {
     veriToText << "\nOUTPUT ";
     //std::cout << "\nOUTPUT ";
     for (const auto& output : currentModule.outputs) {
+        int currentSignalNUmber = signalNumbers[output];
         veriToText << " " << signalNumbers[output];
         //std::cout << " " << signalNumbers[output];
+        finalSignalNumber = currentSignalNUmber;
     }
     veriToText << " -1";
     //std::cout << " -1" << std::endl;
