@@ -404,9 +404,9 @@ private: System::Windows::Forms::Label^ label4;
 			this->tabPage4->Controls->Add(this->panel7);
 			this->tabPage4->Controls->Add(this->flowLayoutPanel1);
 			this->tabPage4->Controls->Add(this->panel10);
-			this->tabPage4->Location = System::Drawing::Point(4, 32);
+			this->tabPage4->Location = System::Drawing::Point(4, 27);
 			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Size = System::Drawing::Size(833, 498);
+			this->tabPage4->Size = System::Drawing::Size(833, 503);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Home";
 			// 
@@ -435,7 +435,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label9->ForeColor = System::Drawing::Color::LightGray;
 			this->label9->Location = System::Drawing::Point(672, 14);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(126, 20);
+			this->label9->Size = System::Drawing::Size(102, 15);
 			this->label9->TabIndex = 13;
 			this->label9->Text = L"FAULT TRACKING";
 			// 
@@ -449,7 +449,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label7->ForeColor = System::Drawing::Color::LightGray;
 			this->label7->Location = System::Drawing::Point(251, 14);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(134, 20);
+			this->label7->Size = System::Drawing::Size(107, 15);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"FILE CONVERSION";
 			// 
@@ -463,7 +463,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label8->ForeColor = System::Drawing::Color::LightGray;
 			this->label8->Location = System::Drawing::Point(456, 14);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(129, 20);
+			this->label8->Size = System::Drawing::Size(105, 15);
 			this->label8->TabIndex = 11;
 			this->label8->Text = L"FAULT INJECTION";
 			// 
@@ -591,7 +591,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label19->ForeColor = System::Drawing::Color::LightGray;
 			this->label19->Location = System::Drawing::Point(26, 91);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(410, 276);
+			this->label19->Size = System::Drawing::Size(330, 228);
 			this->label19->TabIndex = 16;
 			this->label19->Text = resources->GetString(L"label19.Text");
 			this->label19->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -605,7 +605,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label20->ForeColor = System::Drawing::Color::SkyBlue;
 			this->label20->Location = System::Drawing::Point(157, 403);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(107, 23);
+			this->label20->Size = System::Drawing::Size(88, 19);
 			this->label20->TabIndex = 17;
 			this->label20->Text = L"User Manual";
 			// 
@@ -619,7 +619,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label21->ForeColor = System::Drawing::SystemColors::Control;
 			this->label21->Location = System::Drawing::Point(56, 19);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(329, 60);
+			this->label21->Size = System::Drawing::Size(271, 50);
 			this->label21->TabIndex = 4;
 			this->label21->Text = L"FAULT TRACKING FRAMEWORK\r\n FOR RISC-V ARCHITECTURE\r\n";
 			this->label21->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -639,10 +639,10 @@ private: System::Windows::Forms::Label^ label4;
 			this->tabPage1->Controls->Add(this->convgnet);
 			this->tabPage1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->tabPage1->Location = System::Drawing::Point(4, 32);
+			this->tabPage1->Location = System::Drawing::Point(4, 27);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(833, 498);
+			this->tabPage1->Size = System::Drawing::Size(833, 503);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"File Conversion";
 			// 
@@ -676,7 +676,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->comseq->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Combinational", L"Sequential" });
 			this->comseq->Location = System::Drawing::Point(628, 192);
 			this->comseq->Name = L"comseq";
-			this->comseq->Size = System::Drawing::Size(170, 31);
+			this->comseq->Size = System::Drawing::Size(170, 27);
 			this->comseq->TabIndex = 11;
 			this->comseq->SelectedIndexChanged += gcnew System::EventHandler(this, &fileconv::comseq_SelectedIndexChanged);
 			// 
@@ -722,7 +722,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label10->ForeColor = System::Drawing::Color::LightGray;
 			this->label10->Location = System::Drawing::Point(672, 14);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(126, 20);
+			this->label10->Size = System::Drawing::Size(102, 15);
 			this->label10->TabIndex = 16;
 			this->label10->Text = L"FAULT TRACKING";
 			// 
@@ -736,7 +736,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label12->ForeColor = System::Drawing::Color::LightGray;
 			this->label12->Location = System::Drawing::Point(456, 14);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(129, 20);
+			this->label12->Size = System::Drawing::Size(105, 15);
 			this->label12->TabIndex = 15;
 			this->label12->Text = L"FAULT INJECTION";
 			// 
@@ -788,7 +788,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label11->ForeColor = System::Drawing::Color::LightGray;
 			this->label11->Location = System::Drawing::Point(73, 14);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(53, 20);
+			this->label11->Size = System::Drawing::Size(42, 15);
 			this->label11->TabIndex = 14;
 			this->label11->Text = L"HOME";
 			// 
@@ -856,10 +856,10 @@ private: System::Windows::Forms::Label^ label4;
 			this->tabPage2->Controls->Add(this->label2);
 			this->tabPage2->Controls->Add(this->back2);
 			this->tabPage2->Controls->Add(this->panel1);
-			this->tabPage2->Location = System::Drawing::Point(4, 32);
+			this->tabPage2->Location = System::Drawing::Point(4, 27);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(833, 498);
+			this->tabPage2->Size = System::Drawing::Size(833, 503);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Fault Injection";
 			// 
@@ -871,7 +871,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label4->ForeColor = System::Drawing::Color::LightGray;
 			this->label4->Location = System::Drawing::Point(483, 143);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(78, 23);
+			this->label4->Size = System::Drawing::Size(64, 19);
 			this->label4->TabIndex = 15;
 			this->label4->Text = L"Module :\r\n";
 			// 
@@ -883,7 +883,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->moduleNameLabel->ForeColor = System::Drawing::Color::LightGray;
 			this->moduleNameLabel->Location = System::Drawing::Point(698, 141);
 			this->moduleNameLabel->Name = L"moduleNameLabel";
-			this->moduleNameLabel->Size = System::Drawing::Size(69, 23);
+			this->moduleNameLabel->Size = System::Drawing::Size(57, 19);
 			this->moduleNameLabel->TabIndex = 14;
 			this->moduleNameLabel->Text = L"Module";
 			this->moduleNameLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -896,7 +896,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->finalNodeNumberLabel->ForeColor = System::Drawing::Color::PowderBlue;
 			this->finalNodeNumberLabel->Location = System::Drawing::Point(503, 59);
 			this->finalNodeNumberLabel->Name = L"finalNodeNumberLabel";
-			this->finalNodeNumberLabel->Size = System::Drawing::Size(223, 50);
+			this->finalNodeNumberLabel->Size = System::Drawing::Size(177, 40);
 			this->finalNodeNumberLabel->TabIndex = 13;
 			this->finalNodeNumberLabel->Text = L"Choose A Node Between\r\n1 and to Inject Fault";
 			this->finalNodeNumberLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -945,7 +945,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label14->ForeColor = System::Drawing::Color::LightGray;
 			this->label14->Location = System::Drawing::Point(672, 14);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(126, 20);
+			this->label14->Size = System::Drawing::Size(102, 15);
 			this->label14->TabIndex = 17;
 			this->label14->Text = L"FAULT TRACKING";
 			// 
@@ -959,7 +959,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label13->ForeColor = System::Drawing::Color::LightGray;
 			this->label13->Location = System::Drawing::Point(73, 14);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(53, 20);
+			this->label13->Size = System::Drawing::Size(42, 15);
 			this->label13->TabIndex = 17;
 			this->label13->Text = L"HOME";
 			// 
@@ -1009,7 +1009,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label15->ForeColor = System::Drawing::Color::LightGray;
 			this->label15->Location = System::Drawing::Point(251, 13);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(134, 20);
+			this->label15->Size = System::Drawing::Size(107, 15);
 			this->label15->TabIndex = 14;
 			this->label15->Text = L"FILE CONVERSION";
 			// 
@@ -1076,7 +1076,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label3->ForeColor = System::Drawing::Color::LightGray;
 			this->label3->Location = System::Drawing::Point(483, 254);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(222, 23);
+			this->label3->Size = System::Drawing::Size(181, 19);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Choose the Stuck-at Value :";
 			// 
@@ -1089,7 +1089,7 @@ private: System::Windows::Forms::Label^ label4;
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->faultnode->Location = System::Drawing::Point(703, 188);
 			this->faultnode->Name = L"faultnode";
-			this->faultnode->Size = System::Drawing::Size(85, 30);
+			this->faultnode->Size = System::Drawing::Size(85, 26);
 			this->faultnode->TabIndex = 4;
 			this->faultnode->TextChanged += gcnew System::EventHandler(this, &fileconv::faultnode_TextChanged);
 			this->faultnode->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &fileconv::faultnode_KeyPress);
@@ -1108,7 +1108,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->stkat->Location = System::Drawing::Point(703, 246);
 			this->stkat->Name = L"stkat";
 			this->stkat->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->stkat->Size = System::Drawing::Size(85, 31);
+			this->stkat->Size = System::Drawing::Size(85, 27);
 			this->stkat->TabIndex = 3;
 			this->stkat->SelectedIndexChanged += gcnew System::EventHandler(this, &fileconv::stkat_SelectedIndexChanged);
 			// 
@@ -1120,7 +1120,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label2->ForeColor = System::Drawing::Color::LightGray;
 			this->label2->Location = System::Drawing::Point(483, 195);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(187, 23);
+			this->label2->Size = System::Drawing::Size(151, 19);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Enter the Faulty Node :";
 			// 
@@ -1177,9 +1177,9 @@ private: System::Windows::Forms::Label^ label4;
 			this->tabPage3->Controls->Add(this->panel4);
 			this->tabPage3->Controls->Add(this->podemprogress);
 			this->tabPage3->Controls->Add(this->back3);
-			this->tabPage3->Location = System::Drawing::Point(4, 32);
+			this->tabPage3->Location = System::Drawing::Point(4, 27);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(833, 498);
+			this->tabPage3->Size = System::Drawing::Size(833, 503);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Fault Tracking";
 			// 
@@ -1191,7 +1191,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->errlabel2->ForeColor = System::Drawing::Color::LightCoral;
 			this->errlabel2->Location = System::Drawing::Point(294, 201);
 			this->errlabel2->Name = L"errlabel2";
-			this->errlabel2->Size = System::Drawing::Size(305, 30);
+			this->errlabel2->Size = System::Drawing::Size(252, 25);
 			this->errlabel2->TabIndex = 14;
 			this->errlabel2->Text = L"THE FAULT IS NOT TESTABLE!";
 			// 
@@ -1203,7 +1203,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->errlabel->ForeColor = System::Drawing::Color::LightCoral;
 			this->errlabel->Location = System::Drawing::Point(135, 235);
 			this->errlabel->Name = L"errlabel";
-			this->errlabel->Size = System::Drawing::Size(666, 28);
+			this->errlabel->Size = System::Drawing::Size(531, 21);
 			this->errlabel->TabIndex = 13;
 			this->errlabel->Text = L"PROCEED BACK TO ENTER DIFFERENT FAULT NODE OR STUCK-AT FAULT";
 			this->errlabel->Visible = false;
@@ -1233,7 +1233,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label18->ForeColor = System::Drawing::Color::LightGray;
 			this->label18->Location = System::Drawing::Point(456, 14);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(129, 20);
+			this->label18->Size = System::Drawing::Size(105, 15);
 			this->label18->TabIndex = 14;
 			this->label18->Text = L"FAULT INJECTION";
 			// 
@@ -1265,7 +1265,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label17->ForeColor = System::Drawing::Color::LightGray;
 			this->label17->Location = System::Drawing::Point(251, 13);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(134, 20);
+			this->label17->Size = System::Drawing::Size(107, 15);
 			this->label17->TabIndex = 19;
 			this->label17->Text = L"FILE CONVERSION";
 			// 
@@ -1297,7 +1297,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label16->ForeColor = System::Drawing::Color::LightGray;
 			this->label16->Location = System::Drawing::Point(73, 14);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(53, 20);
+			this->label16->Size = System::Drawing::Size(42, 15);
 			this->label16->TabIndex = 18;
 			this->label16->Text = L"HOME";
 			// 
@@ -1388,7 +1388,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label6->ForeColor = System::Drawing::Color::LightGray;
 			this->label6->Location = System::Drawing::Point(43, 294);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(148, 23);
+			this->label6->Size = System::Drawing::Size(122, 19);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Input Test Vector :";
 			// 
@@ -1400,7 +1400,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label5->ForeColor = System::Drawing::Color::LightGray;
 			this->label5->Location = System::Drawing::Point(43, 107);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(178, 23);
+			this->label5->Size = System::Drawing::Size(145, 19);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Primary Input Nodes :";
 			// 
@@ -1437,7 +1437,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->podemprogress->ForeColor = System::Drawing::Color::PowderBlue;
 			this->podemprogress->Location = System::Drawing::Point(313, 66);
 			this->podemprogress->Name = L"podemprogress";
-			this->podemprogress->Size = System::Drawing::Size(150, 30);
+			this->podemprogress->Size = System::Drawing::Size(126, 25);
 			this->podemprogress->TabIndex = 2;
 			this->podemprogress->Text = L"ATPG PODEM";
 			// 
@@ -1485,7 +1485,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label1->ForeColor = System::Drawing::SystemColors::Control;
 			this->label1->Location = System::Drawing::Point(296, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(287, 25);
+			this->label1->Size = System::Drawing::Size(222, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"FAULT TRACKING FRAMEWORK";
 			// 
@@ -1540,7 +1540,7 @@ private: System::Windows::Forms::Label^ label4;
 			// 
 			// fileconv
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
@@ -1771,7 +1771,7 @@ private: System::Windows::Forms::Label^ label4;
 			
 		}
 		
-
+		nextbutton->Enabled = false;
 		convgnet->Enabled = true;
 	}
 	private: System::Void clear_Click(System::Object^ sender, System::EventArgs^ e) {
