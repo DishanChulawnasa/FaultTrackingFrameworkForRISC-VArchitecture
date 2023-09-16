@@ -26,6 +26,7 @@ struct Module {
 
 int finalSignalNumber = 0;
 string inputVeilogFileDirectory;
+string verilogToText;
 
 int VeriToText() {
     ifstream inputFile(inputVeilogFileDirectory);
@@ -175,6 +176,7 @@ int VeriToText() {
     // Closing the input file
     inputFile.close();
 
+    //std::ostringstream veriToText;
     std::ofstream veriToText("Circuit.txt");
 
     // Print extracted gate information with numbers
@@ -209,9 +211,9 @@ int VeriToText() {
         veriToText << " " << signalNumbers[input];
         //std::cout << " " << signalNumbers[input];
     }
-    veriToText << " -1";
+    veriToText << " -1" ;
     //std::cout << " -1";
-
+   
     veriToText << "\nOUTPUT ";
     //std::cout << "\nOUTPUT ";
     for (const auto& output : currentModule.outputs) {
@@ -222,12 +224,14 @@ int VeriToText() {
     }
     veriToText << " -1";
     //std::cout << " -1" << std::endl;
-
+    
     //std::cout << "Wires: ";
     //for (const auto& wire : currentModule.wires) {
     //    std::cout << wire << "(" << signalNumbers[wire] << ") ";
     //}
     //std::cout << std::endl;
 
+    //verilogToText = veriToText.str();
+    
     return 0;
 }
