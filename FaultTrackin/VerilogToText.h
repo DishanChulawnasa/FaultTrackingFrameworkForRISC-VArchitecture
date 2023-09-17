@@ -208,7 +208,9 @@ int VeriToText() {
     veriToText << "INPUT ";
     //std::cout << "INPUT ";
     for (const auto& input : currentModule.inputs) {
+        int currentSignalNumberIn = signalNumbers[input];
         veriToText << " " << signalNumbers[input];
+        finalSignalNumber = currentSignalNumberIn;
         //std::cout << " " << signalNumbers[input];
     }
     veriToText << " -1" ;
@@ -217,10 +219,11 @@ int VeriToText() {
     veriToText << "\nOUTPUT ";
     //std::cout << "\nOUTPUT ";
     for (const auto& output : currentModule.outputs) {
-        int currentSignalNUmber = signalNumbers[output];
+        int currentSignalNUmberOut = signalNumbers[output];
         veriToText << " " << signalNumbers[output];
         //std::cout << " " << signalNumbers[output];
-        finalSignalNumber = currentSignalNUmber;
+        if (finalSignalNumber < currentSignalNUmberOut)
+            finalSignalNumber = currentSignalNUmberOut;
     }
     veriToText << " -1";
     //std::cout << " -1" << std::endl;

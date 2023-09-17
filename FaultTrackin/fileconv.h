@@ -1603,7 +1603,9 @@ private: System::Windows::Forms::Label^ label4;
 		//comseq->Enabled = true;
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			StreamReader^ sr = gcnew StreamReader(openFileDialog1->FileName);
+			comseq->SelectedIndex = -1;
 			showyosys->Text = sr->ReadToEnd();
+			convgnet->Enabled = false;
 			if (File::Exists(openFileDialog1->FileName)) {
 				clear->Enabled = true;
 				comseq->Enabled = true;
@@ -1632,15 +1634,19 @@ private: System::Windows::Forms::Label^ label4;
 		}
 	}
 	private: System::Void next2_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ appDirectory = Application::StartupPath;
-		String^ fileName1 = "PI Nodes.txt";
-		String^ fileName2 = "Input Vector.txt";
-		String^ filePath1 = System::IO::Path::Combine(appDirectory, fileName1);
-		String^ filePath2 = System::IO::Path::Combine(appDirectory, fileName2);
-		String^ fileContents1 = System::IO::File::ReadAllText(filePath1);
-		String^ fileContents2 = System::IO::File::ReadAllText(filePath2);
-		pinodes->Text = fileContents1;
-		testvector->Text = fileContents2;
+		//String^ appDirectory = Application::StartupPath;
+		//String^ fileName1 = "PI Nodes.txt";
+		//String^ fileName2 = "Input Vector.txt";
+		//String^ filePath1 = System::IO::Path::Combine(appDirectory, fileName1);
+		//String^ filePath2 = System::IO::Path::Combine(appDirectory, fileName2);
+		//String^ fileContents1 = System::IO::File::ReadAllText(filePath1);
+		//String^ fileContents2 = System::IO::File::ReadAllText(filePath2);
+		//pinodes->Text = fileContents1;
+		//testvector->Text = fileContents2;
+
+
+		//pinodes->Text = msclr::interop::marshal_as<System::String^>(piNodesText);
+		//testvector->Text = msclr::interop::marshal_as<System::String^>(inputVectorText);
 
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
@@ -1892,6 +1898,8 @@ private: System::Windows::Forms::Label^ label4;
 			check = 0;
 		}
 		check = 0;
+		pinodes->Text = msclr::interop::marshal_as<System::String^>(piNodesText);
+		testvector->Text = msclr::interop::marshal_as<System::String^>(inputVectorText);
 		podem_action->Enabled = false;
 		next2->Enabled = true;
 		//	std::ostringstream podemProgText;

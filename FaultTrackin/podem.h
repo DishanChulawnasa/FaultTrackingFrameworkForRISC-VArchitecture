@@ -5,6 +5,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <msclr/marshal_cppstd.h>
+#include "fileconv.h"
 
 using namespace std;
 
@@ -41,6 +43,8 @@ Nodes N;
 
 int faultActFlag = 0;
 int status = 0;
+string piNodesText;
+string inputVectorText;
 
 vector <Gates> gate;
 vector <Nodes> node;
@@ -171,8 +175,12 @@ public:
 	void clearfiles() {
 		PINodes.clear();
 		PONodes.clear();
-		std::ofstream piNodesFiles("PI Nodes.txt");
-		std::ofstream inputVectorFile("Input Vector.txt");
+		piNodesText.clear();
+		inputVectorText.clear();
+		//std::ofstream piNodesFiles("PI Nodes.txt");
+		//std::ofstream inputVectorFile("Input Vector.txt");
+		std::ostringstream piNodesFiles;
+		std::ostringstream inputVectorFile;
 		piNodesFiles.clear();
 		inputVectorFile.clear();
 	}
@@ -180,8 +188,11 @@ public:
 	// Says whether the PODEM was successful or not!
 	int PODEM()
 	{
-		std::ofstream piNodesFiles("PI Nodes.txt");
-		std::ofstream inputVectorFile("Input Vector.txt");
+		std::ostringstream piNodesFiles;
+		std::ostringstream inputVectorFile;
+
+		//std::ofstream piNodesFiles("PI Nodes.txt");
+		//std::ofstream inputVectorFile("Input Vector.txt");
 
 		// Checking if the error is at the Primary Outputs
 		for (int i = 0; i < PONodes.size(); i++)
@@ -208,7 +219,8 @@ public:
 						inputVectorFile << node.at(PINodes.at(i)).nodeValue;
 					//cout << node.at(PINodes.at(i)).nodeValue;
 				}
-
+				inputVectorText = inputVectorFile.str();
+				piNodesText = piNodesFiles.str();
 				return 1;
 			}
 
@@ -254,14 +266,18 @@ public:
 				inputVectorFile << node.at(PINodes.at(i)).nodeValue;
 				//cout << node.at(PINodes.at(i)).nodeValue;
 			}
-
+			inputVectorText = inputVectorFile.str();
+			piNodesText = piNodesFiles.str();
 			return 1;
 
-			//podemProgText = podemProgress.str();
-			piNodesFiles.close();
-			inputVectorFile.close();
-		}
+			
 
+			//podemProgText = podemProgress.str();
+			//piNodesFiles.close();
+			//inputVectorFile.close();
+		}
+		inputVectorText = inputVectorFile.str();
+		piNodesText = piNodesFiles.str();
 		PISet.nodeValue = -1;
 		Imply(PISet);
 		status = 1;
