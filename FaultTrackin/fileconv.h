@@ -153,6 +153,7 @@ private: System::Windows::Forms::Label^ moduleNameLabel;
 private: System::Windows::Forms::Label^ label4;
 private: System::Windows::Forms::Button^ ScanChainInsertButton;
 private: System::Windows::Forms::ProgressBar^ progressBar1;
+private: System::Windows::Forms::ProgressBar^ progressBar2;
 
 
 
@@ -297,6 +298,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 			this->titlepnael = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->tabControl1->SuspendLayout();
 			this->tabPage4->SuspendLayout();
 			this->panel7->SuspendLayout();
@@ -637,6 +639,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage1->Controls->Add(this->progressBar2);
 			this->tabPage1->Controls->Add(this->progressBar1);
 			this->tabPage1->Controls->Add(this->ScanChainInsertButton);
 			this->tabPage1->Controls->Add(this->clear);
@@ -1575,6 +1578,16 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 			this->button1->TabIndex = 3;
 			this->button1->UseVisualStyleBackColor = true;
 			// 
+			// progressBar2
+			// 
+			this->progressBar2->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->progressBar2->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->progressBar2->Location = System::Drawing::Point(21, 423);
+			this->progressBar2->Name = L"progressBar2";
+			this->progressBar2->Size = System::Drawing::Size(584, 10);
+			this->progressBar2->TabIndex = 15;
+			this->progressBar2->Visible = false;
+			// 
 			// fileconv
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
@@ -1755,7 +1768,10 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 			tabControl->SelectedTab = tabControl->TabPages[0];
 		}
 	}
+	
+	
 	private: System::Void convgnet_Click(System::Object^ sender, System::EventArgs^ e) {
+		progressBar2->Visible = true;
 		System::String^ selectedItem = comseq->SelectedItem->ToString();
 		
 		nextbutton->Enabled = true;
@@ -1766,18 +1782,48 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 		moduleNameLabel->Text = inputVeilogFileName;
 
 		if (selectedItem == "Combinational") {
-
-			inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
-			VeriToText();				
-
+			inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);			
 		}
-
-		if (selectedItem == "Sequential") {
-
-			inputVeilogFileDirectory = "InsertedScanChainFile.v";
-			VeriToText();
-			
+		else if (selectedItem == "Sequential") {
+			inputVeilogFileDirectory = "InsertedScanChainFile.v";			
 		}		
+
+		// Initialize the ProgressBar properties
+		progressBar2->Cursor = Cursors::WaitCursor;
+		progressBar2->Minimum = 0;
+		progressBar2->Maximum = 100;
+		progressBar2->Value = 5;
+
+		// Create a BackgroundWorker for scanChainInsertion
+		BackgroundWorker^ worker2 = gcnew BackgroundWorker();
+		worker2->WorkerReportsProgress = true;
+
+		// Attach event handlers
+		worker2->DoWork += gcnew DoWorkEventHandler(this, &fileconv::task2_DoWork);
+		worker2->ProgressChanged += gcnew ProgressChangedEventHandler(this, &fileconv::task2_ProgressChanged);
+		worker2->RunWorkerCompleted += gcnew RunWorkerCompletedEventHandler(this, &fileconv::task2_RunWorkerCompleted);
+
+		// Start the BackgroundWorker
+		worker2->RunWorkerAsync();
+
+		//VeriToText();
+
+	
+	}
+
+	private: System::Void task2_DoWork(System::Object^ sender, DoWorkEventArgs^ e) {
+		BackgroundWorker^ worker = dynamic_cast<BackgroundWorker^>(sender);
+
+		VeriToText();
+		worker->ReportProgress(100);
+
+	}
+	private: System::Void task2_ProgressChanged(System::Object^ sender, ProgressChangedEventArgs^ e) {
+		// Update the ProgressBar value when progress changes
+		progressBar2->Value = e->ProgressPercentage;
+	}
+	private: System::Void task2_RunWorkerCompleted(System::Object^ sender, RunWorkerCompletedEventArgs^ e) {
+		//MessageBox::Show("Scan Chain Insertion complete!");
 
 		String^ appDirectory = Application::StartupPath;
 		String^ fileName3 = "Circuit.txt";
@@ -1788,11 +1834,9 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 
 		finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
 
-		
 		convgnet->Enabled = false;
-	
-
 	}
+
 	private: System::Void stkat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
 
@@ -1817,6 +1861,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 				ScanChainInsertButton->Enabled = false;
 				convgnet->Enabled = true;
 			}
+
 			else if (selectedItem == "Sequential") {
 				ScanChainInsertButton->Enabled = true;
 				convgnet->Enabled = false;
@@ -1849,8 +1894,10 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 		if (!Char::IsDigit(e->KeyChar) && !Char::IsControl(e->KeyChar)) {
 			e->Handled = true;
 		}
+
 		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
 		int inputValue;
+
 		if (Int32::TryParse(textBox->Text + e->KeyChar, inputValue) && (inputValue < 1 || inputValue > finalSignalNumber)) {
 			e->Handled = true;
 			MessageBox::Show("Please Choose a Node Between 1 and " + finalSignalNumber , "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
@@ -1902,9 +1949,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 
 			P_func.setX();
 			result = P_func.PODEM();
-
-			
-
+						
 			if (status == 1) {				
 				podemprogress->Visible = false;
 				errlabel2->Visible = true;
@@ -1956,7 +2001,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 	//		showyosys->Text = ab;
 	}
 	private: System::Void ScanChainInsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		progressBar2->Visible = false;
 		System::String^ filepath4 = openFileDialog1->FileName;
 		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath4);
 		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath4);
@@ -1969,21 +2014,21 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 		progressBar1->Value = 5;
 
 		// Create a BackgroundWorker for scanChainInsertion
-		BackgroundWorker^ worker = gcnew BackgroundWorker();
-		worker->WorkerReportsProgress = true;
+		BackgroundWorker^ worker1 = gcnew BackgroundWorker();
+		worker1->WorkerReportsProgress = true;
 
 		// Attach event handlers
-		worker->DoWork += gcnew DoWorkEventHandler(this, &fileconv::backgroundWorker_DoWork);
-		worker->ProgressChanged += gcnew ProgressChangedEventHandler(this, &fileconv::backgroundWorker_ProgressChanged);
-		worker->RunWorkerCompleted += gcnew RunWorkerCompletedEventHandler(this, &fileconv::backgroundWorker_RunWorkerCompleted);
+		worker1->DoWork += gcnew DoWorkEventHandler(this, &fileconv::task1_DoWork);
+		worker1->ProgressChanged += gcnew ProgressChangedEventHandler(this, &fileconv::task1_ProgressChanged);
+		worker1->RunWorkerCompleted += gcnew RunWorkerCompletedEventHandler(this, &fileconv::task1_RunWorkerCompleted);
 
 		// Start the BackgroundWorker
-		worker->RunWorkerAsync();
+		worker1->RunWorkerAsync();
 
 		//scanChainInsertion();
 				
 	}
-	private: System::Void backgroundWorker_DoWork(System::Object^ sender, DoWorkEventArgs^ e) {
+	private: System::Void task1_DoWork(System::Object^ sender, DoWorkEventArgs^ e) {
 		BackgroundWorker^ worker = dynamic_cast<BackgroundWorker^>(sender);
 
 		// Call the scanChainInsertion function from header file
@@ -1992,12 +2037,11 @@ private: System::Windows::Forms::ProgressBar^ progressBar1;
 		// report progress 
 		worker->ReportProgress(100);
 	}
-	private: System::Void backgroundWorker_ProgressChanged(System::Object^ sender, ProgressChangedEventArgs^ e) {
+	private: System::Void task1_ProgressChanged(System::Object^ sender, ProgressChangedEventArgs^ e) {
 		// Update the ProgressBar value when progress changes
 		progressBar1->Value = e->ProgressPercentage;
 	}
-	private: System::Void backgroundWorker_RunWorkerCompleted(System::Object^ sender, RunWorkerCompletedEventArgs^ e) {
-		// The scanChainInsertion is complete, you can perform cleanup or show a message
+	private: System::Void task1_RunWorkerCompleted(System::Object^ sender, RunWorkerCompletedEventArgs^ e) {
 		//MessageBox::Show("Scan Chain Insertion complete!");
 		
 		convgnet->Enabled = true;
