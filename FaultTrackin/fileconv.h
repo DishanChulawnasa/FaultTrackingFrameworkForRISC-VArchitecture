@@ -152,6 +152,7 @@ private: System::Windows::Forms::Label^ finalNodeNumberLabel;
 private: System::Windows::Forms::Label^ moduleNameLabel;
 private: System::Windows::Forms::Label^ label4;
 private: System::Windows::Forms::Button^ ScanChainInsertButton;
+private: System::Windows::Forms::ProgressBar^ progressBar1;
 
 
 
@@ -235,6 +236,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->ScanChainInsertButton = (gcnew System::Windows::Forms::Button());
 			this->clear = (gcnew System::Windows::Forms::Button());
 			this->comseq = (gcnew System::Windows::Forms::ComboBox());
@@ -345,7 +347,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 			this->showyosys->Name = L"showyosys";
 			this->showyosys->ReadOnly = true;
 			this->showyosys->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->showyosys->Size = System::Drawing::Size(584, 371);
+			this->showyosys->Size = System::Drawing::Size(584, 359);
 			this->showyosys->TabIndex = 0;
 			// 
 			// convgnet
@@ -635,6 +637,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage1->Controls->Add(this->progressBar1);
 			this->tabPage1->Controls->Add(this->ScanChainInsertButton);
 			this->tabPage1->Controls->Add(this->clear);
 			this->tabPage1->Controls->Add(this->comseq);
@@ -652,6 +655,15 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 			this->tabPage1->Size = System::Drawing::Size(833, 498);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"File Conversion";
+			// 
+			// progressBar1
+			// 
+			this->progressBar1->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->progressBar1->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->progressBar1->Location = System::Drawing::Point(21, 423);
+			this->progressBar1->Name = L"progressBar1";
+			this->progressBar1->Size = System::Drawing::Size(584, 10);
+			this->progressBar1->TabIndex = 14;
 			// 
 			// ScanChainInsertButton
 			// 
@@ -862,7 +874,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 			this->panel2->Controls->Add(this->showyosys);
 			this->panel2->Location = System::Drawing::Point(21, 59);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(584, 371);
+			this->panel2->Size = System::Drawing::Size(584, 359);
 			this->panel2->TabIndex = 4;
 			// 
 			// tabPage2
@@ -1626,6 +1638,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			StreamReader^ sr = gcnew StreamReader(openFileDialog1->FileName);
 			comseq->SelectedIndex = -1;
+			progressBar1->Value = 0;
 			showyosys->Text = sr->ReadToEnd();
 			convgnet->Enabled = false;
 			if (File::Exists(openFileDialog1->FileName)) {
@@ -1651,6 +1664,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 		//comseq->SelectedIndex = -1;
 		convgnet->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		progressBar1->Value = 0;
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[1];
 		}
@@ -1690,6 +1704,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 		nextbutton->Enabled = false;
 		showyosys->Text = "";
 		gatenet->Text = "";
+		progressBar1->Value = 0;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[0];
@@ -1734,6 +1749,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 		nextbutton->Enabled = false;
 		clear->Enabled = false;
 		comseq->SelectedIndex = -1;
+		progressBar1->Value = 0;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[0];
@@ -1827,6 +1843,7 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 		convgnet->Enabled = false;
 		comseq->Enabled = false;
 		clear->Enabled = false;
+		progressBar1->Value = 0;
 	}
 	private: System::Void faultnode_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		if (!Char::IsDigit(e->KeyChar) && !Char::IsControl(e->KeyChar)) {
@@ -1939,24 +1956,61 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 	//		showyosys->Text = ab;
 	}
 	private: System::Void ScanChainInsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		convgnet->Enabled = true;
-		ScanChainInsertButton->Enabled = false;
-
+		
 		System::String^ filepath4 = openFileDialog1->FileName;
 		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath4);
 		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath4);
 		inputSequentialFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
 
+		// Initialize the ProgressBar properties
+		progressBar1->Cursor = Cursors::WaitCursor;
+		progressBar1->Minimum = 0;
+		progressBar1->Maximum = 100;
+		progressBar1->Value = 5;
+
+		// Create a BackgroundWorker for scanChainInsertion
+		BackgroundWorker^ worker = gcnew BackgroundWorker();
+		worker->WorkerReportsProgress = true;
+
+		// Attach event handlers
+		worker->DoWork += gcnew DoWorkEventHandler(this, &fileconv::backgroundWorker_DoWork);
+		worker->ProgressChanged += gcnew ProgressChangedEventHandler(this, &fileconv::backgroundWorker_ProgressChanged);
+		worker->RunWorkerCompleted += gcnew RunWorkerCompletedEventHandler(this, &fileconv::backgroundWorker_RunWorkerCompleted);
+
+		// Start the BackgroundWorker
+		worker->RunWorkerAsync();
+
+		//scanChainInsertion();
+				
+	}
+	private: System::Void backgroundWorker_DoWork(System::Object^ sender, DoWorkEventArgs^ e) {
+		BackgroundWorker^ worker = dynamic_cast<BackgroundWorker^>(sender);
+
+		// Call the scanChainInsertion function from header file
 		scanChainInsertion();
 
+		// report progress 
+		worker->ReportProgress(100);
+	}
+	private: System::Void backgroundWorker_ProgressChanged(System::Object^ sender, ProgressChangedEventArgs^ e) {
+		// Update the ProgressBar value when progress changes
+		progressBar1->Value = e->ProgressPercentage;
+	}
+	private: System::Void backgroundWorker_RunWorkerCompleted(System::Object^ sender, RunWorkerCompletedEventArgs^ e) {
+		// The scanChainInsertion is complete, you can perform cleanup or show a message
+		//MessageBox::Show("Scan Chain Insertion complete!");
+		
+		convgnet->Enabled = true;
+		ScanChainInsertButton->Enabled = false;
+		progressBar1->Cursor = Cursors::Arrow;
+		
 		String^ appDirectory = Application::StartupPath;
 		String^ fileName5 = "InsertedScanChainFile.v";
 		String^ filePath5 = System::IO::Path::Combine(appDirectory, fileName5);
 		String^ fileContents5 = System::IO::File::ReadAllText(filePath5);
 		showyosys->Text = fileContents5;
 
-
-
 	}
+
 };
 }
