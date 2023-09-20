@@ -128,6 +128,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="podem.h" />
+    <ClInclude Include="SequentialToCombinational.h" />
     <ClInclude Include="VerilogToText.h" />
   </ItemGroup>
   <ItemGroup>

@@ -29,5 +29,8 @@
     <ClInclude Include="VerilogToText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SequentialToCombinational.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

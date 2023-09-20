@@ -2,6 +2,7 @@
 #include <msclr/marshal_cppstd.h>
 #include "podem.h"
 #include "VerilogToText.h"
+#include "SequentialToCombinational.h"
 
 namespace FaultTrackin {
 
@@ -1754,6 +1755,11 @@ private: System::Windows::Forms::Label^ label4;
 			//writer->Close();
 
 		}
+
+		if (selectedItem == "Sequential") {
+			scanChainInsertion();
+		}
+
 		
 		convgnet->Enabled = false;
 	
