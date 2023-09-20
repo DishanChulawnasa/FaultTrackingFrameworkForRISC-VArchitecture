@@ -151,6 +151,7 @@ private: System::Windows::Forms::Label^ errlabel2;
 private: System::Windows::Forms::Label^ finalNodeNumberLabel;
 private: System::Windows::Forms::Label^ moduleNameLabel;
 private: System::Windows::Forms::Label^ label4;
+private: System::Windows::Forms::Button^ ScanChainInsertButton;
 
 
 
@@ -234,6 +235,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->ScanChainInsertButton = (gcnew System::Windows::Forms::Button());
 			this->clear = (gcnew System::Windows::Forms::Button());
 			this->comseq = (gcnew System::Windows::Forms::ComboBox());
 			this->back1 = (gcnew System::Windows::Forms::Button());
@@ -319,7 +321,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->openyosys->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->openyosys->ForeColor = System::Drawing::Color::LightGray;
-			this->openyosys->Location = System::Drawing::Point(628, 105);
+			this->openyosys->Location = System::Drawing::Point(628, 68);
 			this->openyosys->Name = L"openyosys";
 			this->openyosys->Size = System::Drawing::Size(170, 58);
 			this->openyosys->TabIndex = 0;
@@ -356,7 +358,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->convgnet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->convgnet->ForeColor = System::Drawing::Color::LightGray;
-			this->convgnet->Location = System::Drawing::Point(628, 255);
+			this->convgnet->Location = System::Drawing::Point(628, 285);
 			this->convgnet->Name = L"convgnet";
 			this->convgnet->Size = System::Drawing::Size(170, 58);
 			this->convgnet->TabIndex = 1;
@@ -633,6 +635,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage1->Controls->Add(this->ScanChainInsertButton);
 			this->tabPage1->Controls->Add(this->clear);
 			this->tabPage1->Controls->Add(this->comseq);
 			this->tabPage1->Controls->Add(this->back1);
@@ -650,6 +653,24 @@ private: System::Windows::Forms::Label^ label4;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"File Conversion";
 			// 
+			// ScanChainInsertButton
+			// 
+			this->ScanChainInsertButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->ScanChainInsertButton->Enabled = false;
+			this->ScanChainInsertButton->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->ScanChainInsertButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ScanChainInsertButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ScanChainInsertButton->ForeColor = System::Drawing::Color::LightGray;
+			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 203);
+			this->ScanChainInsertButton->Name = L"ScanChainInsertButton";
+			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 58);
+			this->ScanChainInsertButton->TabIndex = 13;
+			this->ScanChainInsertButton->Text = L"INSERT SCAN\r\nCHAIN";
+			this->ScanChainInsertButton->UseVisualStyleBackColor = false;
+			this->ScanChainInsertButton->Click += gcnew System::EventHandler(this, &fileconv::ScanChainInsertButton_Click);
+			// 
 			// clear
 			// 
 			this->clear->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
@@ -660,7 +681,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->clear->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->clear->ForeColor = System::Drawing::Color::LightGray;
-			this->clear->Location = System::Drawing::Point(628, 342);
+			this->clear->Location = System::Drawing::Point(628, 373);
 			this->clear->Name = L"clear";
 			this->clear->Size = System::Drawing::Size(170, 45);
 			this->clear->TabIndex = 12;
@@ -678,7 +699,7 @@ private: System::Windows::Forms::Label^ label4;
 			this->comseq->ForeColor = System::Drawing::Color::LightGray;
 			this->comseq->FormattingEnabled = true;
 			this->comseq->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Combinational", L"Sequential" });
-			this->comseq->Location = System::Drawing::Point(628, 192);
+			this->comseq->Location = System::Drawing::Point(628, 151);
 			this->comseq->Name = L"comseq";
 			this->comseq->Size = System::Drawing::Size(170, 31);
 			this->comseq->TabIndex = 11;
@@ -1720,45 +1741,36 @@ private: System::Windows::Forms::Label^ label4;
 	}
 	private: System::Void convgnet_Click(System::Object^ sender, System::EventArgs^ e) {
 		System::String^ selectedItem = comseq->SelectedItem->ToString();
+		
+		nextbutton->Enabled = true;
+	
+		System::String^ filepath = openFileDialog1->FileName;
+		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
+		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
+		moduleNameLabel->Text = inputVeilogFileName;
 
 		if (selectedItem == "Combinational") {
 
-			nextbutton->Enabled = true;
-
-			System::String^ filepath = openFileDialog1->FileName;
-			System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
-			System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
 			inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
-			moduleNameLabel->Text = inputVeilogFileName;
-
-			//showyosys->Text = msclr::interop::marshal_as<System::String^>(inputVeilogFileDirectory);
-			VeriToText();
-			
-			//showyosys->Text = msclr::interop::marshal_as<System::String^>(verilogToText);
-
-
-			String^ appDirectory = Application::StartupPath;
-			String^ fileName3 = "Circuit.txt";
-			String^ filePath3 = System::IO::Path::Combine(appDirectory, fileName3);
-			String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
-			gatenet->Text = fileContents3;
-			showyosys->Text = fileContents3;
-
-			finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
-			//add VerilogToText
-
-			//save the converted (yosys gate-level verilog file) gate-level txt file in the same directory as the application
-			//String^ appDirectory = Application::StartupPath;
-			//String^ filePath = System::IO::Path::Combine(appDirectory, "Circuit.txt");
-			//StreamWriter^ writer = gcnew StreamWriter(filePath);
-			//writer->Write(showyosys->Text);
-			//writer->Close();
+			VeriToText();				
 
 		}
 
 		if (selectedItem == "Sequential") {
-			scanChainInsertion();
-		}
+
+			inputVeilogFileDirectory = "InsertedScanChainFile.v";
+			VeriToText();
+			
+		}		
+
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName3 = "Circuit.txt";
+		String^ filePath3 = System::IO::Path::Combine(appDirectory, fileName3);
+		String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
+		gatenet->Text = fileContents3;
+		showyosys->Text = fileContents3;
+
+		finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
 
 		
 		convgnet->Enabled = false;
@@ -1766,6 +1778,8 @@ private: System::Windows::Forms::Label^ label4;
 
 	}
 	private: System::Void stkat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+
 		if (stkat->SelectedIndex == -1) {
 			podem_action->Enabled = false;
 		}
@@ -1775,12 +1789,23 @@ private: System::Windows::Forms::Label^ label4;
 		
 	}
 	private: System::Void comseq_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-//		System::String^ selectedItem0 = comseq->SelectedItem->ToString();
 
 		if (comseq->SelectedIndex == -1) {
 			showyosys->Text = "";
 		}
 		else {
+
+			System::String^ selectedItem = comseq->SelectedItem->ToString();
+
+			if (selectedItem == "Combinational") {
+				ScanChainInsertButton->Enabled = false;
+				convgnet->Enabled = true;
+			}
+			else if (selectedItem == "Sequential") {
+				ScanChainInsertButton->Enabled = true;
+				convgnet->Enabled = false;
+			}
+
 			System::String^ filepath0 = openFileDialog1->FileName;
 			System::String^ inputVeilogFileDirec0 = System::IO::Path::GetDirectoryName(filepath0);
 			System::String^ inputVeilogFileName0 = System::IO::Path::GetFileName(filepath0);
@@ -1792,7 +1817,7 @@ private: System::Windows::Forms::Label^ label4;
 		}
 		
 		nextbutton->Enabled = false;
-		convgnet->Enabled = true;
+		//convgnet->Enabled = true;
 	}
 	private: System::Void clear_Click(System::Object^ sender, System::EventArgs^ e) {
 		showyosys->Text = "";
@@ -1912,6 +1937,26 @@ private: System::Windows::Forms::Label^ label4;
 			//podemprogress->Text = podemProgText;
 		//	System::String^ ab = "";
 	//		showyosys->Text = ab;
+	}
+	private: System::Void ScanChainInsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		convgnet->Enabled = true;
+		ScanChainInsertButton->Enabled = false;
+
+		System::String^ filepath4 = openFileDialog1->FileName;
+		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath4);
+		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath4);
+		inputSequentialFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);
+
+		scanChainInsertion();
+
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName5 = "InsertedScanChainFile.v";
+		String^ filePath5 = System::IO::Path::Combine(appDirectory, fileName5);
+		String^ fileContents5 = System::IO::File::ReadAllText(filePath5);
+		showyosys->Text = fileContents5;
+
+
+
 	}
 };
 }

@@ -5,8 +5,6 @@
 #include <vector>
 #include <regex>
 #include <algorithm>
-#include <msclr/marshal_cppstd.h>
-#include "fileconv.h"
 
 using namespace std;
 
@@ -17,6 +15,8 @@ struct FlipFlopSignals
     string data;
     string qOutput;
 };
+
+string inputSequentialFileDirectory;
 
 //Extract Module Name
 string extractModuleName(const string& line)
@@ -275,10 +275,9 @@ void writeVerilogModule(const string& moduleName, const vector<string>& inputs, 
 int scanChainInsertion()
 {
     // Define input and output file names
-    const string inputFileName = "EX_Mem_syn.v"; // Replace with your input Verilog file name
-    const string outputFileName = "EX_comb.v";   // Replace with the desired output Verilog file name
+    const string outputFileName = "InsertedScanChainFile.v";   // Replace with the desired output Verilog file name
 
-    ifstream inputFile(inputFileName);
+    ifstream inputFile(inputSequentialFileDirectory);
     ofstream outputFile(outputFileName);
 
     vector<string> lines;
@@ -354,7 +353,7 @@ int scanChainInsertion()
     vector<string> outputPorts;
     vector<string> wireNames;
 
-    extractVerilogNames(inputFileName, inputPorts, outputPorts, wireNames);
+    extractVerilogNames(inputSequentialFileDirectory, inputPorts, outputPorts, wireNames);
 
     // Print extracted names
     // cout << "Input Ports:" << endl;
@@ -425,7 +424,7 @@ int scanChainInsertion()
 
     // Function to write Verilog module declaration and signals to a file
     writeVerilogModule(moduleName, inputPorts, outputPorts, wireNames, outputFile);
-    extractCombinationalGates(inputFileName, outputFileName);
+    extractCombinationalGates(inputSequentialFileDirectory, outputFileName);
     // const string inputFileName = "counter_syn.v"; // Replace with your input Verilog file name
 
     return 0;
