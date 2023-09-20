@@ -154,6 +154,7 @@ private: System::Windows::Forms::Label^ label4;
 private: System::Windows::Forms::Button^ ScanChainInsertButton;
 private: System::Windows::Forms::ProgressBar^ progressBar1;
 private: System::Windows::Forms::ProgressBar^ progressBar2;
+private: System::Windows::Forms::ProgressBar^ progressBar3;
 
 
 
@@ -237,6 +238,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->ScanChainInsertButton = (gcnew System::Windows::Forms::Button());
 			this->clear = (gcnew System::Windows::Forms::Button());
@@ -252,6 +254,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->home1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->progressBar3 = (gcnew System::Windows::Forms::ProgressBar());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->moduleNameLabel = (gcnew System::Windows::Forms::Label());
 			this->finalNodeNumberLabel = (gcnew System::Windows::Forms::Label());
@@ -298,7 +301,6 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->titlepnael = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->tabControl1->SuspendLayout();
 			this->tabPage4->SuspendLayout();
 			this->panel7->SuspendLayout();
@@ -380,7 +382,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->nextbutton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->nextbutton->ForeColor = System::Drawing::Color::LightGray;
-			this->nextbutton->Location = System::Drawing::Point(689, 450);
+			this->nextbutton->Location = System::Drawing::Point(689, 446);
 			this->nextbutton->Name = L"nextbutton";
 			this->nextbutton->Size = System::Drawing::Size(130, 34);
 			this->nextbutton->TabIndex = 6;
@@ -659,11 +661,21 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"File Conversion";
 			// 
+			// progressBar2
+			// 
+			this->progressBar2->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->progressBar2->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->progressBar2->Location = System::Drawing::Point(21, 419);
+			this->progressBar2->Name = L"progressBar2";
+			this->progressBar2->Size = System::Drawing::Size(584, 10);
+			this->progressBar2->TabIndex = 15;
+			this->progressBar2->Visible = false;
+			// 
 			// progressBar1
 			// 
 			this->progressBar1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->progressBar1->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->progressBar1->Location = System::Drawing::Point(21, 423);
+			this->progressBar1->Location = System::Drawing::Point(21, 418);
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(584, 10);
 			this->progressBar1->TabIndex = 14;
@@ -682,7 +694,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->ScanChainInsertButton->Name = L"ScanChainInsertButton";
 			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 58);
 			this->ScanChainInsertButton->TabIndex = 13;
-			this->ScanChainInsertButton->Text = L"INSERT SCAN\r\nCHAIN";
+			this->ScanChainInsertButton->Text = L"ENABLE SCAN\r\nCHAIN";
 			this->ScanChainInsertButton->UseVisualStyleBackColor = false;
 			this->ScanChainInsertButton->Click += gcnew System::EventHandler(this, &fileconv::ScanChainInsertButton_Click);
 			// 
@@ -729,7 +741,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->back1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->back1->ForeColor = System::Drawing::Color::LightGray;
-			this->back1->Location = System::Drawing::Point(10, 450);
+			this->back1->Location = System::Drawing::Point(10, 446);
 			this->back1->Name = L"back1";
 			this->back1->Size = System::Drawing::Size(130, 34);
 			this->back1->TabIndex = 9;
@@ -884,6 +896,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage2->Controls->Add(this->progressBar3);
 			this->tabPage2->Controls->Add(this->label4);
 			this->tabPage2->Controls->Add(this->moduleNameLabel);
 			this->tabPage2->Controls->Add(this->finalNodeNumberLabel);
@@ -902,6 +915,13 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->tabPage2->Size = System::Drawing::Size(833, 498);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Fault Injection";
+			// 
+			// progressBar3
+			// 
+			this->progressBar3->Location = System::Drawing::Point(19, 448);
+			this->progressBar3->Name = L"progressBar3";
+			this->progressBar3->Size = System::Drawing::Size(430, 10);
+			this->progressBar3->TabIndex = 2;
 			// 
 			// label4
 			// 
@@ -1100,7 +1120,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->next2->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
 			this->next2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->next2->ForeColor = System::Drawing::Color::LightGray;
-			this->next2->Location = System::Drawing::Point(714, 400);
+			this->next2->Location = System::Drawing::Point(709, 407);
 			this->next2->Name = L"next2";
 			this->next2->Size = System::Drawing::Size(84, 51);
 			this->next2->TabIndex = 6;
@@ -1171,7 +1191,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->back2->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
 			this->back2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back2->ForeColor = System::Drawing::Color::LightGray;
-			this->back2->Location = System::Drawing::Point(514, 400);
+			this->back2->Location = System::Drawing::Point(509, 407);
 			this->back2->Name = L"back2";
 			this->back2->Size = System::Drawing::Size(84, 51);
 			this->back2->TabIndex = 1;
@@ -1578,16 +1598,6 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 			this->button1->TabIndex = 3;
 			this->button1->UseVisualStyleBackColor = true;
 			// 
-			// progressBar2
-			// 
-			this->progressBar2->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->progressBar2->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->progressBar2->Location = System::Drawing::Point(21, 423);
-			this->progressBar2->Name = L"progressBar2";
-			this->progressBar2->Size = System::Drawing::Size(584, 10);
-			this->progressBar2->TabIndex = 15;
-			this->progressBar2->Visible = false;
-			// 
 			// fileconv
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
@@ -1678,6 +1688,8 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 		convgnet->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		progressBar3->Value = 0;
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[1];
 		}
@@ -1693,6 +1705,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 		//pinodes->Text = fileContents1;
 		//testvector->Text = fileContents2;
 
+		progressBar3->Value = 0;
 
 		//pinodes->Text = msclr::interop::marshal_as<System::String^>(piNodesText);
 		//testvector->Text = msclr::interop::marshal_as<System::String^>(inputVectorText);
@@ -1718,6 +1731,8 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 		showyosys->Text = "";
 		gatenet->Text = "";
 		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		progressBar3->Value = 0;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[0];
@@ -1838,7 +1853,8 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 	}
 
 	private: System::Void stkat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-
+		next2->Enabled = false;
+		progressBar3->Value = 0;
 
 		if (stkat->SelectedIndex == -1) {
 			podem_action->Enabled = false;
@@ -1938,19 +1954,39 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 
 	private: System::Void podem_action_Click(System::Object^ sender, System::EventArgs^ e) {
 		podemprogress->ForeColor = System::Drawing::Color::PowderBlue;
-		int flag = 1;
+
 		int result = 0;
 		int check = 1;
-		
-		while (check == 1) {
-			flag = P_func.readFile();
-			Fault.nodeNumber = System::Convert::ToInt64(faultnode->Text);
-			Fault.nodeValue = System::Convert::ToInt64(stkat->Text);
+		int flag = 1;
 
+		flag = P_func.readFile();
+		Fault.nodeNumber = System::Convert::ToInt64(faultnode->Text);
+		Fault.nodeValue = System::Convert::ToInt64(stkat->Text);
+		
+		// Initialize the ProgressBar properties
+		progressBar3->Cursor = Cursors::WaitCursor;
+		progressBar3->Minimum = 0;
+		progressBar3->Maximum = 100;
+		progressBar3->Value = 50;
+
+		// Create a BackgroundWorker for scanChainInsertion
+		BackgroundWorker^ worker3 = gcnew BackgroundWorker();
+		worker3->WorkerReportsProgress = true;
+
+		// Attach event handlers
+		worker3->DoWork += gcnew DoWorkEventHandler(this, &fileconv::task3_DoWork);
+		worker3->ProgressChanged += gcnew ProgressChangedEventHandler(this, &fileconv::task3_ProgressChanged);
+		worker3->RunWorkerCompleted += gcnew RunWorkerCompletedEventHandler(this, &fileconv::task3_RunWorkerCompleted);
+
+		// Start the BackgroundWorker
+		worker3->RunWorkerAsync();
+
+		while (check == 1) {
+			
 			P_func.setX();
-			result = P_func.PODEM();
-						
-			if (status == 1) {				
+			P_func.PODEM();
+
+			if (status == 1) {
 				podemprogress->Visible = false;
 				errlabel2->Visible = true;
 				errlabel->Visible = true;
@@ -1958,7 +1994,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 				label6->Visible = false;
 				pinodes->Visible = false;
 				testvector->Visible = false;
-				
+
 			}
 			else {
 				podemprogress->Text = "THE FAULT IS TESTABLE!";
@@ -1970,11 +2006,11 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 				pinodes->Visible = true;
 				testvector->Visible = true;
 
-				if (stkat->Text=="0")
+				if (stkat->Text == "0")
 					label6->Text = "Input Test Vector For Stuck-at-zero at " + faultnode->Text + "th Node: ";
 				else
 					label6->Text = "Input Test Vector For Stuck-at-one at " + faultnode->Text + "th Node: ";
-								
+
 			}
 			status = 0;
 
@@ -1993,12 +2029,26 @@ private: System::Windows::Forms::ProgressBar^ progressBar2;
 		check = 0;
 		pinodes->Text = msclr::interop::marshal_as<System::String^>(piNodesText);
 		testvector->Text = msclr::interop::marshal_as<System::String^>(inputVectorText);
-		podem_action->Enabled = false;
-		next2->Enabled = true;
-		//	std::ostringstream podemProgText;
-			//podemprogress->Text = podemProgText;
-		//	System::String^ ab = "";
-	//		showyosys->Text = ab;
+				
+	}
+	private: System::Void task3_DoWork(System::Object^ sender, DoWorkEventArgs^ e) {
+		BackgroundWorker^ worker = dynamic_cast<BackgroundWorker^>(sender);
+		
+		worker->ReportProgress(100);
+	}
+	private: System::Void task3_ProgressChanged(System::Object^ sender, ProgressChangedEventArgs^ e) {
+		// Update the ProgressBar value when progress changes
+		progressBar3->Value = e->ProgressPercentage;
+	}
+	private: System::Void task3_RunWorkerCompleted(System::Object^ sender, RunWorkerCompletedEventArgs^ e) {
+		//MessageBox::Show("Scan Chain Insertion complete!");
+		progressBar3->Cursor = Cursors::Arrow;
+		
+		if (progressBar3->Value == 100) {
+			podem_action->Enabled = false;
+			next2->Enabled = true;
+		}	
+
 	}
 	private: System::Void ScanChainInsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		progressBar2->Visible = false;
