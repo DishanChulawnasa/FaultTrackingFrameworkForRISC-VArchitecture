@@ -15,10 +15,10 @@
     <ROW Property="ARPPRODUCTICON" Value="icons8circuit64_1.exe" Type="8"/>
     <ROW Property="CTRLS" Value="1"/>
     <ROW Property="Manufacturer" Value="G05"/>
-    <ROW Property="ProductCode" Value="1033:{B1FD5831-7BDD-4694-95BC-02D050283227} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{962FD5A8-D7BB-4023-8561-7E4563F98413} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Fault Tracking Framework"/>
-    <ROW Property="ProductVersion" Value="1.1.0" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.2.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EE50C6CD-5F8B-4097-8FC1-D1EEE2773EF1}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>

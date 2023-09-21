@@ -156,7 +156,8 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 private: System::Windows::Forms::ProgressBar^ progressBar1;
 private: System::Windows::Forms::ProgressBar^ progressBar2;
 private: System::Windows::Forms::ProgressBar^ progressBar3;
-private: System::Windows::Forms::Label^ label20;
+private: System::Windows::Forms::Label^ userManualLabel;
+
 private: System::Windows::Forms::Button^ homenext;
 private: System::Windows::Forms::Panel^ panel10;
 private: System::Windows::Forms::Label^ label21;
@@ -242,7 +243,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->panel10 = (gcnew System::Windows::Forms::Panel());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->homenext = (gcnew System::Windows::Forms::Button());
-			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->userManualLabel = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
@@ -576,7 +577,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			// 
 			this->panel10->Controls->Add(this->label21);
 			this->panel10->Controls->Add(this->homenext);
-			this->panel10->Controls->Add(this->label20);
+			this->panel10->Controls->Add(this->userManualLabel);
 			this->panel10->Controls->Add(this->flowLayoutPanel2);
 			this->panel10->Location = System::Drawing::Point(9, 46);
 			this->panel10->Name = L"panel10";
@@ -616,18 +617,19 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->homenext->UseVisualStyleBackColor = false;
 			this->homenext->Click += gcnew System::EventHandler(this, &fileconv::homenext_Click);
 			// 
-			// label20
+			// userManualLabel
 			// 
-			this->label20->AutoSize = true;
-			this->label20->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label20->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 8, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
+			this->userManualLabel->AutoSize = true;
+			this->userManualLabel->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->userManualLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 8, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
 				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label20->ForeColor = System::Drawing::Color::SkyBlue;
-			this->label20->Location = System::Drawing::Point(179, 421);
-			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(88, 19);
-			this->label20->TabIndex = 17;
-			this->label20->Text = L"User Manual";
+			this->userManualLabel->ForeColor = System::Drawing::Color::SkyBlue;
+			this->userManualLabel->Location = System::Drawing::Point(179, 421);
+			this->userManualLabel->Name = L"userManualLabel";
+			this->userManualLabel->Size = System::Drawing::Size(88, 19);
+			this->userManualLabel->TabIndex = 17;
+			this->userManualLabel->Text = L"User Manual";
+			this->userManualLabel->Click += gcnew System::EventHandler(this, &fileconv::userManualLabel_Click);
 			// 
 			// flowLayoutPanel2
 			// 
@@ -1601,6 +1603,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->button1->Size = System::Drawing::Size(44, 43);
 			this->button1->TabIndex = 3;
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &fileconv::button1_Click);
 			// 
 			// fileconv
 			// 
@@ -2121,5 +2124,12 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 
 	}
 
+	private: System::Void userManualLabel_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("https://sites.google.com/view/faulttrackingframework/home");
+	}
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("https://sites.google.com/view/faulttrackingframework/home");
+	}
 };
 }
