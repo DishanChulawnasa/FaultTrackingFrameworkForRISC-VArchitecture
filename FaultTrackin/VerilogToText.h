@@ -5,6 +5,7 @@
 #include <vector>
 #include <sstream>
 #include <map>
+#include <regex>
 #include "fileconv.h"
 #include <msclr/marshal_cppstd.h>
 
@@ -49,45 +50,46 @@ int VeriToText() {
     //int wireNumber = 1;
 
     // Maps to store element names and their corresponding numbers
-    std::map<std::string, int> gateNumbers;
-    std::map<std::string, int> signalNumbers;
+    map<string, int> gateNumbers;
+    map<string, int> signalNumbers;
     //std::map<std::string, int> wireNumbers;
 
-    while (std::getline(inputFile, line)) {
+    while (getline(inputFile, line)) {
+        smatch match;
         // Skip lines starting with "(* src = "
-        if (line.find("(* src = ") != std::string::npos) {
+        if (line.find("(* src = ") != string::npos) {
             continue;
         }
 
         // Check if this line defines a gate instance
-        if (line.find("NOT") != std::string::npos || line.find("OR") != std::string::npos ||
-            line.find("NAND") != std::string::npos || line.find("AND") != std::string::npos || line.find("NOR") != std::string::npos || line.find("XOR") != std::string::npos || line.find("BUF") != std::string::npos)
+        if (line.find("NOT") != string::npos || line.find("OR") != string::npos ||
+            line.find("NAND") != string::npos || line.find("AND") != string::npos || line.find("NOR") != string::npos || line.find("XOR") != string::npos || line.find("BUF") != string::npos)
         {
-            if (line.find("NOT") != std::string::npos)
+            if (line.find("NOT") != string::npos)
             {
                 currentGate.type = "INV";
             }
-            else if (line.find("BUF") != std::string::npos)
+            else if (line.find("BUF") != string::npos)
             {
                 currentGate.type = "BUF";
             }
-            else if (line.find("OR") != std::string::npos)
+            else if (line.find("OR") != string::npos)
             {
                 currentGate.type = "OR";
             }
-            else if (line.find("NAND") != std::string::npos)
+            else if (line.find("NAND") != string::npos)
             {
                 currentGate.type = "NAND";
             }
-            else if (line.find("NOR") != std::string::npos)
+            else if (line.find("NOR") != string::npos)
             {
                 currentGate.type = "NOR";
             }
-            else if (line.find("XOR") != std::string::npos)
+            else if (line.find("XOR") != string::npos)
             {
                 currentGate.type = "XOR";
             }
-            else if (line.find("AND") != std::string::npos)
+            else if (line.find("AND") != string::npos)
             {
                 currentGate.type = "AND";
             }
@@ -104,41 +106,48 @@ int VeriToText() {
                 gateNumbers[currentGate.output] = gateNumber++;
             }
         }
-        else if (line.find(".A(") != std::string::npos) {
-            std::istringstream iss(line);
-            iss.ignore(256, '.');
-            iss.ignore(256, 'A');
-            iss.ignore(256, '(');
-            std::getline(iss, currentGate.input1, ')');
-            if (inModule) {
-                if (signalNumbers.find(currentGate.input1) != signalNumbers.end()) {
+        else if (regex_search(line, match, regex("\\.A\\(\\s*([^,)]+)\\s*\\)")))
+        {
+            currentGate.input1 = regex_replace(match[1].str(), regex("\\s+"), "");
+
+            // else if (line.find(".A(") != std::string::npos)
+            // {
+            //     std::istringstream iss(line);
+            //     iss.ignore(256, '.');
+            //     iss.ignore(256, 'A');
+            //     iss.ignore(256, '(');
+            //     std::getline(iss, currentGate.input1, ')');
+            if (inModule)
+            {
+                if (signalNumbers.find(currentGate.input1) != signalNumbers.end())
+                {
                     currentGate.input1 = std::to_string(signalNumbers[currentGate.input1]);
                 }
                 signalNumbers[currentGate.input1] = signalNumber++;
             }
         }
-        else if (line.find(".B(") != std::string::npos) {
-            std::istringstream iss(line);
-            iss.ignore(256, '.');
-            iss.ignore(256, 'B');
-            iss.ignore(256, '(');
-            std::getline(iss, currentGate.input2, ')');
-            if (inModule) {
-                if (signalNumbers.find(currentGate.input2) != signalNumbers.end()) {
-                    currentGate.input2 = std::to_string(signalNumbers[currentGate.input2]);
+        else if (regex_search(line, match, regex("\\.B\\(\\s*([^,)]+)\\s*\\)")))
+        {
+            currentGate.input2 = regex_replace(match[1].str(), regex("\\s+"), "");
+            
+            if (inModule)
+            {
+                if (signalNumbers.find(currentGate.input2) != signalNumbers.end())
+                {
+                    currentGate.input2 = to_string(signalNumbers[currentGate.input2]);
                 }
                 signalNumbers[currentGate.input2] = signalNumber++;
             }
         }
-        else if (line.find(".Y(") != std::string::npos) {
-            std::istringstream iss(line);
-            iss.ignore(256, '.');
-            iss.ignore(256, 'Y');
-            iss.ignore(256, '(');
-            std::getline(iss, currentGate.output, ')');
-            if (inModule) {
-                if (signalNumbers.find(currentGate.output) != signalNumbers.end()) {
-                    currentGate.output = std::to_string(signalNumbers[currentGate.output]);
+        else if (regex_search(line, match, regex("\\.Y\\(\\s*([^,)]+)\\s*\\)")))
+        {
+            currentGate.output = regex_replace(match[1].str(), regex("\\s+"), "");
+                       
+            if (inModule)
+            {
+                if (signalNumbers.find(currentGate.output) != signalNumbers.end())
+                {
+                    currentGate.output = to_string(signalNumbers[currentGate.output]);
                 }
                 gateNumbers[currentGate.output] = gateNumber++;
             }

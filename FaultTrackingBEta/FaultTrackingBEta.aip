@@ -15,10 +15,10 @@
     <ROW Property="ARPPRODUCTICON" Value="icons8circuit64_1.exe" Type="8"/>
     <ROW Property="CTRLS" Value="1"/>
     <ROW Property="Manufacturer" Value="G05"/>
-    <ROW Property="ProductCode" Value="1033:{DB45311A-4E05-4E0B-949C-860DC821184C} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{B1FD5831-7BDD-4694-95BC-02D050283227} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Fault Tracking Framework"/>
-    <ROW Property="ProductVersion" Value="1.0.0" Options="32"/>
+    <ROW Property="ProductVersion" Value="1.1.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EE50C6CD-5F8B-4097-8FC1-D1EEE2773EF1}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -43,6 +43,7 @@
     <ROW Component="FaultTrackin_SymbolsOutput" ComponentId="{846B1E53-CF83-4BFD-A707-78B2804B1B20}" Directory_="FaultTrackin_Dir" Attributes="0" KeyPath="FaultTrackin.pdb"/>
     <ROW Component="ProductInformation" ComponentId="{A22BEBF4-6034-417B-9CA4-607C63F76F3E}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="Readme.rtf" ComponentId="{0AE00986-3774-4C36-A287-A58F8515AC66}" Directory_="FaultTrackin_Dir" Attributes="0" KeyPath="Readme.rtf" Type="0"/>
+    <ROW Component="Readme.rtf_1" ComponentId="{B9F0C705-89BF-4F98-94C4-DD26BC70C140}" Directory_="APPDIR" Attributes="0" KeyPath="Readme.rtf_1" Type="0"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{795C01A9-1503-472C-9089-A82E45A8F2F5}" Directory_="SHORTCUTDIR" Attributes="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -53,6 +54,7 @@
     <ROW File="FaultTrackin.exe" Component_="FaultTrackin_PrimaryOutput" FileName="FAULTT~2.EXE|[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FaultTrackin.exe&gt;" SelfReg="false" DigSign="true"/>
     <ROW File="FaultTrackin.pdb" Component_="FaultTrackin_SymbolsOutput" FileName="FAULTT~2.PDB|[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FaultTrackin.pdb&gt;" SelfReg="false"/>
     <ROW File="Readme.rtf" Component_="Readme.rtf" FileName="Readme.rtf" Attributes="0" SourcePath="FaultTrackingBEta-SetupFiles\Readme.rtf" SelfReg="false"/>
+    <ROW File="Readme.rtf_1" Component_="Readme.rtf_1" FileName="Readme.rtf" Attributes="0" SourcePath="FaultTrackingBEta-SetupFiles\Readme.rtf" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_FaultTrackin.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_FaultTrackin.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.exe]" Type="2" Content="0"/>
@@ -143,6 +145,7 @@
     <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
     <ROW Feature_="MainFeature" Component_="FaultTrackin_SymbolsOutput"/>
     <ROW Feature_="MainFeature" Component_="Readme.rtf"/>
+    <ROW Feature_="MainFeature" Component_="Readme.rtf_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="icons8circuit64_1.exe" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\7 - GUI App\GUI icons\icons8-circuit-64.ico" Index="0"/>

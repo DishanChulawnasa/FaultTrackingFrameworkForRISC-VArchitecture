@@ -1,5 +1,6 @@
 #pragma once
 #include <msclr/marshal_cppstd.h>
+#include <regex>
 #include "podem.h"
 #include "VerilogToText.h"
 #include "SequentialToCombinational.h"
@@ -114,7 +115,7 @@ namespace FaultTrackin {
 
 	private: System::Windows::Forms::Button^ home3;
 
-	private: System::Windows::Forms::Button^ homenext;
+
 	private: System::Windows::Forms::Button^ back1;
 
 	private: System::Windows::Forms::Label^ label7;
@@ -139,10 +140,10 @@ private: System::Windows::Forms::Panel^ titlepnael;
 private: System::Windows::Forms::Button^ button1;
 
 
-private: System::Windows::Forms::Label^ label19;
-private: System::Windows::Forms::Label^ label20;
-private: System::Windows::Forms::Label^ label21;
-private: System::Windows::Forms::Panel^ panel10;
+
+
+
+
 private: System::Windows::Forms::Button^ clear;
 private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 private: System::Windows::Forms::Button^ podem_action;
@@ -155,6 +156,12 @@ private: System::Windows::Forms::Button^ ScanChainInsertButton;
 private: System::Windows::Forms::ProgressBar^ progressBar1;
 private: System::Windows::Forms::ProgressBar^ progressBar2;
 private: System::Windows::Forms::ProgressBar^ progressBar3;
+private: System::Windows::Forms::Label^ label20;
+private: System::Windows::Forms::Button^ homenext;
+private: System::Windows::Forms::Panel^ panel10;
+private: System::Windows::Forms::Label^ label21;
+private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+
 
 
 
@@ -233,10 +240,10 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->home0 = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel10 = (gcnew System::Windows::Forms::Panel());
-			this->homenext = (gcnew System::Windows::Forms::Button());
-			this->label19 = (gcnew System::Windows::Forms::Label());
-			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
+			this->homenext = (gcnew System::Windows::Forms::Button());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
@@ -327,7 +334,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->openyosys->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->openyosys->ForeColor = System::Drawing::Color::LightGray;
-			this->openyosys->Location = System::Drawing::Point(628, 68);
+			this->openyosys->Location = System::Drawing::Point(628, 82);
 			this->openyosys->Name = L"openyosys";
 			this->openyosys->Size = System::Drawing::Size(170, 58);
 			this->openyosys->TabIndex = 0;
@@ -364,7 +371,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->convgnet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->convgnet->ForeColor = System::Drawing::Color::LightGray;
-			this->convgnet->Location = System::Drawing::Point(628, 285);
+			this->convgnet->Location = System::Drawing::Point(628, 259);
 			this->convgnet->Name = L"convgnet";
 			this->convgnet->Size = System::Drawing::Size(170, 58);
 			this->convgnet->TabIndex = 1;
@@ -560,22 +567,36 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->flowLayoutPanel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"flowLayoutPanel1.BackgroundImage")));
 			this->flowLayoutPanel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->flowLayoutPanel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(434, 6);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(431, 35);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(401, 490);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(401, 459);
 			this->flowLayoutPanel1->TabIndex = 14;
 			// 
 			// panel10
 			// 
-			this->panel10->Controls->Add(this->homenext);
-			this->panel10->Controls->Add(this->label19);
-			this->panel10->Controls->Add(this->label20);
 			this->panel10->Controls->Add(this->label21);
+			this->panel10->Controls->Add(this->homenext);
+			this->panel10->Controls->Add(this->label20);
+			this->panel10->Controls->Add(this->flowLayoutPanel2);
 			this->panel10->Location = System::Drawing::Point(9, 46);
 			this->panel10->Name = L"panel10";
-			this->panel10->Size = System::Drawing::Size(395, 433);
+			this->panel10->Size = System::Drawing::Size(434, 455);
 			this->panel10->TabIndex = 18;
+			// 
+			// label21
+			// 
+			this->label21->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->label21->AutoSize = true;
+			this->label21->BackColor = System::Drawing::Color::Transparent;
+			this->label21->Font = (gcnew System::Drawing::Font(L"Roboto", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label21->ForeColor = System::Drawing::SystemColors::Control;
+			this->label21->Location = System::Drawing::Point(71, 12);
+			this->label21->Name = L"label21";
+			this->label21->Size = System::Drawing::Size(327, 54);
+			this->label21->TabIndex = 4;
+			this->label21->Text = L"FAULT TRACKING FRAMEWORK\r\n FOR RISC-V ARCHITECTURE\r\n";
+			this->label21->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// homenext
 			// 
@@ -587,54 +608,36 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->homenext->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homenext->ForeColor = System::Drawing::Color::LightGray;
-			this->homenext->Location = System::Drawing::Point(126, 343);
+			this->homenext->Location = System::Drawing::Point(171, 381);
 			this->homenext->Name = L"homenext";
-			this->homenext->Size = System::Drawing::Size(161, 49);
+			this->homenext->Size = System::Drawing::Size(91, 35);
 			this->homenext->TabIndex = 12;
 			this->homenext->Text = L"NEXT";
 			this->homenext->UseVisualStyleBackColor = false;
 			this->homenext->Click += gcnew System::EventHandler(this, &fileconv::homenext_Click);
 			// 
-			// label19
-			// 
-			this->label19->AutoSize = true;
-			this->label19->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label19->ForeColor = System::Drawing::Color::LightGray;
-			this->label19->Location = System::Drawing::Point(26, 91);
-			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(410, 276);
-			this->label19->TabIndex = 16;
-			this->label19->Text = resources->GetString(L"label19.Text");
-			this->label19->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			// 
 			// label20
 			// 
 			this->label20->AutoSize = true;
 			this->label20->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label20->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
+			this->label20->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 8, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
 				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label20->ForeColor = System::Drawing::Color::SkyBlue;
-			this->label20->Location = System::Drawing::Point(157, 403);
+			this->label20->Location = System::Drawing::Point(179, 421);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(107, 23);
+			this->label20->Size = System::Drawing::Size(88, 19);
 			this->label20->TabIndex = 17;
 			this->label20->Text = L"User Manual";
 			// 
-			// label21
+			// flowLayoutPanel2
 			// 
-			this->label21->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
-			this->label21->AutoSize = true;
-			this->label21->BackColor = System::Drawing::Color::Transparent;
-			this->label21->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label21->ForeColor = System::Drawing::SystemColors::Control;
-			this->label21->Location = System::Drawing::Point(56, 19);
-			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(329, 60);
-			this->label21->TabIndex = 4;
-			this->label21->Text = L"FAULT TRACKING FRAMEWORK\r\n FOR RISC-V ARCHITECTURE\r\n";
-			this->label21->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->flowLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->flowLayoutPanel2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"flowLayoutPanel2.BackgroundImage")));
+			this->flowLayoutPanel2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->flowLayoutPanel2->Location = System::Drawing::Point(2, 54);
+			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
+			this->flowLayoutPanel2->Size = System::Drawing::Size(423, 336);
+			this->flowLayoutPanel2->TabIndex = 18;
 			// 
 			// tabPage1
 			// 
@@ -690,7 +693,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->ScanChainInsertButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ScanChainInsertButton->ForeColor = System::Drawing::Color::LightGray;
-			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 203);
+			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 171);
 			this->ScanChainInsertButton->Name = L"ScanChainInsertButton";
 			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 58);
 			this->ScanChainInsertButton->TabIndex = 13;
@@ -708,7 +711,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->clear->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->clear->ForeColor = System::Drawing::Color::LightGray;
-			this->clear->Location = System::Drawing::Point(628, 373);
+			this->clear->Location = System::Drawing::Point(628, 348);
 			this->clear->Name = L"clear";
 			this->clear->Size = System::Drawing::Size(170, 45);
 			this->clear->TabIndex = 12;
@@ -726,10 +729,11 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->comseq->ForeColor = System::Drawing::Color::LightGray;
 			this->comseq->FormattingEnabled = true;
 			this->comseq->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Combinational", L"Sequential" });
-			this->comseq->Location = System::Drawing::Point(628, 151);
+			this->comseq->Location = System::Drawing::Point(391, 446);
 			this->comseq->Name = L"comseq";
 			this->comseq->Size = System::Drawing::Size(170, 31);
 			this->comseq->TabIndex = 11;
+			this->comseq->Visible = false;
 			this->comseq->SelectedIndexChanged += gcnew System::EventHandler(this, &fileconv::comseq_SelectedIndexChanged);
 			// 
 			// back1
@@ -1419,9 +1423,9 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			// panel5
 			// 
 			this->panel5->Controls->Add(this->testvector);
-			this->panel5->Location = System::Drawing::Point(47, 330);
+			this->panel5->Location = System::Drawing::Point(47, 290);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(731, 48);
+			this->panel5->Size = System::Drawing::Size(731, 99);
 			this->panel5->TabIndex = 4;
 			// 
 			// testvector
@@ -1437,7 +1441,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->testvector->Multiline = true;
 			this->testvector->Name = L"testvector";
 			this->testvector->ReadOnly = true;
-			this->testvector->Size = System::Drawing::Size(731, 48);
+			this->testvector->Size = System::Drawing::Size(731, 99);
 			this->testvector->TabIndex = 1;
 			// 
 			// label6
@@ -1446,7 +1450,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::LightGray;
-			this->label6->Location = System::Drawing::Point(43, 294);
+			this->label6->Location = System::Drawing::Point(43, 259);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(148, 23);
 			this->label6->TabIndex = 5;
@@ -1458,7 +1462,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::LightGray;
-			this->label5->Location = System::Drawing::Point(43, 107);
+			this->label5->Location = System::Drawing::Point(43, 101);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(178, 23);
 			this->label5->TabIndex = 4;
@@ -1467,9 +1471,9 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			// panel4
 			// 
 			this->panel4->Controls->Add(this->pinodes);
-			this->panel4->Location = System::Drawing::Point(47, 148);
+			this->panel4->Location = System::Drawing::Point(47, 135);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(731, 124);
+			this->panel4->Size = System::Drawing::Size(731, 107);
 			this->panel4->TabIndex = 3;
 			// 
 			// pinodes
@@ -1477,7 +1481,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->pinodes->BackColor = System::Drawing::Color::LightGray;
 			this->pinodes->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->pinodes->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pinodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->pinodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->pinodes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
@@ -1486,7 +1490,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->pinodes->Name = L"pinodes";
 			this->pinodes->ReadOnly = true;
 			this->pinodes->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-			this->pinodes->Size = System::Drawing::Size(731, 124);
+			this->pinodes->Size = System::Drawing::Size(731, 107);
 			this->pinodes->TabIndex = 1;
 			// 
 			// podemprogress
@@ -1495,7 +1499,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->podemprogress->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->podemprogress->ForeColor = System::Drawing::Color::PowderBlue;
-			this->podemprogress->Location = System::Drawing::Point(313, 66);
+			this->podemprogress->Location = System::Drawing::Point(313, 60);
 			this->podemprogress->Name = L"podemprogress";
 			this->podemprogress->Size = System::Drawing::Size(150, 30);
 			this->podemprogress->TabIndex = 2;
@@ -1540,12 +1544,12 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 			this->label1->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::Control;
 			this->label1->Location = System::Drawing::Point(296, 21);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(296, 28);
+			this->label1->Size = System::Drawing::Size(299, 24);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"FAULT TRACKING FRAMEWORK";
 			// 
@@ -1658,15 +1662,18 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 	private: System::Void openyosys_Click(System::Object^ sender, System::EventArgs^ e) {
 		//clear->Enabled = true;
 		//comseq->Enabled = true;
+		
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			StreamReader^ sr = gcnew StreamReader(openFileDialog1->FileName);
-			comseq->SelectedIndex = -1;
+			//comseq->SelectedIndex = -1;
+			ScanChainInsertButton->Enabled = true;
 			progressBar1->Value = 0;
+			progressBar2->Value = 0;
 			showyosys->Text = sr->ReadToEnd();
 			convgnet->Enabled = false;
 			if (File::Exists(openFileDialog1->FileName)) {
 				clear->Enabled = true;
-				comseq->Enabled = true;
+				//comseq->Enabled = true;
 				nextbutton->Enabled = false;
 			}
 		}
@@ -1719,13 +1726,13 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 		faultnode->Text = "";
 		errlabel->Visible = false;
 		stkat->SelectedIndex = -1;
-		comseq->SelectedIndex = -1;
+		//comseq->SelectedIndex = -1;
 		next2->Enabled = false;
 		P_func.clearfiles();
 		pinodes->Text = "";
 		testvector->Text = "";
 		convgnet->Enabled = false;
-		comseq->Enabled = false;
+		// comseq->Enabled = false;
 		clear->Enabled = false;
 		nextbutton->Enabled = false;
 		showyosys->Text = "";
@@ -1771,13 +1778,15 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 	private: System::Void back1_Click(System::Object^ sender, System::EventArgs^ e) {
 		showyosys->Text = "";
 		gatenet->Text = "";
+		ScanChainInsertButton->Enabled = false;
 		nextbutton->Enabled = false;
 		convgnet->Enabled = false;
-		comseq->Enabled = false;
+		//comseq->Enabled = false;
 		nextbutton->Enabled = false;
 		clear->Enabled = false;
-		comseq->SelectedIndex = -1;
+		//comseq->SelectedIndex = -1;
 		progressBar1->Value = 0;
+		progressBar2->Value = 0;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[0];
@@ -1786,8 +1795,9 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 	
 	
 	private: System::Void convgnet_Click(System::Object^ sender, System::EventArgs^ e) {
+		convgnet->Enabled = false;
 		progressBar2->Visible = true;
-		System::String^ selectedItem = comseq->SelectedItem->ToString();
+		//System::String^ selectedItem = comseq->SelectedItem->ToString();
 		
 		nextbutton->Enabled = true;
 	
@@ -1795,13 +1805,14 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
 		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
 		moduleNameLabel->Text = inputVeilogFileName;
+		inputVeilogFileDirectory = "InsertedScanChainFile.v";
 
-		if (selectedItem == "Combinational") {
-			inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);			
-		}
-		else if (selectedItem == "Sequential") {
-			inputVeilogFileDirectory = "InsertedScanChainFile.v";			
-		}		
+		//if (selectedItem == "Combinational") {
+		//	inputVeilogFileDirectory = msclr::interop::marshal_as<std::string>(inputVeilogFileDirec + "/" + inputVeilogFileName);			
+		//}
+		//else if (selectedItem == "Sequential") {
+		//	inputVeilogFileDirectory = "InsertedScanChainFile.v";			
+		//}		
 
 		// Initialize the ProgressBar properties
 		progressBar2->Cursor = Cursors::WaitCursor;
@@ -1899,12 +1910,14 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 	private: System::Void clear_Click(System::Object^ sender, System::EventArgs^ e) {
 		showyosys->Text = "";
 		gatenet->Text = "";
-		comseq->SelectedIndex = -1;
+		//comseq->SelectedIndex = -1;
 		nextbutton->Enabled = false;
 		convgnet->Enabled = false;
-		comseq->Enabled = false;
+		//comseq->Enabled = false;
 		clear->Enabled = false;
 		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		ScanChainInsertButton->Enabled = false;
 	}
 	private: System::Void faultnode_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		if (!Char::IsDigit(e->KeyChar) && !Char::IsControl(e->KeyChar)) {
@@ -1953,6 +1966,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 	}
 
 	private: System::Void podem_action_Click(System::Object^ sender, System::EventArgs^ e) {
+		podem_action->Enabled = false;
 		podemprogress->ForeColor = System::Drawing::Color::PowderBlue;
 
 		int result = 0;
@@ -2051,6 +2065,7 @@ private: System::Windows::Forms::ProgressBar^ progressBar3;
 
 	}
 	private: System::Void ScanChainInsertButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		ScanChainInsertButton->Enabled = false;
 		progressBar2->Visible = false;
 		System::String^ filepath4 = openFileDialog1->FileName;
 		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath4);
