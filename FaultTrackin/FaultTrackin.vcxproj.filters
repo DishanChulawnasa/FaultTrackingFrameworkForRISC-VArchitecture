@@ -32,5 +32,8 @@
     <ClInclude Include="SequentialToCombinational.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="YosysModuleExporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

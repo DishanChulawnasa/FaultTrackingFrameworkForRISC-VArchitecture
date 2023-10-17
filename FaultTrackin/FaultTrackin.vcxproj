@@ -130,6 +130,7 @@
     <ClInclude Include="podem.h" />
     <ClInclude Include="SequentialToCombinational.h" />
     <ClInclude Include="VerilogToText.h" />
+    <ClInclude Include="YosysModuleExporter.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="fileconv.resx">

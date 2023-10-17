@@ -194,7 +194,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="AI_PROPPATH_FILENAME_PERBUILD_Fault" Directory_="DesktopFolder" Name="FAULTT~1.EXE|[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.exe]" Component_="FaultTrackin_PrimaryOutput" Target="[#FaultTrackin.exe]" Hotkey="0" Icon_="icons8circuit64_1.exe" IconIndex="0" ShowCmd="1" WkDir="FaultTrackin_Dir" CustomFlags="1"/>
-    <ROW Shortcut="FaultTrackin" Directory_="SHORTCUTDIR" Name="FAULTT~1|FaultTrackin" Component_="FaultTrackin_PrimaryOutput" Target="[#FaultTrackin.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="FaultTrackin" Directory_="SHORTCUTDIR" Name="FAULTT~2|FaultTrackingFramework" Component_="FaultTrackin_PrimaryOutput" Target="[#FaultTrackin.exe]" Hotkey="0" Icon_="icons8circuit64_1.exe" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>
