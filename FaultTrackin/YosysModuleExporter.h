@@ -53,8 +53,8 @@ int YosysModuleExporter1() {
 
     if (CreateProcess(procDirec, NULL, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi)) {
         // Prompt the user for a module name
-       // std::string moduleName = VerilogModulePath;
-          std::string moduleName = "ADDER";
+         std::string moduleName = VerilogModulePath;
+          //std::string moduleName = "ADDER";
           std::string savepath = "D:/SoftwareFrameWork/YosysOutputs/";
         //std::cout << "Enter the module name: ";
         //std::cin >> moduleName;
@@ -92,7 +92,7 @@ int YosysModuleExporter1() {
             DWORD bytesRead;
             if (ReadFile(hChildStdoutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL)) {
                 //buffer[bytesRead] = '\0'; // Null-terminate the received data.
-                std::cout << buffer; // Print Yosys output to the console
+                //std::cout << buffer; // Print Yosys output to the console
                 //break;
             }
         }

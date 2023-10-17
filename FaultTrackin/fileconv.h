@@ -150,8 +150,8 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 private: System::Windows::Forms::TabPage^ tabPage7;
 private: System::Windows::Forms::Label^ label24;
 private: System::Windows::Forms::Button^ button12;
-private: System::Windows::Forms::ProgressBar^ progressBar4;
-private: System::Windows::Forms::ProgressBar^ progressBar5;
+
+
 private: System::Windows::Forms::Button^ YosysModuleExporter;
 
 private: System::Windows::Forms::Button^ button14;
@@ -226,8 +226,8 @@ private: System::Windows::Forms::Button^ back2;
 private: System::Windows::Forms::Panel^ panel1;
 private: System::Windows::Forms::TextBox^ gatenet;
 private: System::Windows::Forms::TabPage^ tabPage1;
-private: System::Windows::Forms::Label^ label19;
-private: System::Windows::Forms::Button^ O;
+
+
 private: System::Windows::Forms::ProgressBar^ progressBar2;
 private: System::Windows::Forms::ProgressBar^ progressBar1;
 private: System::Windows::Forms::Button^ ScanChainInsertButton;
@@ -266,6 +266,8 @@ private: System::Windows::Forms::TabControl^ tabControl1;
 private: System::Windows::Forms::OpenFileDialog^ openFileDialog2;
 private: System::Windows::Forms::Button^ OpenVerilogDesignButton;
 private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
+private: System::Windows::Forms::Button^ SavePathYosysButtom;
+
 
 
 
@@ -373,8 +375,6 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->OpenVerilogDesignButton = (gcnew System::Windows::Forms::Button());
 			this->label24 = (gcnew System::Windows::Forms::Label());
 			this->button12 = (gcnew System::Windows::Forms::Button());
-			this->progressBar4 = (gcnew System::Windows::Forms::ProgressBar());
-			this->progressBar5 = (gcnew System::Windows::Forms::ProgressBar());
 			this->YosysModuleExporter = (gcnew System::Windows::Forms::Button());
 			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->button15 = (gcnew System::Windows::Forms::Button());
@@ -444,8 +444,6 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->gatenet = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->label19 = (gcnew System::Windows::Forms::Label());
-			this->O = (gcnew System::Windows::Forms::Button());
 			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->ScanChainInsertButton = (gcnew System::Windows::Forms::Button());
@@ -483,6 +481,7 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->SavePathYosysButtom = (gcnew System::Windows::Forms::Button());
 			this->titlepnael->SuspendLayout();
 			this->tabPage7->SuspendLayout();
 			this->panel11->SuspendLayout();
@@ -597,11 +596,10 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->tabPage7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage7->Controls->Add(this->SavePathYosysButtom);
 			this->tabPage7->Controls->Add(this->OpenVerilogDesignButton);
 			this->tabPage7->Controls->Add(this->label24);
 			this->tabPage7->Controls->Add(this->button12);
-			this->tabPage7->Controls->Add(this->progressBar4);
-			this->tabPage7->Controls->Add(this->progressBar5);
 			this->tabPage7->Controls->Add(this->YosysModuleExporter);
 			this->tabPage7->Controls->Add(this->button14);
 			this->tabPage7->Controls->Add(this->button15);
@@ -627,9 +625,9 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->OpenVerilogDesignButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->OpenVerilogDesignButton->ForeColor = System::Drawing::Color::LightGray;
-			this->OpenVerilogDesignButton->Location = System::Drawing::Point(628, 192);
+			this->OpenVerilogDesignButton->Location = System::Drawing::Point(30, 184);
 			this->OpenVerilogDesignButton->Name = L"OpenVerilogDesignButton";
-			this->OpenVerilogDesignButton->Size = System::Drawing::Size(170, 65);
+			this->OpenVerilogDesignButton->Size = System::Drawing::Size(170, 68);
 			this->OpenVerilogDesignButton->TabIndex = 18;
 			this->OpenVerilogDesignButton->Text = L"OPEN VERILOG DESIGN";
 			this->OpenVerilogDesignButton->UseVisualStyleBackColor = false;
@@ -642,11 +640,12 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->label24->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label24->ForeColor = System::Drawing::SystemColors::ActiveCaption;
-			this->label24->Location = System::Drawing::Point(690, 142);
+			this->label24->Location = System::Drawing::Point(90, 143);
 			this->label24->Name = L"label24";
 			this->label24->Size = System::Drawing::Size(80, 20);
 			this->label24->TabIndex = 17;
 			this->label24->Text = L"For YOSYS";
+			this->label24->Click += gcnew System::EventHandler(this, &fileconv::label24_Click);
 			// 
 			// button12
 			// 
@@ -663,30 +662,12 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->button12->Location = System::Drawing::Point(669, 136);
+			this->button12->Location = System::Drawing::Point(69, 137);
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(21, 25);
 			this->button12->TabIndex = 16;
 			this->button12->UseVisualStyleBackColor = true;
-			// 
-			// progressBar4
-			// 
-			this->progressBar4->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->progressBar4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->progressBar4->Location = System::Drawing::Point(21, 419);
-			this->progressBar4->Name = L"progressBar4";
-			this->progressBar4->Size = System::Drawing::Size(584, 10);
-			this->progressBar4->TabIndex = 15;
-			this->progressBar4->Visible = false;
-			// 
-			// progressBar5
-			// 
-			this->progressBar5->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->progressBar5->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->progressBar5->Location = System::Drawing::Point(21, 418);
-			this->progressBar5->Name = L"progressBar5";
-			this->progressBar5->Size = System::Drawing::Size(584, 10);
-			this->progressBar5->TabIndex = 14;
+			this->button12->Click += gcnew System::EventHandler(this, &fileconv::button12_Click);
 			// 
 			// YosysModuleExporter
 			// 
@@ -697,9 +678,9 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->YosysModuleExporter->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->YosysModuleExporter->ForeColor = System::Drawing::Color::LightGray;
-			this->YosysModuleExporter->Location = System::Drawing::Point(628, 277);
+			this->YosysModuleExporter->Location = System::Drawing::Point(30, 338);
 			this->YosysModuleExporter->Name = L"YosysModuleExporter";
-			this->YosysModuleExporter->Size = System::Drawing::Size(170, 65);
+			this->YosysModuleExporter->Size = System::Drawing::Size(170, 63);
 			this->YosysModuleExporter->TabIndex = 13;
 			this->YosysModuleExporter->Text = L"CONVERT TO NETLIST";
 			this->YosysModuleExporter->UseVisualStyleBackColor = false;
@@ -715,9 +696,9 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->button14->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button14->ForeColor = System::Drawing::Color::LightGray;
-			this->button14->Location = System::Drawing::Point(628, 365);
+			this->button14->Location = System::Drawing::Point(321, 431);
 			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(170, 48);
+			this->button14->Size = System::Drawing::Size(170, 49);
 			this->button14->TabIndex = 12;
 			this->button14->Text = L"CLEAR";
 			this->button14->UseVisualStyleBackColor = false;
@@ -881,9 +862,9 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->LoadYosysButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LoadYosysButton->ForeColor = System::Drawing::Color::LightGray;
-			this->LoadYosysButton->Location = System::Drawing::Point(628, 74);
+			this->LoadYosysButton->Location = System::Drawing::Point(30, 84);
 			this->LoadYosysButton->Name = L"LoadYosysButton";
-			this->LoadYosysButton->Size = System::Drawing::Size(170, 58);
+			this->LoadYosysButton->Size = System::Drawing::Size(170, 47);
 			this->LoadYosysButton->TabIndex = 0;
 			this->LoadYosysButton->Text = L"LOAD YOSYS";
 			this->LoadYosysButton->UseVisualStyleBackColor = false;
@@ -910,9 +891,9 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			// 
 			this->panel12->AutoScroll = true;
 			this->panel12->Controls->Add(this->YOSYStxtBox);
-			this->panel12->Location = System::Drawing::Point(21, 59);
+			this->panel12->Location = System::Drawing::Point(242, 67);
 			this->panel12->Name = L"panel12";
-			this->panel12->Size = System::Drawing::Size(584, 359);
+			this->panel12->Size = System::Drawing::Size(556, 348);
 			this->panel12->TabIndex = 4;
 			// 
 			// YOSYStxtBox
@@ -927,7 +908,7 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->YOSYStxtBox->Name = L"YOSYStxtBox";
 			this->YOSYStxtBox->ReadOnly = true;
 			this->YOSYStxtBox->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->YOSYStxtBox->Size = System::Drawing::Size(584, 359);
+			this->YOSYStxtBox->Size = System::Drawing::Size(556, 348);
 			this->YOSYStxtBox->TabIndex = 0;
 			// 
 			// tabPage5
@@ -1734,8 +1715,6 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->tabPage1->Controls->Add(this->label19);
-			this->tabPage1->Controls->Add(this->O);
 			this->tabPage1->Controls->Add(this->progressBar2);
 			this->tabPage1->Controls->Add(this->progressBar1);
 			this->tabPage1->Controls->Add(this->ScanChainInsertButton);
@@ -1755,42 +1734,6 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->tabPage1->Size = System::Drawing::Size(833, 498);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"File Conversion";
-			// 
-			// label19
-			// 
-			this->label19->AutoSize = true;
-			this->label19->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label19->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label19->ForeColor = System::Drawing::SystemColors::ActiveCaption;
-			this->label19->Location = System::Drawing::Point(690, 149);
-			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(80, 20);
-			this->label19->TabIndex = 17;
-			this->label19->Text = L"For YOSYS";
-			this->label19->Click += gcnew System::EventHandler(this, &fileconv::label19_Click);
-			// 
-			// O
-			// 
-			this->O->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"O.BackgroundImage")));
-			this->O->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->O->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->O->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
-				static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->O->FlatAppearance->BorderSize = 0;
-			this->O->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
-				static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->O->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
-				static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->O->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->O->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
-				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->O->Location = System::Drawing::Point(669, 143);
-			this->O->Name = L"O";
-			this->O->Size = System::Drawing::Size(21, 25);
-			this->O->TabIndex = 16;
-			this->O->UseVisualStyleBackColor = true;
-			this->O->Click += gcnew System::EventHandler(this, &fileconv::O_Click);
 			// 
 			// progressBar2
 			// 
@@ -1821,7 +1764,7 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->ScanChainInsertButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ScanChainInsertButton->ForeColor = System::Drawing::Color::LightGray;
-			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 189);
+			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 172);
 			this->ScanChainInsertButton->Name = L"ScanChainInsertButton";
 			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 58);
 			this->ScanChainInsertButton->TabIndex = 13;
@@ -2084,7 +2027,7 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->convgnet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->convgnet->ForeColor = System::Drawing::Color::LightGray;
-			this->convgnet->Location = System::Drawing::Point(628, 274);
+			this->convgnet->Location = System::Drawing::Point(628, 265);
 			this->convgnet->Name = L"convgnet";
 			this->convgnet->Size = System::Drawing::Size(170, 58);
 			this->convgnet->TabIndex = 1;
@@ -2345,6 +2288,23 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			// 
 			this->openFileDialog3->FileName = L"openFileDialog3";
 			// 
+			// SavePathYosysButtom
+			// 
+			this->SavePathYosysButtom->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->SavePathYosysButtom->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->SavePathYosysButtom->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->SavePathYosysButtom->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SavePathYosysButtom->ForeColor = System::Drawing::Color::LightGray;
+			this->SavePathYosysButtom->Location = System::Drawing::Point(30, 269);
+			this->SavePathYosysButtom->Name = L"SavePathYosysButtom";
+			this->SavePathYosysButtom->Size = System::Drawing::Size(170, 52);
+			this->SavePathYosysButtom->TabIndex = 19;
+			this->SavePathYosysButtom->Text = L"SELECT SAVE FOLDER";
+			this->SavePathYosysButtom->UseVisualStyleBackColor = false;
+			this->SavePathYosysButtom->Click += gcnew System::EventHandler(this, &fileconv::SavePathYosysButtom_Click);
+			// 
 			// fileconv
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
@@ -2390,7 +2350,6 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->tabPage1->ResumeLayout(false);
-			this->tabPage1->PerformLayout();
 			this->panel6->ResumeLayout(false);
 			this->panel6->PerformLayout();
 			this->panel2->ResumeLayout(false);
@@ -2939,6 +2898,15 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 	}
 	private: System::Void YosysModuleExporter_Click(System::Object^ sender, System::EventArgs^ e) {
 		YosysModuleExporter1();
+	}
+	private: System::Void label24_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("https://yosyshq.net/yosys/");
+	}
+	private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("https://yosyshq.net/yosys/");
+	}
+	private: System::Void SavePathYosysButtom_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	}
 };
 }
