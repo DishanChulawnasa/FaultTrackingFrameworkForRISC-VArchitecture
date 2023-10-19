@@ -2891,6 +2891,8 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 	}
 
 	private: System::Void OpenVerilogDesignButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		txtOutput.clear();
+		YOSYStxtBox->Text = "";
 		if (openFileDialog3->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			System::String^ verilogModulePathTemp = openFileDialog3->FileName;
 			VerilogModulePath = msclr::interop::marshal_as<std::string>(verilogModulePathTemp);
@@ -2898,6 +2900,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 		}
 	}
 	private: System::Void YosysModuleExporter_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 		YosysModuleExporter1();
 		YOSYStxtBox->Text = msclr::interop::marshal_as<System::String^>(txtOutput);
 	}

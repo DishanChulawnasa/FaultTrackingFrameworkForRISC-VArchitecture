@@ -40,14 +40,14 @@ int YosysModuleExporter1() {
         MultiByteToWideChar(CP_UTF8, 0, importYosysToolTemp.c_str(), -1, &importYosysTool[0], wideStrLength);
         std::wstring batchFileLocation = importYosysTool;
 
-        //LPWSTR procDirec = const_cast<LPWSTR>(batchFileLocation.c_str());
-        LPWSTR procDirec = (LPWSTR)L"D:/yosys/oss-cad-suite/start.bat";
+        LPWSTR procDirec = const_cast<LPWSTR>(batchFileLocation.c_str());
+        //LPWSTR procDirec = (LPWSTR)L"D:/yosys/oss-cad-suite/start.bat";
 
         if (CreateProcess(procDirec, NULL, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi)) {
             std::string moduleLocation = VerilogModulePath;
             //std::string moduleLocation = "D:/yosys/oss-cad-suite/start.bat";
-            //std::string savepath = selectedFolder;
-            std::string savepath = "D:/SoftwareFrameWork/YosysOutputs/";
+            std::string savepath = selectedFolder;
+            //std::string savepath = "D:/SoftwareFrameWork/YosysOutputs/";
             size_t lastSlash = moduleLocation.find_last_of("/\\");
             if (lastSlash != std::string::npos) {
                 std::string moduleNameWithExtension = moduleLocation.substr(lastSlash + 1);
@@ -56,7 +56,7 @@ int YosysModuleExporter1() {
 
                 std::vector<std::string> commands = {
                     "yosys\n",
-                    "read_verilog " + moduleName + ".v\n",
+                    "read_verilog " + moduleLocation + "\n",
                     "splitnets -ports\n",
                     "read_verilog -lib cmos_cells.v\n",
                     "synth\n",
@@ -69,27 +69,27 @@ int YosysModuleExporter1() {
                     "exit\n"
                 };
 
-                int NumberofBytes;
+                int NumberofBytes = 25000;
                 if (moduleName == "ADDER") {
-                    NumberofBytes = 21698;
+                    NumberofBytes = 22000;
                 }
                 if (moduleName == "ALU") {
-                    NumberofBytes = 13947;
+                    NumberofBytes = 25600;
                 }
                 if (moduleName == "ALU_Control") {
-                    NumberofBytes = 13971;
+                    NumberofBytes = 24500;
                 }
                 if (moduleName == "Control") {
-                    NumberofBytes = 13959;
+                    NumberofBytes = 25500;
                 }
                 if (moduleName == "Data_Mem") {
-                    NumberofBytes = 13962;
+                    NumberofBytes = 63000;
                 }
                 if (moduleName == "EX_Mem") {
-                    NumberofBytes = 13956;
+                    NumberofBytes = 23000;
                 }
                 if (moduleName == "Forwarding_MUX") {
-                    NumberofBytes = 13970;
+                    NumberofBytes = 23000;
                 }
                 if (moduleName == "Forwarding_unit") {
                     NumberofBytes = 25000;
@@ -107,7 +107,7 @@ int YosysModuleExporter1() {
                     NumberofBytes = 123700;
                 }
                 if (moduleName == "MEM_WB") {
-                    NumberofBytes = 22000;
+                    NumberofBytes = 21700;
                 }
                 if (moduleName == "MUX_Control") {
                     NumberofBytes = 24300;
@@ -144,7 +144,7 @@ int YosysModuleExporter1() {
 
                 char buffer[2]{};
                 DWORD bytesRead;
-                for (int i = 0; i <= 13947; i++) {
+                for (int i = 0; i <= NumberofBytes; i++) {
                     if (ReadFile(hChildStdoutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL));
                     //std::cout << buffer;
                 //while (ReadFile(hChildStdoutRead, buffer, sizeof(buffer) - 1, &bytesRead, NULL) && bytesRead > 0) {
