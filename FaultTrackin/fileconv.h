@@ -2484,7 +2484,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 
 	}
 	private: System::Void homenext_Click(System::Object^ sender, System::EventArgs^ e) {
-		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl7"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[1];
 		}
