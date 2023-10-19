@@ -146,7 +146,7 @@ private: System::Windows::Forms::Button^ button1;
 
 
 
-private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+
 private: System::Windows::Forms::TabPage^ tabPage7;
 private: System::Windows::Forms::Label^ label24;
 private: System::Windows::Forms::Button^ button12;
@@ -267,6 +267,7 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog2;
 private: System::Windows::Forms::Button^ OpenVerilogDesignButton;
 private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 private: System::Windows::Forms::Button^ SavePathYosysButtom;
+private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 
 
 
@@ -370,8 +371,8 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 			this->closebutton = (gcnew System::Windows::Forms::Button());
 			this->titlepnael = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->SavePathYosysButtom = (gcnew System::Windows::Forms::Button());
 			this->OpenVerilogDesignButton = (gcnew System::Windows::Forms::Button());
 			this->label24 = (gcnew System::Windows::Forms::Label());
 			this->button12 = (gcnew System::Windows::Forms::Button());
@@ -481,7 +482,7 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->SavePathYosysButtom = (gcnew System::Windows::Forms::Button());
+			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->titlepnael->SuspendLayout();
 			this->tabPage7->SuspendLayout();
 			this->panel11->SuspendLayout();
@@ -615,6 +616,23 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 			this->tabPage7->Size = System::Drawing::Size(833, 498);
 			this->tabPage7->TabIndex = 6;
 			this->tabPage7->Text = L"YOSYS Tool";
+			// 
+			// SavePathYosysButtom
+			// 
+			this->SavePathYosysButtom->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->SavePathYosysButtom->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->SavePathYosysButtom->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->SavePathYosysButtom->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SavePathYosysButtom->ForeColor = System::Drawing::Color::LightGray;
+			this->SavePathYosysButtom->Location = System::Drawing::Point(30, 269);
+			this->SavePathYosysButtom->Name = L"SavePathYosysButtom";
+			this->SavePathYosysButtom->Size = System::Drawing::Size(170, 52);
+			this->SavePathYosysButtom->TabIndex = 19;
+			this->SavePathYosysButtom->Text = L"SELECT SAVE FOLDER";
+			this->SavePathYosysButtom->UseVisualStyleBackColor = false;
+			this->SavePathYosysButtom->Click += gcnew System::EventHandler(this, &fileconv::SavePathYosysButtom_Click);
 			// 
 			// OpenVerilogDesignButton
 			// 
@@ -898,11 +916,11 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 			// 
 			// YOSYStxtBox
 			// 
-			this->YOSYStxtBox->BackColor = System::Drawing::Color::LightGray;
+			this->YOSYStxtBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->YOSYStxtBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->YOSYStxtBox->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->YOSYStxtBox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->YOSYStxtBox->ForeColor = System::Drawing::Color::LightGray;
 			this->YOSYStxtBox->Location = System::Drawing::Point(0, 0);
 			this->YOSYStxtBox->Multiline = true;
 			this->YOSYStxtBox->Name = L"YOSYStxtBox";
@@ -2288,23 +2306,6 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 			// 
 			this->openFileDialog3->FileName = L"openFileDialog3";
 			// 
-			// SavePathYosysButtom
-			// 
-			this->SavePathYosysButtom->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->SavePathYosysButtom->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
-			this->SavePathYosysButtom->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->SavePathYosysButtom->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->SavePathYosysButtom->ForeColor = System::Drawing::Color::LightGray;
-			this->SavePathYosysButtom->Location = System::Drawing::Point(30, 269);
-			this->SavePathYosysButtom->Name = L"SavePathYosysButtom";
-			this->SavePathYosysButtom->Size = System::Drawing::Size(170, 52);
-			this->SavePathYosysButtom->TabIndex = 19;
-			this->SavePathYosysButtom->Text = L"SELECT SAVE FOLDER";
-			this->SavePathYosysButtom->UseVisualStyleBackColor = false;
-			this->SavePathYosysButtom->Click += gcnew System::EventHandler(this, &fileconv::SavePathYosysButtom_Click);
-			// 
 			// fileconv
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
@@ -2892,12 +2893,13 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 	private: System::Void OpenVerilogDesignButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (openFileDialog3->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			System::String^ verilogModulePathTemp = openFileDialog3->FileName;
-			importYosysToolTemp = msclr::interop::marshal_as<std::string>(verilogModulePathTemp);
+			VerilogModulePath = msclr::interop::marshal_as<std::string>(verilogModulePathTemp);
 			YOSYStxtBox->Text = verilogModulePathTemp;
 		}
 	}
 	private: System::Void YosysModuleExporter_Click(System::Object^ sender, System::EventArgs^ e) {
 		YosysModuleExporter1();
+		YOSYStxtBox->Text = msclr::interop::marshal_as<System::String^>(txtOutput);
 	}
 	private: System::Void label24_Click(System::Object^ sender, System::EventArgs^ e) {
 		System::Diagnostics::Process::Start("https://yosyshq.net/yosys/");
@@ -2906,7 +2908,10 @@ private: System::Windows::Forms::Button^ SavePathYosysButtom;
 		System::Diagnostics::Process::Start("https://yosyshq.net/yosys/");
 	}
 	private: System::Void SavePathYosysButtom_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		if (folderBrowserDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			System::String^ selectedFolderTemp = folderBrowserDialog1->SelectedPath;
+			selectedFolder = msclr::interop::marshal_as<std::string>(selectedFolderTemp);
+		}
 	}
 };
 }
