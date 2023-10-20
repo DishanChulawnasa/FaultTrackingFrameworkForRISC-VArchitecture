@@ -17,10 +17,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://sites.google.com/view/faulttrackingframework/home"/>
     <ROW Property="CTRLS" Value="1"/>
     <ROW Property="Manufacturer" Value="G05"/>
-    <ROW Property="ProductCode" Value="1033:{61CD0B30-CD24-487B-96A0-200AD211EB33} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{96C7D1D0-7598-4F94-BB30-65AA3F4BC324} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Fault Tracking Framework"/>
-    <ROW Property="ProductVersion" Value="1.3.0" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.4.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EE50C6CD-5F8B-4097-8FC1-D1EEE2773EF1}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -57,6 +57,11 @@
     <ROW File="FaultTrackin.pdb" Component_="FaultTrackin_SymbolsOutput" FileName="FAULTT~2.PDB|[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FaultTrackin.pdb&gt;" SelfReg="false"/>
     <ROW File="Readme.rtf" Component_="Readme.rtf" FileName="Readme.rtf" Attributes="0" SourcePath="FaultTrackingBEta-SetupFiles\Readme.rtf" SelfReg="false"/>
     <ROW File="Readme.rtf_1" Component_="Readme.rtf_1" FileName="Readme.rtf" Attributes="0" SourcePath="FaultTrackingBEta-SetupFiles\Readme.rtf" SelfReg="false"/>
+    <ROW File="cmos_cells.lib" Component_="Readme.rtf" FileName="CMOS_C~1.LIB|cmos_cells.lib" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\cmos_cells.lib" SelfReg="false"/>
+    <ROW File="cmos_cells.v" Component_="Readme.rtf" FileName="CMOS_C~1.V|cmos_cells.v" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\cmos_cells.v" SelfReg="false"/>
+    <ROW File="counter.v" Component_="Readme.rtf" FileName="counter.v" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\counter.v" SelfReg="false"/>
+    <ROW File="counter.ys" Component_="Readme.rtf" FileName="counter.ys" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\counter.ys" SelfReg="false"/>
+    <ROW File="counter_tb.v" Component_="Readme.rtf" FileName="COUNTE~1.V|counter_tb.v" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\counter_tb.v" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_FaultTrackin.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_FaultTrackin.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.exe]" Type="2" Content="0"/>

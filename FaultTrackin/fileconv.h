@@ -139,6 +139,7 @@ private: System::Windows::Forms::Button^ closebutton;
 private: System::Windows::Forms::Panel^ titlepnael;
 
 private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::TabPage^ tabPage6;
 
 
 
@@ -147,16 +148,18 @@ private: System::Windows::Forms::Button^ button1;
 
 
 
-private: System::Windows::Forms::TabPage^ tabPage7;
+
 private: System::Windows::Forms::Label^ label24;
 private: System::Windows::Forms::Button^ button12;
 
 
 private: System::Windows::Forms::Button^ YosysModuleExporter;
+private: System::Windows::Forms::Button^ YosysClearButton;
 
-private: System::Windows::Forms::Button^ button14;
 
-private: System::Windows::Forms::Button^ button15;
+private: System::Windows::Forms::Button^ YosysBackButton;
+
+
 private: System::Windows::Forms::Panel^ panel11;
 private: System::Windows::Forms::Label^ label25;
 private: System::Windows::Forms::Label^ label26;
@@ -166,8 +169,9 @@ private: System::Windows::Forms::Label^ label27;
 private: System::Windows::Forms::Button^ button18;
 private: System::Windows::Forms::Button^ button19;
 private: System::Windows::Forms::Button^ LoadYosysButton;
+private: System::Windows::Forms::Button^ YosysNextButton;
 
-private: System::Windows::Forms::Button^ button21;
+
 private: System::Windows::Forms::Panel^ panel12;
 private: System::Windows::Forms::TextBox^ YOSYStxtBox;
 
@@ -268,6 +272,8 @@ private: System::Windows::Forms::Button^ OpenVerilogDesignButton;
 private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 private: System::Windows::Forms::Button^ SavePathYosysButtom;
 private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
+private: System::Windows::Forms::Label^ yosysLabel;
+
 
 
 
@@ -371,14 +377,14 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->closebutton = (gcnew System::Windows::Forms::Button());
 			this->titlepnael = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->SavePathYosysButtom = (gcnew System::Windows::Forms::Button());
 			this->OpenVerilogDesignButton = (gcnew System::Windows::Forms::Button());
 			this->label24 = (gcnew System::Windows::Forms::Label());
 			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->YosysModuleExporter = (gcnew System::Windows::Forms::Button());
-			this->button14 = (gcnew System::Windows::Forms::Button());
-			this->button15 = (gcnew System::Windows::Forms::Button());
+			this->YosysClearButton = (gcnew System::Windows::Forms::Button());
+			this->YosysBackButton = (gcnew System::Windows::Forms::Button());
 			this->panel11 = (gcnew System::Windows::Forms::Panel());
 			this->label25 = (gcnew System::Windows::Forms::Label());
 			this->label26 = (gcnew System::Windows::Forms::Label());
@@ -388,8 +394,9 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->button18 = (gcnew System::Windows::Forms::Button());
 			this->button19 = (gcnew System::Windows::Forms::Button());
 			this->LoadYosysButton = (gcnew System::Windows::Forms::Button());
-			this->button21 = (gcnew System::Windows::Forms::Button());
+			this->YosysNextButton = (gcnew System::Windows::Forms::Button());
 			this->panel12 = (gcnew System::Windows::Forms::Panel());
+			this->yosysLabel = (gcnew System::Windows::Forms::Label());
 			this->YOSYStxtBox = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
@@ -484,7 +491,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->titlepnael->SuspendLayout();
-			this->tabPage7->SuspendLayout();
+			this->tabPage6->SuspendLayout();
 			this->panel11->SuspendLayout();
 			this->panel12->SuspendLayout();
 			this->tabPage5->SuspendLayout();
@@ -592,41 +599,42 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &fileconv::button1_Click);
 			// 
-			// tabPage7
+			// tabPage6
 			// 
-			this->tabPage7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+			this->tabPage6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->tabPage7->Controls->Add(this->SavePathYosysButtom);
-			this->tabPage7->Controls->Add(this->OpenVerilogDesignButton);
-			this->tabPage7->Controls->Add(this->label24);
-			this->tabPage7->Controls->Add(this->button12);
-			this->tabPage7->Controls->Add(this->YosysModuleExporter);
-			this->tabPage7->Controls->Add(this->button14);
-			this->tabPage7->Controls->Add(this->button15);
-			this->tabPage7->Controls->Add(this->panel11);
-			this->tabPage7->Controls->Add(this->LoadYosysButton);
-			this->tabPage7->Controls->Add(this->button21);
-			this->tabPage7->Controls->Add(this->panel12);
-			this->tabPage7->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->tabPage6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage6->Controls->Add(this->SavePathYosysButtom);
+			this->tabPage6->Controls->Add(this->OpenVerilogDesignButton);
+			this->tabPage6->Controls->Add(this->label24);
+			this->tabPage6->Controls->Add(this->button12);
+			this->tabPage6->Controls->Add(this->YosysModuleExporter);
+			this->tabPage6->Controls->Add(this->YosysClearButton);
+			this->tabPage6->Controls->Add(this->YosysBackButton);
+			this->tabPage6->Controls->Add(this->panel11);
+			this->tabPage6->Controls->Add(this->LoadYosysButton);
+			this->tabPage6->Controls->Add(this->YosysNextButton);
+			this->tabPage6->Controls->Add(this->panel12);
+			this->tabPage6->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->tabPage7->Location = System::Drawing::Point(4, 32);
-			this->tabPage7->Name = L"tabPage7";
-			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(833, 498);
-			this->tabPage7->TabIndex = 6;
-			this->tabPage7->Text = L"YOSYS Tool";
+			this->tabPage6->Location = System::Drawing::Point(4, 32);
+			this->tabPage6->Name = L"tabPage6";
+			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage6->Size = System::Drawing::Size(833, 498);
+			this->tabPage6->TabIndex = 6;
+			this->tabPage6->Text = L"YOSYS Tool";
 			// 
 			// SavePathYosysButtom
 			// 
 			this->SavePathYosysButtom->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->SavePathYosysButtom->Enabled = false;
 			this->SavePathYosysButtom->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
 			this->SavePathYosysButtom->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->SavePathYosysButtom->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->SavePathYosysButtom->ForeColor = System::Drawing::Color::LightGray;
-			this->SavePathYosysButtom->Location = System::Drawing::Point(30, 269);
+			this->SavePathYosysButtom->Location = System::Drawing::Point(30, 184);
 			this->SavePathYosysButtom->Name = L"SavePathYosysButtom";
 			this->SavePathYosysButtom->Size = System::Drawing::Size(170, 52);
 			this->SavePathYosysButtom->TabIndex = 19;
@@ -638,12 +646,13 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			// 
 			this->OpenVerilogDesignButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->OpenVerilogDesignButton->Enabled = false;
 			this->OpenVerilogDesignButton->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
 			this->OpenVerilogDesignButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->OpenVerilogDesignButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->OpenVerilogDesignButton->ForeColor = System::Drawing::Color::LightGray;
-			this->OpenVerilogDesignButton->Location = System::Drawing::Point(30, 184);
+			this->OpenVerilogDesignButton->Location = System::Drawing::Point(30, 253);
 			this->OpenVerilogDesignButton->Name = L"OpenVerilogDesignButton";
 			this->OpenVerilogDesignButton->Size = System::Drawing::Size(170, 68);
 			this->OpenVerilogDesignButton->TabIndex = 18;
@@ -691,6 +700,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			// 
 			this->YosysModuleExporter->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->YosysModuleExporter->Enabled = false;
 			this->YosysModuleExporter->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
 			this->YosysModuleExporter->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->YosysModuleExporter->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -704,38 +714,40 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->YosysModuleExporter->UseVisualStyleBackColor = false;
 			this->YosysModuleExporter->Click += gcnew System::EventHandler(this, &fileconv::YosysModuleExporter_Click);
 			// 
-			// button14
+			// YosysClearButton
 			// 
-			this->button14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+			this->YosysClearButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->button14->Enabled = false;
-			this->button14->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
-			this->button14->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button14->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->YosysClearButton->Enabled = false;
+			this->YosysClearButton->FlatAppearance->BorderColor = System::Drawing::Color::LightSkyBlue;
+			this->YosysClearButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->YosysClearButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button14->ForeColor = System::Drawing::Color::LightGray;
-			this->button14->Location = System::Drawing::Point(321, 431);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(170, 49);
-			this->button14->TabIndex = 12;
-			this->button14->Text = L"CLEAR";
-			this->button14->UseVisualStyleBackColor = false;
+			this->YosysClearButton->ForeColor = System::Drawing::Color::LightGray;
+			this->YosysClearButton->Location = System::Drawing::Point(321, 431);
+			this->YosysClearButton->Name = L"YosysClearButton";
+			this->YosysClearButton->Size = System::Drawing::Size(170, 49);
+			this->YosysClearButton->TabIndex = 12;
+			this->YosysClearButton->Text = L"CLEAR";
+			this->YosysClearButton->UseVisualStyleBackColor = false;
+			this->YosysClearButton->Click += gcnew System::EventHandler(this, &fileconv::YosysClearButton_Click);
 			// 
-			// button15
+			// YosysBackButton
 			// 
-			this->button15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+			this->YosysBackButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->button15->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
-			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button15->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->YosysBackButton->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
+			this->YosysBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->YosysBackButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button15->ForeColor = System::Drawing::Color::LightGray;
-			this->button15->Location = System::Drawing::Point(10, 446);
-			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(130, 34);
-			this->button15->TabIndex = 9;
-			this->button15->Text = L"BACK";
-			this->button15->UseVisualStyleBackColor = false;
+			this->YosysBackButton->ForeColor = System::Drawing::Color::LightGray;
+			this->YosysBackButton->Location = System::Drawing::Point(10, 446);
+			this->YosysBackButton->Name = L"YosysBackButton";
+			this->YosysBackButton->Size = System::Drawing::Size(130, 34);
+			this->YosysBackButton->TabIndex = 9;
+			this->YosysBackButton->Text = L"BACK";
+			this->YosysBackButton->UseVisualStyleBackColor = false;
+			this->YosysBackButton->Click += gcnew System::EventHandler(this, &fileconv::YosysBackButton_Click);
 			// 
 			// panel11
 			// 
@@ -888,31 +900,44 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->LoadYosysButton->UseVisualStyleBackColor = false;
 			this->LoadYosysButton->Click += gcnew System::EventHandler(this, &fileconv::LoadYosysButton_Click);
 			// 
-			// button21
+			// YosysNextButton
 			// 
-			this->button21->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+			this->YosysNextButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->button21->Enabled = false;
-			this->button21->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
-			this->button21->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button21->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->YosysNextButton->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->YosysNextButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->YosysNextButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button21->ForeColor = System::Drawing::Color::LightGray;
-			this->button21->Location = System::Drawing::Point(689, 446);
-			this->button21->Name = L"button21";
-			this->button21->Size = System::Drawing::Size(130, 34);
-			this->button21->TabIndex = 6;
-			this->button21->Text = L"NEXT";
-			this->button21->UseVisualStyleBackColor = false;
+			this->YosysNextButton->ForeColor = System::Drawing::Color::LightGray;
+			this->YosysNextButton->Location = System::Drawing::Point(689, 446);
+			this->YosysNextButton->Name = L"YosysNextButton";
+			this->YosysNextButton->Size = System::Drawing::Size(130, 34);
+			this->YosysNextButton->TabIndex = 6;
+			this->YosysNextButton->Text = L"SKIP/NEXT";
+			this->YosysNextButton->UseVisualStyleBackColor = false;
+			this->YosysNextButton->Click += gcnew System::EventHandler(this, &fileconv::YosysNextButton_Click);
 			// 
 			// panel12
 			// 
 			this->panel12->AutoScroll = true;
+			this->panel12->Controls->Add(this->yosysLabel);
 			this->panel12->Controls->Add(this->YOSYStxtBox);
 			this->panel12->Location = System::Drawing::Point(242, 67);
 			this->panel12->Name = L"panel12";
 			this->panel12->Size = System::Drawing::Size(556, 348);
 			this->panel12->TabIndex = 4;
+			// 
+			// yosysLabel
+			// 
+			this->yosysLabel->AutoSize = true;
+			this->yosysLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->yosysLabel->ForeColor = System::Drawing::Color::LightGray;
+			this->yosysLabel->Location = System::Drawing::Point(3, 1);
+			this->yosysLabel->Name = L"yosysLabel";
+			this->yosysLabel->Size = System::Drawing::Size(489, 253);
+			this->yosysLabel->TabIndex = 20;
+			this->yosysLabel->Text = resources->GetString(L"yosysLabel.Text");
 			// 
 			// YOSYStxtBox
 			// 
@@ -1419,6 +1444,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->testPatternForAll->TabIndex = 16;
 			this->testPatternForAll->Text = L"FIND TEST PATTERNS";
 			this->testPatternForAll->UseVisualStyleBackColor = false;
+			this->testPatternForAll->Visible = false;
 			this->testPatternForAll->Click += gcnew System::EventHandler(this, &fileconv::testPatternForAll_Click);
 			// 
 			// progressBar3
@@ -2287,7 +2313,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage5);
-			this->tabControl1->Controls->Add(this->tabPage7);
+			this->tabControl1->Controls->Add(this->tabPage6);
 			this->tabControl1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -2314,8 +2340,8 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->titlepnael);
+			this->Controls->Add(this->tabControl1);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -2326,8 +2352,8 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 			this->TransparencyKey = System::Drawing::Color::Transparent;
 			this->titlepnael->ResumeLayout(false);
 			this->titlepnael->PerformLayout();
-			this->tabPage7->ResumeLayout(false);
-			this->tabPage7->PerformLayout();
+			this->tabPage6->ResumeLayout(false);
+			this->tabPage6->PerformLayout();
 			this->panel11->ResumeLayout(false);
 			this->panel11->PerformLayout();
 			this->panel12->ResumeLayout(false);
@@ -2484,9 +2510,16 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 
 	}
 	private: System::Void homenext_Click(System::Object^ sender, System::EventArgs^ e) {
-		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl7"]);
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
-			tabControl->SelectedTab = tabControl->TabPages[1];
+			tabControl->SelectedTab = tabControl->TabPages[5];
+			YOSYStxtBox->Text = "";
+			YosysClearButton->Enabled = false;
+			SavePathYosysButtom->Enabled = false;
+			YosysModuleExporter->Enabled = false;
+			LoadYosysButton->Enabled = true;
+			OpenVerilogDesignButton->Enabled = false;
+			yosysLabel->Visible = true;
 		}
 	}
 	private: System::Void back1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2503,7 +2536,7 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 		progressBar2->Value = 0;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
-			tabControl->SelectedTab = tabControl->TabPages[0];
+			tabControl->SelectedTab = tabControl->TabPages[5];
 		}
 	}
 	
@@ -2886,21 +2919,29 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 		if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				System::String^ yosystoolpath = openFileDialog2->FileName;
 				importYosysToolTemp = msclr::interop::marshal_as<std::string>(yosystoolpath);
-				YOSYStxtBox->Text = yosystoolpath;	
+				YOSYStxtBox->Text = "YOSYS Tool Loaded from: " + yosystoolpath;
+				SavePathYosysButtom->Enabled = true;
+				//OpenVerilogDesignButton->Enabled = true;
+				YosysClearButton->Enabled = true;
+				yosysLabel->Visible = false;
+				LoadYosysButton->Enabled = false;
+				
 		}
 	}
 
 	private: System::Void OpenVerilogDesignButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
 		txtOutput.clear();
 		YOSYStxtBox->Text = "";
 		if (openFileDialog3->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			System::String^ verilogModulePathTemp = openFileDialog3->FileName;
 			VerilogModulePath = msclr::interop::marshal_as<std::string>(verilogModulePathTemp);
-			YOSYStxtBox->Text = verilogModulePathTemp;
+			YOSYStxtBox->Text = YOSYStxtBox->Text + "\nRISC-V Processor Module Loaded from: " + verilogModulePathTemp;
+			YosysModuleExporter->Enabled = true;
 		}
 	}
 	private: System::Void YosysModuleExporter_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		YosysModuleExporter->Enabled = false;
 		YosysModuleExporter1();
 		YOSYStxtBox->Text = msclr::interop::marshal_as<System::String^>(txtOutput);
 	}
@@ -2911,10 +2952,42 @@ private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 		System::Diagnostics::Process::Start("https://yosyshq.net/yosys/");
 	}
 	private: System::Void SavePathYosysButtom_Click(System::Object^ sender, System::EventArgs^ e) {
+			
 		if (folderBrowserDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			System::String^ selectedFolderTemp = folderBrowserDialog1->SelectedPath;
 			selectedFolder = msclr::interop::marshal_as<std::string>(selectedFolderTemp);
+			SavePathYosysButtom->Enabled = false;
+			YosysModuleExporter->Enabled = true;
+			OpenVerilogDesignButton->Enabled = true;
+			YOSYStxtBox->Text = YOSYStxtBox->Text + "\nYOSYS Converted Netlist Modules will be Exported to: " + selectedFolderTemp;
 		}
+	}
+	private: System::Void YosysBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[0];
+		}
+		YOSYStxtBox->Text = "";
+		YosysClearButton->Enabled = false;
+		SavePathYosysButtom->Enabled = false;
+		YosysModuleExporter->Enabled = false;
+		LoadYosysButton->Enabled = true;
+		OpenVerilogDesignButton->Enabled = false;
+	}
+	private: System::Void YosysNextButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[1];
+		}
+	}
+	private: System::Void YosysClearButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		YOSYStxtBox->Text = "";
+		YosysClearButton->Enabled = false;
+		SavePathYosysButtom->Enabled = false;
+		YosysModuleExporter->Enabled = false;
+		LoadYosysButton->Enabled = true;
+		OpenVerilogDesignButton->Enabled = false;
+		yosysLabel->Visible = true;
 	}
 };
 }

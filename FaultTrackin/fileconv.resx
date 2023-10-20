@@ -206,6 +206,19 @@
         ybD4xo7e39IaL3ZF5pTU8ATSOMyQf5sxKBj2H4QzM8vHdd4iAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="yosysLabel.Text" xml:space="preserve">
+    <value>--------------------
+Load YOSYS Tool:
+--------------------
+
+1. Download oss-cad-suite from 
+   https://sites.google.com/view/faulttrackingframework/home
+
+2. Extract the oss-cad-suite
+
+3. Load the start.bat file from the extracted oss-cad folder.
+    ex: ....\oss-cad-suite\start.bat</value>
+  </data>
   <data name="flowLayoutPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAApMAAAMACAYAAAB4k+ykAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
