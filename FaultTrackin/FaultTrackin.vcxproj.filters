@@ -35,5 +35,11 @@
     <ClInclude Include="YosysModuleExporter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GenerateFaultNodesVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateTextVectors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

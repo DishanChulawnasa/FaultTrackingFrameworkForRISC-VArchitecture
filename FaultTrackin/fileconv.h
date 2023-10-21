@@ -5,6 +5,8 @@
 #include "VerilogToText.h"
 #include "SequentialToCombinational.h"
 #include "YosysModuleExporter.h"
+#include "GenerateFaultNodesVector.h"
+#include "GenerateTextVectors.h"
 
 namespace FaultTrackin {
 
@@ -273,6 +275,24 @@ private: System::Windows::Forms::OpenFileDialog^ openFileDialog3;
 private: System::Windows::Forms::Button^ SavePathYosysButtom;
 private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 private: System::Windows::Forms::Label^ yosysLabel;
+private: System::Windows::Forms::Button^ nextTVGButton;
+
+private: System::Windows::Forms::Button^ backTVGButton;
+private: System::Windows::Forms::Button^ saveTestVectors;
+private: System::Windows::Forms::Button^ FindNodes;
+
+
+
+private: System::Windows::Forms::Label^ label19;
+private: System::Windows::Forms::Label^ ModuleTVGLabel;
+
+private: System::Windows::Forms::Button^ generateTestVectorsButton;
+private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+private: System::Windows::Forms::Button^ Next2TVGtab;
+private: System::Windows::Forms::TabPage^ tabPage7;
+private: System::Windows::Forms::Button^ button13;
+private: System::Windows::Forms::Button^ simulateBackButton;
+
 
 
 
@@ -399,6 +419,14 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->yosysLabel = (gcnew System::Windows::Forms::Label());
 			this->YOSYStxtBox = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->nextTVGButton = (gcnew System::Windows::Forms::Button());
+			this->backTVGButton = (gcnew System::Windows::Forms::Button());
+			this->saveTestVectors = (gcnew System::Windows::Forms::Button());
+			this->FindNodes = (gcnew System::Windows::Forms::Button());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->ModuleTVGLabel = (gcnew System::Windows::Forms::Label());
+			this->generateTestVectorsButton = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -452,6 +480,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->gatenet = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->Next2TVGtab = (gcnew System::Windows::Forms::Button());
 			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->ScanChainInsertButton = (gcnew System::Windows::Forms::Button());
@@ -487,9 +516,12 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->userManualLabel = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->simulateBackButton = (gcnew System::Windows::Forms::Button());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->titlepnael->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			this->panel11->SuspendLayout();
@@ -510,6 +542,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->panel7->SuspendLayout();
 			this->panel10->SuspendLayout();
 			this->tabControl1->SuspendLayout();
+			this->tabPage7->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -574,10 +607,10 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->titlepnael->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(11)), static_cast<System::Int32>(static_cast<System::Byte>(7)),
 				static_cast<System::Int32>(static_cast<System::Byte>(17)));
 			this->titlepnael->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->titlepnael->Controls->Add(this->label1);
 			this->titlepnael->Controls->Add(this->button1);
 			this->titlepnael->Controls->Add(this->closebutton);
 			this->titlepnael->Controls->Add(this->minimize);
-			this->titlepnael->Controls->Add(this->label1);
 			this->titlepnael->Location = System::Drawing::Point(-1, -1);
 			this->titlepnael->Name = L"titlepnael";
 			this->titlepnael->Size = System::Drawing::Size(836, 65);
@@ -745,7 +778,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->YosysBackButton->Name = L"YosysBackButton";
 			this->YosysBackButton->Size = System::Drawing::Size(130, 34);
 			this->YosysBackButton->TabIndex = 9;
-			this->YosysBackButton->Text = L"BACK";
+			this->YosysBackButton->Text = L"<<BACK";
 			this->YosysBackButton->UseVisualStyleBackColor = false;
 			this->YosysBackButton->Click += gcnew System::EventHandler(this, &fileconv::YosysBackButton_Click);
 			// 
@@ -913,7 +946,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->YosysNextButton->Name = L"YosysNextButton";
 			this->YosysNextButton->Size = System::Drawing::Size(130, 34);
 			this->YosysNextButton->TabIndex = 6;
-			this->YosysNextButton->Text = L"SKIP/NEXT";
+			this->YosysNextButton->Text = L"SKIP/NEXT>>";
 			this->YosysNextButton->UseVisualStyleBackColor = false;
 			this->YosysNextButton->Click += gcnew System::EventHandler(this, &fileconv::YosysNextButton_Click);
 			// 
@@ -958,6 +991,14 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			// 
 			this->tabPage5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage5->Controls->Add(this->button13);
+			this->tabPage5->Controls->Add(this->nextTVGButton);
+			this->tabPage5->Controls->Add(this->backTVGButton);
+			this->tabPage5->Controls->Add(this->saveTestVectors);
+			this->tabPage5->Controls->Add(this->FindNodes);
+			this->tabPage5->Controls->Add(this->label19);
+			this->tabPage5->Controls->Add(this->ModuleTVGLabel);
+			this->tabPage5->Controls->Add(this->generateTestVectorsButton);
 			this->tabPage5->Controls->Add(this->panel3);
 			this->tabPage5->Controls->Add(this->AllTextVectorTextBox);
 			this->tabPage5->Location = System::Drawing::Point(4, 32);
@@ -965,7 +1006,138 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage5->Size = System::Drawing::Size(833, 498);
 			this->tabPage5->TabIndex = 4;
-			this->tabPage5->Text = L"Vector Geneartion";
+			this->tabPage5->Text = L"Test Vector Geneartion";
+			// 
+			// button13
+			// 
+			this->button13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->button13->Enabled = false;
+			this->button13->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->button13->FlatAppearance->BorderSize = 3;
+			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button13->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button13->ForeColor = System::Drawing::Color::LightGray;
+			this->button13->Location = System::Drawing::Point(29, 361);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(150, 42);
+			this->button13->TabIndex = 24;
+			this->button13->Text = L"CLEAR";
+			this->button13->UseVisualStyleBackColor = false;
+			this->button13->Click += gcnew System::EventHandler(this, &fileconv::button13_Click);
+			// 
+			// nextTVGButton
+			// 
+			this->nextTVGButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->nextTVGButton->Enabled = false;
+			this->nextTVGButton->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->nextTVGButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->nextTVGButton->ForeColor = System::Drawing::Color::LightGray;
+			this->nextTVGButton->Location = System::Drawing::Point(698, 442);
+			this->nextTVGButton->Name = L"nextTVGButton";
+			this->nextTVGButton->Size = System::Drawing::Size(94, 42);
+			this->nextTVGButton->TabIndex = 23;
+			this->nextTVGButton->Text = L"NEXT>>";
+			this->nextTVGButton->UseVisualStyleBackColor = false;
+			this->nextTVGButton->Click += gcnew System::EventHandler(this, &fileconv::nextTVGButton_Click);
+			// 
+			// backTVGButton
+			// 
+			this->backTVGButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->backTVGButton->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
+			this->backTVGButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->backTVGButton->ForeColor = System::Drawing::Color::LightGray;
+			this->backTVGButton->Location = System::Drawing::Point(15, 442);
+			this->backTVGButton->Name = L"backTVGButton";
+			this->backTVGButton->Size = System::Drawing::Size(94, 42);
+			this->backTVGButton->TabIndex = 22;
+			this->backTVGButton->Text = L"<<BACK";
+			this->backTVGButton->UseVisualStyleBackColor = false;
+			this->backTVGButton->Click += gcnew System::EventHandler(this, &fileconv::backTVGButton_Click);
+			// 
+			// saveTestVectors
+			// 
+			this->saveTestVectors->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->saveTestVectors->Enabled = false;
+			this->saveTestVectors->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->saveTestVectors->FlatAppearance->BorderSize = 3;
+			this->saveTestVectors->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->saveTestVectors->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->saveTestVectors->ForeColor = System::Drawing::Color::LightGray;
+			this->saveTestVectors->Location = System::Drawing::Point(29, 290);
+			this->saveTestVectors->Name = L"saveTestVectors";
+			this->saveTestVectors->Size = System::Drawing::Size(150, 46);
+			this->saveTestVectors->TabIndex = 21;
+			this->saveTestVectors->Text = L"SAVE";
+			this->saveTestVectors->UseVisualStyleBackColor = false;
+			this->saveTestVectors->Click += gcnew System::EventHandler(this, &fileconv::saveTestVectors_Click);
+			// 
+			// FindNodes
+			// 
+			this->FindNodes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->FindNodes->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->FindNodes->FlatAppearance->BorderSize = 3;
+			this->FindNodes->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->FindNodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->FindNodes->ForeColor = System::Drawing::Color::LightGray;
+			this->FindNodes->Location = System::Drawing::Point(29, 124);
+			this->FindNodes->Name = L"FindNodes";
+			this->FindNodes->Size = System::Drawing::Size(150, 62);
+			this->FindNodes->TabIndex = 20;
+			this->FindNodes->Text = L"FIND FAULTABLE NODES";
+			this->FindNodes->UseVisualStyleBackColor = false;
+			this->FindNodes->Click += gcnew System::EventHandler(this, &fileconv::FindNodes_Click);
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label19->ForeColor = System::Drawing::Color::LightGray;
+			this->label19->Location = System::Drawing::Point(17, 79);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(78, 23);
+			this->label19->TabIndex = 19;
+			this->label19->Text = L"Module :\r\n";
+			// 
+			// ModuleTVGLabel
+			// 
+			this->ModuleTVGLabel->AutoSize = true;
+			this->ModuleTVGLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ModuleTVGLabel->ForeColor = System::Drawing::Color::LightGray;
+			this->ModuleTVGLabel->Location = System::Drawing::Point(90, 79);
+			this->ModuleTVGLabel->Name = L"ModuleTVGLabel";
+			this->ModuleTVGLabel->Size = System::Drawing::Size(69, 23);
+			this->ModuleTVGLabel->TabIndex = 18;
+			this->ModuleTVGLabel->Text = L"Module";
+			this->ModuleTVGLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// generateTestVectorsButton
+			// 
+			this->generateTestVectorsButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->generateTestVectorsButton->Enabled = false;
+			this->generateTestVectorsButton->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->generateTestVectorsButton->FlatAppearance->BorderSize = 3;
+			this->generateTestVectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->generateTestVectorsButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->generateTestVectorsButton->ForeColor = System::Drawing::Color::LightGray;
+			this->generateTestVectorsButton->Location = System::Drawing::Point(29, 204);
+			this->generateTestVectorsButton->Name = L"generateTestVectorsButton";
+			this->generateTestVectorsButton->Size = System::Drawing::Size(150, 63);
+			this->generateTestVectorsButton->TabIndex = 17;
+			this->generateTestVectorsButton->Text = L"GENERATE TEST VECTORS";
+			this->generateTestVectorsButton->UseVisualStyleBackColor = false;
+			this->generateTestVectorsButton->Click += gcnew System::EventHandler(this, &fileconv::generateTestVectorsButton_Click);
 			// 
 			// panel3
 			// 
@@ -1102,12 +1274,14 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			// AllTextVectorTextBox
 			// 
 			this->AllTextVectorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->AllTextVectorTextBox->Location = System::Drawing::Point(44, 78);
+			this->AllTextVectorTextBox->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->AllTextVectorTextBox->Location = System::Drawing::Point(213, 72);
 			this->AllTextVectorTextBox->Multiline = true;
 			this->AllTextVectorTextBox->Name = L"AllTextVectorTextBox";
 			this->AllTextVectorTextBox->ReadOnly = true;
 			this->AllTextVectorTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->AllTextVectorTextBox->Size = System::Drawing::Size(483, 374);
+			this->AllTextVectorTextBox->Size = System::Drawing::Size(579, 355);
 			this->AllTextVectorTextBox->TabIndex = 0;
 			// 
 			// tabPage3
@@ -1399,7 +1573,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->back3->Name = L"back3";
 			this->back3->Size = System::Drawing::Size(167, 35);
 			this->back3->TabIndex = 0;
-			this->back3->Text = L"BACK";
+			this->back3->Text = L"<<BACK";
 			this->back3->UseVisualStyleBackColor = false;
 			this->back3->Click += gcnew System::EventHandler(this, &fileconv::back3_Click);
 			// 
@@ -1438,7 +1612,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->testPatternForAll->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->testPatternForAll->ForeColor = System::Drawing::Color::LightGray;
-			this->testPatternForAll->Location = System::Drawing::Point(544, 386);
+			this->testPatternForAll->Location = System::Drawing::Point(207, 474);
 			this->testPatternForAll->Name = L"testPatternForAll";
 			this->testPatternForAll->Size = System::Drawing::Size(195, 51);
 			this->testPatternForAll->TabIndex = 16;
@@ -1460,7 +1634,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::LightGray;
-			this->label4->Location = System::Drawing::Point(483, 143);
+			this->label4->Location = System::Drawing::Point(483, 150);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(78, 23);
 			this->label4->TabIndex = 15;
@@ -1472,7 +1646,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->moduleNameLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->moduleNameLabel->ForeColor = System::Drawing::Color::LightGray;
-			this->moduleNameLabel->Location = System::Drawing::Point(698, 141);
+			this->moduleNameLabel->Location = System::Drawing::Point(698, 148);
 			this->moduleNameLabel->Name = L"moduleNameLabel";
 			this->moduleNameLabel->Size = System::Drawing::Size(69, 23);
 			this->moduleNameLabel->TabIndex = 14;
@@ -1503,7 +1677,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->podem_action->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->podem_action->ForeColor = System::Drawing::Color::LightGray;
-			this->podem_action->Location = System::Drawing::Point(593, 305);
+			this->podem_action->Location = System::Drawing::Point(699, 317);
 			this->podem_action->Name = L"podem_action";
 			this->podem_action->Size = System::Drawing::Size(99, 51);
 			this->podem_action->TabIndex = 12;
@@ -1651,11 +1825,11 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->next2->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
 			this->next2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->next2->ForeColor = System::Drawing::Color::LightGray;
-			this->next2->Location = System::Drawing::Point(715, 305);
+			this->next2->Location = System::Drawing::Point(714, 407);
 			this->next2->Name = L"next2";
 			this->next2->Size = System::Drawing::Size(84, 51);
 			this->next2->TabIndex = 6;
-			this->next2->Text = L"NEXT";
+			this->next2->Text = L"NEXT>>";
 			this->next2->UseVisualStyleBackColor = false;
 			this->next2->Click += gcnew System::EventHandler(this, &fileconv::next2_Click);
 			// 
@@ -1665,7 +1839,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::LightGray;
-			this->label3->Location = System::Drawing::Point(483, 254);
+			this->label3->Location = System::Drawing::Point(483, 261);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(222, 23);
 			this->label3->TabIndex = 5;
@@ -1678,7 +1852,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 				static_cast<System::Byte>(0)));
 			this->faultnode->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->faultnode->Location = System::Drawing::Point(703, 188);
+			this->faultnode->Location = System::Drawing::Point(703, 195);
 			this->faultnode->Name = L"faultnode";
 			this->faultnode->Size = System::Drawing::Size(85, 30);
 			this->faultnode->TabIndex = 4;
@@ -1696,7 +1870,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->stkat->FormattingEnabled = true;
 			this->stkat->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"0", L"1" });
-			this->stkat->Location = System::Drawing::Point(703, 246);
+			this->stkat->Location = System::Drawing::Point(703, 253);
 			this->stkat->Name = L"stkat";
 			this->stkat->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->stkat->Size = System::Drawing::Size(85, 31);
@@ -1709,7 +1883,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::LightGray;
-			this->label2->Location = System::Drawing::Point(483, 195);
+			this->label2->Location = System::Drawing::Point(483, 202);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(187, 23);
 			this->label2->TabIndex = 2;
@@ -1722,11 +1896,11 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->back2->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
 			this->back2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back2->ForeColor = System::Drawing::Color::LightGray;
-			this->back2->Location = System::Drawing::Point(477, 306);
+			this->back2->Location = System::Drawing::Point(487, 407);
 			this->back2->Name = L"back2";
 			this->back2->Size = System::Drawing::Size(84, 51);
 			this->back2->TabIndex = 1;
-			this->back2->Text = L"BACK";
+			this->back2->Text = L"<<BACK";
 			this->back2->UseVisualStyleBackColor = false;
 			this->back2->Click += gcnew System::EventHandler(this, &fileconv::back2_Click);
 			// 
@@ -1759,6 +1933,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage1->Controls->Add(this->Next2TVGtab);
 			this->tabPage1->Controls->Add(this->progressBar2);
 			this->tabPage1->Controls->Add(this->progressBar1);
 			this->tabPage1->Controls->Add(this->ScanChainInsertButton);
@@ -1778,6 +1953,24 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->tabPage1->Size = System::Drawing::Size(833, 498);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"File Conversion";
+			// 
+			// Next2TVGtab
+			// 
+			this->Next2TVGtab->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->Next2TVGtab->Enabled = false;
+			this->Next2TVGtab->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->Next2TVGtab->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Next2TVGtab->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Next2TVGtab->ForeColor = System::Drawing::Color::LightGray;
+			this->Next2TVGtab->Location = System::Drawing::Point(628, 344);
+			this->Next2TVGtab->Name = L"Next2TVGtab";
+			this->Next2TVGtab->Size = System::Drawing::Size(170, 56);
+			this->Next2TVGtab->TabIndex = 16;
+			this->Next2TVGtab->Text = L"ATPG FOR ALL NODES>>";
+			this->Next2TVGtab->UseVisualStyleBackColor = false;
+			this->Next2TVGtab->Click += gcnew System::EventHandler(this, &fileconv::Next2TVGtab_Click);
 			// 
 			// progressBar2
 			// 
@@ -1808,7 +2001,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->ScanChainInsertButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ScanChainInsertButton->ForeColor = System::Drawing::Color::LightGray;
-			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 172);
+			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 136);
 			this->ScanChainInsertButton->Name = L"ScanChainInsertButton";
 			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 58);
 			this->ScanChainInsertButton->TabIndex = 13;
@@ -1826,9 +2019,9 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->clear->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->clear->ForeColor = System::Drawing::Color::LightGray;
-			this->clear->Location = System::Drawing::Point(628, 359);
+			this->clear->Location = System::Drawing::Point(628, 286);
 			this->clear->Name = L"clear";
-			this->clear->Size = System::Drawing::Size(170, 48);
+			this->clear->Size = System::Drawing::Size(170, 43);
 			this->clear->TabIndex = 12;
 			this->clear->Text = L"CLEAR";
 			this->clear->UseVisualStyleBackColor = false;
@@ -1864,7 +2057,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->back1->Name = L"back1";
 			this->back1->Size = System::Drawing::Size(130, 34);
 			this->back1->TabIndex = 9;
-			this->back1->Text = L"BACK";
+			this->back1->Text = L"<<BACK";
 			this->back1->UseVisualStyleBackColor = false;
 			this->back1->Click += gcnew System::EventHandler(this, &fileconv::back1_Click);
 			// 
@@ -2011,7 +2204,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->openyosys->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->openyosys->ForeColor = System::Drawing::Color::LightGray;
-			this->openyosys->Location = System::Drawing::Point(628, 77);
+			this->openyosys->Location = System::Drawing::Point(628, 59);
 			this->openyosys->Name = L"openyosys";
 			this->openyosys->Size = System::Drawing::Size(170, 58);
 			this->openyosys->TabIndex = 0;
@@ -2029,11 +2222,11 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->nextbutton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->nextbutton->ForeColor = System::Drawing::Color::LightGray;
-			this->nextbutton->Location = System::Drawing::Point(689, 446);
+			this->nextbutton->Location = System::Drawing::Point(628, 418);
 			this->nextbutton->Name = L"nextbutton";
-			this->nextbutton->Size = System::Drawing::Size(130, 34);
+			this->nextbutton->Size = System::Drawing::Size(170, 53);
 			this->nextbutton->TabIndex = 6;
-			this->nextbutton->Text = L"NEXT";
+			this->nextbutton->Text = L"ATPG FOR EACH NODE>>";
 			this->nextbutton->UseVisualStyleBackColor = false;
 			this->nextbutton->Click += gcnew System::EventHandler(this, &fileconv::nextbutton_Click);
 			// 
@@ -2071,7 +2264,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->convgnet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->convgnet->ForeColor = System::Drawing::Color::LightGray;
-			this->convgnet->Location = System::Drawing::Point(628, 265);
+			this->convgnet->Location = System::Drawing::Point(628, 211);
 			this->convgnet->Name = L"convgnet";
 			this->convgnet->Size = System::Drawing::Size(170, 58);
 			this->convgnet->TabIndex = 1;
@@ -2277,7 +2470,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->homenext->Name = L"homenext";
 			this->homenext->Size = System::Drawing::Size(91, 35);
 			this->homenext->TabIndex = 12;
-			this->homenext->Text = L"NEXT";
+			this->homenext->Text = L"NEXT>>";
 			this->homenext->UseVisualStyleBackColor = false;
 			this->homenext->Click += gcnew System::EventHandler(this, &fileconv::homenext_Click);
 			// 
@@ -2314,6 +2507,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage5);
 			this->tabControl1->Controls->Add(this->tabPage6);
+			this->tabControl1->Controls->Add(this->tabPage7);
 			this->tabControl1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -2323,6 +2517,37 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(841, 534);
 			this->tabControl1->TabIndex = 1;
+			// 
+			// tabPage7
+			// 
+			this->tabPage7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage7->Controls->Add(this->simulateBackButton);
+			this->tabPage7->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tabPage7->Location = System::Drawing::Point(4, 32);
+			this->tabPage7->Name = L"tabPage7";
+			this->tabPage7->Size = System::Drawing::Size(833, 498);
+			this->tabPage7->TabIndex = 7;
+			this->tabPage7->Text = L"Simulate";
+			// 
+			// simulateBackButton
+			// 
+			this->simulateBackButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->simulateBackButton->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
+			this->simulateBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->simulateBackButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->simulateBackButton->ForeColor = System::Drawing::Color::LightGray;
+			this->simulateBackButton->Location = System::Drawing::Point(51, 436);
+			this->simulateBackButton->Name = L"simulateBackButton";
+			this->simulateBackButton->Size = System::Drawing::Size(130, 34);
+			this->simulateBackButton->TabIndex = 10;
+			this->simulateBackButton->Text = L"<<BACK";
+			this->simulateBackButton->UseVisualStyleBackColor = false;
+			this->simulateBackButton->Click += gcnew System::EventHandler(this, &fileconv::simulateBackButton_Click);
 			// 
 			// openFileDialog2
 			// 
@@ -2387,6 +2612,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 			this->panel10->ResumeLayout(false);
 			this->panel10->PerformLayout();
 			this->tabControl1->ResumeLayout(false);
+			this->tabPage7->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -2551,6 +2777,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 		System::String^ filepath = openFileDialog1->FileName;
 		System::String^ inputVeilogFileDirec = System::IO::Path::GetDirectoryName(filepath);
 		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
+		ModuleTVGLabel->Text = inputVeilogFileName;
 		moduleNameLabel->Text = inputVeilogFileName;
 		inputVeilogFileDirectory = "InsertedScanChainFile.v";
 
@@ -2608,6 +2835,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 		finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
 
 		convgnet->Enabled = false;
+		Next2TVGtab->Enabled = true;
 	}
 
 	private: System::Void stkat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -2864,6 +3092,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 		String^ fileName5 = "InsertedScanChainFile.v";
 		String^ filePath5 = System::IO::Path::Combine(appDirectory, fileName5);
 		String^ fileContents5 = System::IO::File::ReadAllText(filePath5);
+		AllTextVectorTextBox->Text = fileContents5;
 		showyosys->Text = fileContents5;
 
 	}
@@ -2890,7 +3119,7 @@ private: System::Windows::Forms::Label^ yosysLabel;
 		int flag = 1;
 
 		
-		for (int nodeNumber1 = 1; nodeNumber1 <= 10; nodeNumber1++) {
+		for (size_t nodeNumber1 = 1; nodeNumber1 <= 10; nodeNumber1++) {
 			P_func.readFile();
 			Fault.nodeNumber = nodeNumber1;
 			Fault.nodeValue = 1;
@@ -2988,6 +3217,124 @@ private: System::Windows::Forms::Label^ yosysLabel;
 		LoadYosysButton->Enabled = true;
 		OpenVerilogDesignButton->Enabled = false;
 		yosysLabel->Visible = true;
+	}
+	private: System::Void FindNodes_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::String^ filepathfn = openFileDialog1->FileName;
+		System::String^ inputVeriFile = System::IO::Path::GetDirectoryName(filepathfn);
+		System::String^ inputVeriFileName = System::IO::Path::GetFileName(filepathfn);
+		inputYosysFile = msclr::interop::marshal_as<std::string>(inputVeriFileName);;
+		ModuleTVGLabel->Text = inputVeriFileName;
+
+		faultNodesVectorGeneration();
+
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName6 = "faultnodestempory.txt";
+		String^ filePath6 = System::IO::Path::Combine(appDirectory, fileName6);
+		String^ fileContents6 = System::IO::File::ReadAllText(filePath6);
+		AllTextVectorTextBox->Text = fileContents6;
+		
+		generateTestVectorsButton->Enabled = true;
+		FindNodes->Enabled = false;
+		button13->Enabled = true;
+
+	}
+	private: System::Void generateTestVectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		TestVectorsGen();
+		
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName7 = "TestVectors.txt";
+		String^ filePath7 = System::IO::Path::Combine(appDirectory, fileName7);
+		String^ fileContents7 = System::IO::File::ReadAllText(filePath7);
+		AllTextVectorTextBox->Text = fileContents7;
+
+		saveTestVectors->Enabled = true;
+		nextTVGButton->Enabled = true;
+		button13->Enabled = true;
+		generateTestVectorsButton->Enabled = false;
+	}
+	private: System::Void saveTestVectors_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName8 = "TestVectors.txt";
+		String^ filePath8 = System::IO::Path::Combine(appDirectory, fileName8);
+		String^ fileContents8 = System::IO::File::ReadAllText(filePath8);
+
+		
+		SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
+		saveFileDialog1->Filter = "Text Files|*.txt";
+		saveFileDialog1->Title = "Save Text File";
+
+		saveTestVectors->Enabled = false;
+
+		if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			// Get the user-selected destination file
+			String^ destinationFilePath = saveFileDialog1->FileName;
+
+			// Write the content to the selected destination file
+			File::WriteAllText(destinationFilePath, fileContents8);
+		}
+	}
+	private: System::Void backTVGButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		AllTextVectorTextBox->Text = "";
+		convgnet->Enabled = false;
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		progressBar3->Value = 0;
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[1];
+			generateTestVectorsButton->Enabled = false;
+			saveTestVectors->Enabled = false;
+			nextTVGButton->Enabled = false;
+		}
+
+	}
+	private: System::Void nextTVGButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[6];
+			generateTestVectorsButton->Enabled = false;
+			saveTestVectors->Enabled = false;
+			nextTVGButton->Enabled = false;
+		}
+	}
+	private: System::Void Next2TVGtab_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName8 = "InsertedScanChainFile.v";
+		String^ filePath8 = System::IO::Path::Combine(appDirectory, fileName8);
+		String^ fileContents8 = System::IO::File::ReadAllText(filePath8);
+		AllTextVectorTextBox->Text = fileContents8;
+		
+		AllTextVectorTextBox->Text = "";
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[4];
+			generateTestVectorsButton->Enabled = false;
+			saveTestVectors->Enabled = false;
+			nextTVGButton->Enabled = false;
+			FindNodes->Enabled = true;
+		}
+	}
+	private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
+		AllTextVectorTextBox->Text = "";
+		button13->Enabled = false;
+		FindNodes->Enabled = true;
+		generateTestVectorsButton->Enabled = false;
+		saveTestVectors->Enabled = false;
+		nextTVGButton->Enabled = false;
+	}
+	private: System::Void simulateBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[4];
+			generateTestVectorsButton->Enabled = false;
+			saveTestVectors->Enabled = false;
+			nextTVGButton->Enabled = false;
+			FindNodes->Enabled = true;
+		}
 	}
 };
 }

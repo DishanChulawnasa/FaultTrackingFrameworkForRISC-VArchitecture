@@ -11,7 +11,7 @@ std::string VerilogModulePath;
 std::string selectedFolder;
 std::string txtOutput;
 
-void ShowErrorMessage(const std::string& message) {
+void ShowErrorMessage11(const std::string& message) {
     System::Windows::Forms::MessageBox::Show(gcnew System::String(message.c_str()),
         "Error", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Error);
 }
@@ -135,7 +135,7 @@ int YosysModuleExporter1() {
                 for (const std::string& command : commands) {
                     DWORD bytesWritten;
                     if (!WriteFile(hChildStdinWrite, command.c_str(), command.size(), &bytesWritten, NULL)) {
-                        ShowErrorMessage("Error writing to pipe");
+                        ShowErrorMessage11("Error writing to pipe");
                         break;
                     }
                 }
@@ -157,18 +157,18 @@ int YosysModuleExporter1() {
                 CloseHandle(pi.hThread);
             }
             else {
-                ShowErrorMessage("Error extracting module name from the file location");
+                ShowErrorMessage11("Error extracting module name from the file location");
             }
         }
         else {
-            ShowErrorMessage("Error creating Yosys process");
+            ShowErrorMessage11("Error creating Yosys process");
         }
 
         CloseHandle(hChildStdinRead);
         CloseHandle(hChildStdoutWrite);
     }
     else {
-        ShowErrorMessage("Error creating pipes");
+        ShowErrorMessage11("Error creating pipes");
     }
 
     return 0;

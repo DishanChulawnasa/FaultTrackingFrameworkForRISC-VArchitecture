@@ -127,6 +127,8 @@
     <ClInclude Include="fileconv.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GenerateFaultNodesVector.h" />
+    <ClInclude Include="GenerateTextVectors.h" />
     <ClInclude Include="podem.h" />
     <ClInclude Include="SequentialToCombinational.h" />
     <ClInclude Include="VerilogToText.h" />

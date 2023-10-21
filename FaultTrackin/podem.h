@@ -46,6 +46,7 @@ int status = 0;
 string piNodesText;
 string inputVectorText;
 
+vector <string> testvector;
 vector <Gates> gate;
 vector <Nodes> node;
 vector <int> PINodes;
@@ -212,12 +213,16 @@ public:
 
 				for (int i = 0; i < PINodes.size(); i++)
 				{
-					if (node.at(PINodes.at(i)).nodeValue == -1)
+					if (node.at(PINodes.at(i)).nodeValue == -1) {
 						inputVectorFile << "x";
-					//cout << "x";
-					else
+						testvector.push_back("x");
+						//cout << "x";
+					}
+					else {
 						inputVectorFile << node.at(PINodes.at(i)).nodeValue;
-					//cout << node.at(PINodes.at(i)).nodeValue;
+						testvector.push_back(to_string(node.at(PINodes.at(i)).nodeValue));
+						//cout << node.at(PINodes.at(i)).nodeValue;
+					}
 				}
 				inputVectorText = inputVectorFile.str();
 				piNodesText = piNodesFiles.str();
@@ -256,6 +261,7 @@ public:
 			for (int i = 0; i < PINodes.size(); i++)
 			{
 				piNodesFiles << PINodes.at(i) << ", ";
+				testvector.push_back("x");
 				//cout << PINodes.at(i) << ", ";
 			}
 
@@ -264,6 +270,7 @@ public:
 			for (int i = 0; i < PINodes.size(); i++)
 			{
 				inputVectorFile << node.at(PINodes.at(i)).nodeValue;
+				testvector.push_back(to_string(node.at(PINodes.at(i)).nodeValue));
 				//cout << node.at(PINodes.at(i)).nodeValue;
 			}
 			inputVectorText = inputVectorFile.str();
