@@ -7,6 +7,7 @@
 #include "YosysModuleExporter.h"
 #include "GenerateFaultNodesVector.h"
 #include "GenerateTextVectors.h"
+#include "FindOptimumTestVectors.h"
 
 namespace FaultTrackin {
 
@@ -292,6 +293,8 @@ private: System::Windows::Forms::Button^ Next2TVGtab;
 private: System::Windows::Forms::TabPage^ tabPage7;
 private: System::Windows::Forms::Button^ button13;
 private: System::Windows::Forms::Button^ simulateBackButton;
+private: System::Windows::Forms::Button^ OptimumTestVectorButton;
+
 
 
 
@@ -419,6 +422,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->yosysLabel = (gcnew System::Windows::Forms::Label());
 			this->YOSYStxtBox = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->OptimumTestVectorButton = (gcnew System::Windows::Forms::Button());
 			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->nextTVGButton = (gcnew System::Windows::Forms::Button());
 			this->backTVGButton = (gcnew System::Windows::Forms::Button());
@@ -991,6 +995,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			// 
 			this->tabPage5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage5->Controls->Add(this->OptimumTestVectorButton);
 			this->tabPage5->Controls->Add(this->button13);
 			this->tabPage5->Controls->Add(this->nextTVGButton);
 			this->tabPage5->Controls->Add(this->backTVGButton);
@@ -1008,6 +1013,25 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Test Vector Geneartion";
 			// 
+			// OptimumTestVectorButton
+			// 
+			this->OptimumTestVectorButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->OptimumTestVectorButton->Enabled = false;
+			this->OptimumTestVectorButton->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->OptimumTestVectorButton->FlatAppearance->BorderSize = 3;
+			this->OptimumTestVectorButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->OptimumTestVectorButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->OptimumTestVectorButton->ForeColor = System::Drawing::Color::LightGray;
+			this->OptimumTestVectorButton->Location = System::Drawing::Point(29, 251);
+			this->OptimumTestVectorButton->Name = L"OptimumTestVectorButton";
+			this->OptimumTestVectorButton->Size = System::Drawing::Size(150, 57);
+			this->OptimumTestVectorButton->TabIndex = 25;
+			this->OptimumTestVectorButton->Text = L"FIND OPTIMUM TEST VECTORS";
+			this->OptimumTestVectorButton->UseVisualStyleBackColor = false;
+			this->OptimumTestVectorButton->Click += gcnew System::EventHandler(this, &fileconv::OptimumTestVectorButton_Click);
+			// 
 			// button13
 			// 
 			this->button13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
@@ -1019,9 +1043,9 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->button13->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button13->ForeColor = System::Drawing::Color::LightGray;
-			this->button13->Location = System::Drawing::Point(29, 361);
+			this->button13->Location = System::Drawing::Point(29, 381);
 			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(150, 42);
+			this->button13->Size = System::Drawing::Size(150, 39);
 			this->button13->TabIndex = 24;
 			this->button13->Text = L"CLEAR";
 			this->button13->UseVisualStyleBackColor = false;
@@ -1069,9 +1093,9 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->saveTestVectors->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->saveTestVectors->ForeColor = System::Drawing::Color::LightGray;
-			this->saveTestVectors->Location = System::Drawing::Point(29, 290);
+			this->saveTestVectors->Location = System::Drawing::Point(29, 324);
 			this->saveTestVectors->Name = L"saveTestVectors";
-			this->saveTestVectors->Size = System::Drawing::Size(150, 46);
+			this->saveTestVectors->Size = System::Drawing::Size(150, 41);
 			this->saveTestVectors->TabIndex = 21;
 			this->saveTestVectors->Text = L"SAVE";
 			this->saveTestVectors->UseVisualStyleBackColor = false;
@@ -1087,7 +1111,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->FindNodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FindNodes->ForeColor = System::Drawing::Color::LightGray;
-			this->FindNodes->Location = System::Drawing::Point(29, 124);
+			this->FindNodes->Location = System::Drawing::Point(29, 100);
 			this->FindNodes->Name = L"FindNodes";
 			this->FindNodes->Size = System::Drawing::Size(150, 62);
 			this->FindNodes->TabIndex = 20;
@@ -1101,7 +1125,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->label19->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label19->ForeColor = System::Drawing::Color::LightGray;
-			this->label19->Location = System::Drawing::Point(17, 79);
+			this->label19->Location = System::Drawing::Point(17, 62);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(78, 23);
 			this->label19->TabIndex = 19;
@@ -1113,7 +1137,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->ModuleTVGLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ModuleTVGLabel->ForeColor = System::Drawing::Color::LightGray;
-			this->ModuleTVGLabel->Location = System::Drawing::Point(90, 79);
+			this->ModuleTVGLabel->Location = System::Drawing::Point(90, 62);
 			this->ModuleTVGLabel->Name = L"ModuleTVGLabel";
 			this->ModuleTVGLabel->Size = System::Drawing::Size(69, 23);
 			this->ModuleTVGLabel->TabIndex = 18;
@@ -1131,9 +1155,9 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->generateTestVectorsButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->generateTestVectorsButton->ForeColor = System::Drawing::Color::LightGray;
-			this->generateTestVectorsButton->Location = System::Drawing::Point(29, 204);
+			this->generateTestVectorsButton->Location = System::Drawing::Point(29, 178);
 			this->generateTestVectorsButton->Name = L"generateTestVectorsButton";
-			this->generateTestVectorsButton->Size = System::Drawing::Size(150, 63);
+			this->generateTestVectorsButton->Size = System::Drawing::Size(150, 56);
 			this->generateTestVectorsButton->TabIndex = 17;
 			this->generateTestVectorsButton->Text = L"GENERATE TEST VECTORS";
 			this->generateTestVectorsButton->UseVisualStyleBackColor = false;
@@ -1276,12 +1300,12 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			this->AllTextVectorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->AllTextVectorTextBox->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->AllTextVectorTextBox->Location = System::Drawing::Point(213, 72);
+			this->AllTextVectorTextBox->Location = System::Drawing::Point(222, 72);
 			this->AllTextVectorTextBox->Multiline = true;
 			this->AllTextVectorTextBox->Name = L"AllTextVectorTextBox";
 			this->AllTextVectorTextBox->ReadOnly = true;
 			this->AllTextVectorTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->AllTextVectorTextBox->Size = System::Drawing::Size(579, 355);
+			this->AllTextVectorTextBox->Size = System::Drawing::Size(570, 355);
 			this->AllTextVectorTextBox->TabIndex = 0;
 			// 
 			// tabPage3
@@ -3237,6 +3261,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 		FindNodes->Enabled = false;
 		button13->Enabled = true;
 
+
 	}
 	private: System::Void generateTestVectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		
@@ -3248,16 +3273,17 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 		String^ fileContents7 = System::IO::File::ReadAllText(filePath7);
 		AllTextVectorTextBox->Text = fileContents7;
 
-		saveTestVectors->Enabled = true;
+		saveTestVectors->Enabled = false;
 		nextTVGButton->Enabled = true;
 		button13->Enabled = true;
 		generateTestVectorsButton->Enabled = false;
+		OptimumTestVectorButton->Enabled = true;
 	}
 	private: System::Void saveTestVectors_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 		
 		String^ appDirectory = Application::StartupPath;
-		String^ fileName8 = "TestVectors.txt";
+		String^ fileName8 = "OptimumTestVectors.txt";
 		String^ filePath8 = System::IO::Path::Combine(appDirectory, fileName8);
 		String^ fileContents8 = System::IO::File::ReadAllText(filePath8);
 
@@ -3288,6 +3314,8 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			generateTestVectorsButton->Enabled = false;
 			saveTestVectors->Enabled = false;
 			nextTVGButton->Enabled = false;
+			OptimumTestVectorButton->Enabled = false;
+
 		}
 
 	}
@@ -3298,6 +3326,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			generateTestVectorsButton->Enabled = false;
 			saveTestVectors->Enabled = false;
 			nextTVGButton->Enabled = false;
+			OptimumTestVectorButton->Enabled = false;
 		}
 	}
 	private: System::Void Next2TVGtab_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -3316,6 +3345,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			saveTestVectors->Enabled = false;
 			nextTVGButton->Enabled = false;
 			FindNodes->Enabled = true;
+			OptimumTestVectorButton->Enabled = false;
 		}
 	}
 	private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -3325,6 +3355,7 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 		generateTestVectorsButton->Enabled = false;
 		saveTestVectors->Enabled = false;
 		nextTVGButton->Enabled = false;
+		OptimumTestVectorButton->Enabled = false;
 	}
 	private: System::Void simulateBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
@@ -3335,6 +3366,17 @@ private: System::Windows::Forms::Button^ simulateBackButton;
 			nextTVGButton->Enabled = false;
 			FindNodes->Enabled = true;
 		}
+	}
+	private: System::Void OptimumTestVectorButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		FindOptimumVector();
+
+		saveTestVectors->Enabled = true;
+
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName9 = "OptimumTestVectors.txt";
+		String^ filePath9 = System::IO::Path::Combine(appDirectory, fileName9);
+		String^ fileContents9 = System::IO::File::ReadAllText(filePath9);
+		AllTextVectorTextBox->Text = fileContents9;
 	}
 };
 }

@@ -127,6 +127,7 @@
     <ClInclude Include="fileconv.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FindOptimumTestVectors.h" />
     <ClInclude Include="GenerateFaultNodesVector.h" />
     <ClInclude Include="GenerateTextVectors.h" />
     <ClInclude Include="podem.h" />
