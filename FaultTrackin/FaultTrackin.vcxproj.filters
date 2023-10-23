@@ -44,5 +44,8 @@
     <ClInclude Include="FindOptimumTestVectors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GenerateTestVectorsSelected.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

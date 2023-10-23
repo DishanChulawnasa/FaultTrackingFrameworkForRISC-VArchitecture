@@ -129,6 +129,7 @@
     </ClInclude>
     <ClInclude Include="FindOptimumTestVectors.h" />
     <ClInclude Include="GenerateFaultNodesVector.h" />
+    <ClInclude Include="GenerateTestVectorsSelected.h" />
     <ClInclude Include="GenerateTextVectors.h" />
     <ClInclude Include="podem.h" />
     <ClInclude Include="SequentialToCombinational.h" />

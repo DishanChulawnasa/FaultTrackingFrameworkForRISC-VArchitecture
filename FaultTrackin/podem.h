@@ -178,6 +178,7 @@ public:
 		PONodes.clear();
 		piNodesText.clear();
 		inputVectorText.clear();
+		testvector.clear();
 		//std::ofstream piNodesFiles("PI Nodes.txt");
 		//std::ofstream inputVectorFile("Input Vector.txt");
 		std::ostringstream piNodesFiles;

@@ -8,6 +8,7 @@
 #include "GenerateFaultNodesVector.h"
 #include "GenerateTextVectors.h"
 #include "FindOptimumTestVectors.h"
+#include "GenerateTestVectorsSelected.h"
 
 namespace FaultTrackin {
 
@@ -292,8 +293,71 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 private: System::Windows::Forms::Button^ Next2TVGtab;
 private: System::Windows::Forms::TabPage^ tabPage7;
 private: System::Windows::Forms::Button^ button13;
-private: System::Windows::Forms::Button^ simulateBackButton;
+
 private: System::Windows::Forms::Button^ OptimumTestVectorButton;
+private: System::Windows::Forms::Button^ Next2SelectedVectorButton;
+
+private: System::Windows::Forms::TabPage^ tabPage8;
+private: System::Windows::Forms::Panel^ panel13;
+private: System::Windows::Forms::Label^ label28;
+private: System::Windows::Forms::Label^ label29;
+private: System::Windows::Forms::Button^ button15;
+private: System::Windows::Forms::Button^ button20;
+private: System::Windows::Forms::Label^ label30;
+private: System::Windows::Forms::Button^ button21;
+private: System::Windows::Forms::Button^ button22;
+private: System::Windows::Forms::TextBox^ SelectingSTKtxt;
+
+private: System::Windows::Forms::Label^ label31;
+private: System::Windows::Forms::Label^ SelectedModule;
+
+private: System::Windows::Forms::Label^ SelectedTestVectorLable;
+
+private: System::Windows::Forms::Button^ GenerateSelectedVectorsButton;
+private: System::Windows::Forms::Button^ NextSelectedVecBUtt;
+
+
+private: System::Windows::Forms::Label^ label34;
+private: System::Windows::Forms::TextBox^ SelectingFaultyNodetxt;
+
+private: System::Windows::Forms::Label^ label35;
+private: System::Windows::Forms::Button^ button25;
+private: System::Windows::Forms::Panel^ panel14;
+private: System::Windows::Forms::TextBox^ gatetext;
+
+private: System::Windows::Forms::TabPage^ tabPage9;
+private: System::Windows::Forms::Button^ button30;
+private: System::Windows::Forms::Panel^ panel15;
+private: System::Windows::Forms::Label^ label36;
+private: System::Windows::Forms::Button^ button14;
+private: System::Windows::Forms::Label^ label37;
+private: System::Windows::Forms::Button^ button23;
+private: System::Windows::Forms::Label^ label38;
+private: System::Windows::Forms::Button^ button26;
+private: System::Windows::Forms::Button^ button27;
+private: System::Windows::Forms::Button^ button28;
+private: System::Windows::Forms::Panel^ panel16;
+private: System::Windows::Forms::TextBox^ ShowSelectedTestVectors;
+
+private: System::Windows::Forms::Label^ label39;
+private: System::Windows::Forms::Label^ label41;
+private: System::Windows::Forms::Button^ button29;
+private: System::Windows::Forms::Button^ GVFIMselectedEach;
+
+private: System::Windows::Forms::Button^ NextEachTrack;
+private: System::Windows::Forms::Button^ GVFIMselected;
+
+
+private: System::Windows::Forms::Button^ NextSelectedfTrack;
+
+private: System::Windows::Forms::Label^ label40;
+private: System::Windows::Forms::Button^ GVFIMAll;
+
+private: System::Windows::Forms::Label^ label33;
+private: System::Windows::Forms::Label^ label32;
+private: System::Windows::Forms::Label^ label42;
+private: System::Windows::Forms::Label^ SewlectedFaultsLabel;
+private: System::Windows::Forms::Label^ SelectedNodesLabel;
 
 
 
@@ -422,6 +486,8 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->yosysLabel = (gcnew System::Windows::Forms::Label());
 			this->YOSYStxtBox = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->label40 = (gcnew System::Windows::Forms::Label());
+			this->GVFIMAll = (gcnew System::Windows::Forms::Button());
 			this->OptimumTestVectorButton = (gcnew System::Windows::Forms::Button());
 			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->nextTVGButton = (gcnew System::Windows::Forms::Button());
@@ -441,6 +507,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->AllTextVectorTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->label33 = (gcnew System::Windows::Forms::Label());
+			this->GVFIMselectedEach = (gcnew System::Windows::Forms::Button());
+			this->NextEachTrack = (gcnew System::Windows::Forms::Button());
 			this->errlabel2 = (gcnew System::Windows::Forms::Label());
 			this->errlabel = (gcnew System::Windows::Forms::Label());
 			this->panel9 = (gcnew System::Windows::Forms::Panel());
@@ -484,6 +553,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->gatenet = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->Next2SelectedVectorButton = (gcnew System::Windows::Forms::Button());
 			this->Next2TVGtab = (gcnew System::Windows::Forms::Button());
 			this->progressBar2 = (gcnew System::Windows::Forms::ProgressBar());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
@@ -521,7 +591,49 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
-			this->simulateBackButton = (gcnew System::Windows::Forms::Button());
+			this->button30 = (gcnew System::Windows::Forms::Button());
+			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
+			this->SelectingSTKtxt = (gcnew System::Windows::Forms::TextBox());
+			this->label31 = (gcnew System::Windows::Forms::Label());
+			this->SelectedModule = (gcnew System::Windows::Forms::Label());
+			this->SelectedTestVectorLable = (gcnew System::Windows::Forms::Label());
+			this->GenerateSelectedVectorsButton = (gcnew System::Windows::Forms::Button());
+			this->NextSelectedVecBUtt = (gcnew System::Windows::Forms::Button());
+			this->label34 = (gcnew System::Windows::Forms::Label());
+			this->SelectingFaultyNodetxt = (gcnew System::Windows::Forms::TextBox());
+			this->label35 = (gcnew System::Windows::Forms::Label());
+			this->button25 = (gcnew System::Windows::Forms::Button());
+			this->panel14 = (gcnew System::Windows::Forms::Panel());
+			this->gatetext = (gcnew System::Windows::Forms::TextBox());
+			this->panel13 = (gcnew System::Windows::Forms::Panel());
+			this->label28 = (gcnew System::Windows::Forms::Label());
+			this->label29 = (gcnew System::Windows::Forms::Label());
+			this->button15 = (gcnew System::Windows::Forms::Button());
+			this->button20 = (gcnew System::Windows::Forms::Button());
+			this->label30 = (gcnew System::Windows::Forms::Label());
+			this->button21 = (gcnew System::Windows::Forms::Button());
+			this->button22 = (gcnew System::Windows::Forms::Button());
+			this->tabPage9 = (gcnew System::Windows::Forms::TabPage());
+			this->SewlectedFaultsLabel = (gcnew System::Windows::Forms::Label());
+			this->SelectedNodesLabel = (gcnew System::Windows::Forms::Label());
+			this->label42 = (gcnew System::Windows::Forms::Label());
+			this->label32 = (gcnew System::Windows::Forms::Label());
+			this->GVFIMselected = (gcnew System::Windows::Forms::Button());
+			this->NextSelectedfTrack = (gcnew System::Windows::Forms::Button());
+			this->panel15 = (gcnew System::Windows::Forms::Panel());
+			this->label36 = (gcnew System::Windows::Forms::Label());
+			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->label37 = (gcnew System::Windows::Forms::Label());
+			this->button23 = (gcnew System::Windows::Forms::Button());
+			this->label38 = (gcnew System::Windows::Forms::Label());
+			this->button26 = (gcnew System::Windows::Forms::Button());
+			this->button27 = (gcnew System::Windows::Forms::Button());
+			this->button28 = (gcnew System::Windows::Forms::Button());
+			this->panel16 = (gcnew System::Windows::Forms::Panel());
+			this->ShowSelectedTestVectors = (gcnew System::Windows::Forms::TextBox());
+			this->label39 = (gcnew System::Windows::Forms::Label());
+			this->label41 = (gcnew System::Windows::Forms::Label());
+			this->button29 = (gcnew System::Windows::Forms::Button());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
@@ -547,6 +659,12 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->panel10->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage7->SuspendLayout();
+			this->tabPage8->SuspendLayout();
+			this->panel14->SuspendLayout();
+			this->panel13->SuspendLayout();
+			this->tabPage9->SuspendLayout();
+			this->panel15->SuspendLayout();
+			this->panel16->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -659,7 +777,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage6->Size = System::Drawing::Size(833, 498);
 			this->tabPage6->TabIndex = 6;
-			this->tabPage6->Text = L"YOSYS Tool";
+			this->tabPage6->Text = L"6";
 			// 
 			// SavePathYosysButtom
 			// 
@@ -995,6 +1113,8 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			// 
 			this->tabPage5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage5->Controls->Add(this->label40);
+			this->tabPage5->Controls->Add(this->GVFIMAll);
 			this->tabPage5->Controls->Add(this->OptimumTestVectorButton);
 			this->tabPage5->Controls->Add(this->button13);
 			this->tabPage5->Controls->Add(this->nextTVGButton);
@@ -1011,7 +1131,37 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage5->Size = System::Drawing::Size(833, 498);
 			this->tabPage5->TabIndex = 4;
-			this->tabPage5->Text = L"Test Vector Geneartion";
+			this->tabPage5->Text = L"5";
+			// 
+			// label40
+			// 
+			this->label40->AutoSize = true;
+			this->label40->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label40->ForeColor = System::Drawing::Color::LightGray;
+			this->label40->Location = System::Drawing::Point(218, 451);
+			this->label40->Name = L"label40";
+			this->label40->Size = System::Drawing::Size(124, 23);
+			this->label40->TabIndex = 29;
+			this->label40->Text = L"For Simulation:";
+			// 
+			// GVFIMAll
+			// 
+			this->GVFIMAll->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->GVFIMAll->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->GVFIMAll->FlatAppearance->BorderSize = 3;
+			this->GVFIMAll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->GVFIMAll->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->GVFIMAll->ForeColor = System::Drawing::Color::LightGray;
+			this->GVFIMAll->Location = System::Drawing::Point(348, 442);
+			this->GVFIMAll->Name = L"GVFIMAll";
+			this->GVFIMAll->Size = System::Drawing::Size(333, 42);
+			this->GVFIMAll->TabIndex = 28;
+			this->GVFIMAll->Text = L"GENERATE VERILOG FAULT INJECTED MODULE";
+			this->GVFIMAll->UseVisualStyleBackColor = false;
+			this->GVFIMAll->Click += gcnew System::EventHandler(this, &fileconv::GVFIMAll_Click);
 			// 
 			// OptimumTestVectorButton
 			// 
@@ -1312,6 +1462,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			// 
 			this->tabPage3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage3->Controls->Add(this->label33);
+			this->tabPage3->Controls->Add(this->GVFIMselectedEach);
+			this->tabPage3->Controls->Add(this->NextEachTrack);
 			this->tabPage3->Controls->Add(this->errlabel2);
 			this->tabPage3->Controls->Add(this->errlabel);
 			this->tabPage3->Controls->Add(this->panel9);
@@ -1326,7 +1479,53 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Size = System::Drawing::Size(833, 498);
 			this->tabPage3->TabIndex = 2;
-			this->tabPage3->Text = L"Fault Tracking";
+			this->tabPage3->Text = L"4";
+			// 
+			// label33
+			// 
+			this->label33->AutoSize = true;
+			this->label33->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label33->ForeColor = System::Drawing::Color::LightGray;
+			this->label33->Location = System::Drawing::Point(43, 386);
+			this->label33->Name = L"label33";
+			this->label33->Size = System::Drawing::Size(124, 23);
+			this->label33->TabIndex = 29;
+			this->label33->Text = L"For Simulation:";
+			// 
+			// GVFIMselectedEach
+			// 
+			this->GVFIMselectedEach->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->GVFIMselectedEach->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->GVFIMselectedEach->FlatAppearance->BorderSize = 3;
+			this->GVFIMselectedEach->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->GVFIMselectedEach->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->GVFIMselectedEach->ForeColor = System::Drawing::Color::LightGray;
+			this->GVFIMselectedEach->Location = System::Drawing::Point(173, 377);
+			this->GVFIMselectedEach->Name = L"GVFIMselectedEach";
+			this->GVFIMselectedEach->Size = System::Drawing::Size(333, 41);
+			this->GVFIMselectedEach->TabIndex = 26;
+			this->GVFIMselectedEach->Text = L"GENERATE VERILOG FAULT INJECTED MODULE";
+			this->GVFIMselectedEach->UseVisualStyleBackColor = false;
+			this->GVFIMselectedEach->Click += gcnew System::EventHandler(this, &fileconv::GVFIMselectedEach_Click);
+			// 
+			// NextEachTrack
+			// 
+			this->NextEachTrack->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->NextEachTrack->Enabled = false;
+			this->NextEachTrack->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->NextEachTrack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->NextEachTrack->ForeColor = System::Drawing::Color::LightGray;
+			this->NextEachTrack->Location = System::Drawing::Point(529, 438);
+			this->NextEachTrack->Name = L"NextEachTrack";
+			this->NextEachTrack->Size = System::Drawing::Size(167, 35);
+			this->NextEachTrack->TabIndex = 25;
+			this->NextEachTrack->Text = L"NEXT>>";
+			this->NextEachTrack->UseVisualStyleBackColor = false;
+			this->NextEachTrack->Click += gcnew System::EventHandler(this, &fileconv::NextEachTrack_Click);
 			// 
 			// errlabel2
 			// 
@@ -1493,7 +1692,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->home->FlatAppearance->BorderSize = 2;
 			this->home->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->home->ForeColor = System::Drawing::Color::LightGray;
-			this->home->Location = System::Drawing::Point(423, 409);
+			this->home->Location = System::Drawing::Point(333, 438);
 			this->home->Name = L"home";
 			this->home->Size = System::Drawing::Size(167, 35);
 			this->home->TabIndex = 6;
@@ -1506,7 +1705,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->panel5->Controls->Add(this->testvector);
 			this->panel5->Location = System::Drawing::Point(47, 290);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(731, 99);
+			this->panel5->Size = System::Drawing::Size(731, 73);
 			this->panel5->TabIndex = 4;
 			// 
 			// testvector
@@ -1522,7 +1721,8 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->testvector->Multiline = true;
 			this->testvector->Name = L"testvector";
 			this->testvector->ReadOnly = true;
-			this->testvector->Size = System::Drawing::Size(731, 99);
+			this->testvector->ScrollBars = System::Windows::Forms::ScrollBars::Both;
+			this->testvector->Size = System::Drawing::Size(731, 73);
 			this->testvector->TabIndex = 1;
 			// 
 			// label6
@@ -1593,7 +1793,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->back3->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
 			this->back3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back3->ForeColor = System::Drawing::Color::LightGray;
-			this->back3->Location = System::Drawing::Point(213, 409);
+			this->back3->Location = System::Drawing::Point(132, 438);
 			this->back3->Name = L"back3";
 			this->back3->Size = System::Drawing::Size(167, 35);
 			this->back3->TabIndex = 0;
@@ -1624,7 +1824,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage2->Size = System::Drawing::Size(833, 498);
 			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"Fault Injection";
+			this->tabPage2->Text = L"3";
 			// 
 			// testPatternForAll
 			// 
@@ -1957,6 +2157,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage1->Controls->Add(this->Next2SelectedVectorButton);
 			this->tabPage1->Controls->Add(this->Next2TVGtab);
 			this->tabPage1->Controls->Add(this->progressBar2);
 			this->tabPage1->Controls->Add(this->progressBar1);
@@ -1976,7 +2177,25 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage1->Size = System::Drawing::Size(833, 498);
 			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"File Conversion";
+			this->tabPage1->Text = L"2";
+			// 
+			// Next2SelectedVectorButton
+			// 
+			this->Next2SelectedVectorButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->Next2SelectedVectorButton->Enabled = false;
+			this->Next2SelectedVectorButton->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->Next2SelectedVectorButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Next2SelectedVectorButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Next2SelectedVectorButton->ForeColor = System::Drawing::Color::LightGray;
+			this->Next2SelectedVectorButton->Location = System::Drawing::Point(474, 427);
+			this->Next2SelectedVectorButton->Name = L"Next2SelectedVectorButton";
+			this->Next2SelectedVectorButton->Size = System::Drawing::Size(164, 53);
+			this->Next2SelectedVectorButton->TabIndex = 17;
+			this->Next2SelectedVectorButton->Text = L"ATPG FOR SELECTED NODES>>";
+			this->Next2SelectedVectorButton->UseVisualStyleBackColor = false;
+			this->Next2SelectedVectorButton->Click += gcnew System::EventHandler(this, &fileconv::Next2SelectedVectorButton_Click);
 			// 
 			// Next2TVGtab
 			// 
@@ -1988,9 +2207,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->Next2TVGtab->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Next2TVGtab->ForeColor = System::Drawing::Color::LightGray;
-			this->Next2TVGtab->Location = System::Drawing::Point(628, 344);
+			this->Next2TVGtab->Location = System::Drawing::Point(653, 427);
 			this->Next2TVGtab->Name = L"Next2TVGtab";
-			this->Next2TVGtab->Size = System::Drawing::Size(170, 56);
+			this->Next2TVGtab->Size = System::Drawing::Size(164, 53);
 			this->Next2TVGtab->TabIndex = 16;
 			this->Next2TVGtab->Text = L"ATPG FOR ALL NODES>>";
 			this->Next2TVGtab->UseVisualStyleBackColor = false;
@@ -2000,7 +2219,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			// 
 			this->progressBar2->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->progressBar2->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->progressBar2->Location = System::Drawing::Point(21, 419);
+			this->progressBar2->Location = System::Drawing::Point(21, 399);
 			this->progressBar2->Name = L"progressBar2";
 			this->progressBar2->Size = System::Drawing::Size(584, 10);
 			this->progressBar2->TabIndex = 15;
@@ -2010,7 +2229,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			// 
 			this->progressBar1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->progressBar1->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->progressBar1->Location = System::Drawing::Point(21, 418);
+			this->progressBar1->Location = System::Drawing::Point(21, 398);
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(584, 10);
 			this->progressBar1->TabIndex = 14;
@@ -2025,9 +2244,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->ScanChainInsertButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ScanChainInsertButton->ForeColor = System::Drawing::Color::LightGray;
-			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 136);
+			this->ScanChainInsertButton->Location = System::Drawing::Point(628, 166);
 			this->ScanChainInsertButton->Name = L"ScanChainInsertButton";
-			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 58);
+			this->ScanChainInsertButton->Size = System::Drawing::Size(170, 63);
 			this->ScanChainInsertButton->TabIndex = 13;
 			this->ScanChainInsertButton->Text = L"ENABLE SCAN\r\nCHAIN";
 			this->ScanChainInsertButton->UseVisualStyleBackColor = false;
@@ -2043,9 +2262,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->clear->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->clear->ForeColor = System::Drawing::Color::LightGray;
-			this->clear->Location = System::Drawing::Point(628, 286);
+			this->clear->Location = System::Drawing::Point(628, 350);
 			this->clear->Name = L"clear";
-			this->clear->Size = System::Drawing::Size(170, 43);
+			this->clear->Size = System::Drawing::Size(170, 48);
 			this->clear->TabIndex = 12;
 			this->clear->Text = L"CLEAR";
 			this->clear->UseVisualStyleBackColor = false;
@@ -2061,7 +2280,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->comseq->ForeColor = System::Drawing::Color::LightGray;
 			this->comseq->FormattingEnabled = true;
 			this->comseq->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Combinational", L"Sequential" });
-			this->comseq->Location = System::Drawing::Point(400, 471);
+			this->comseq->Location = System::Drawing::Point(180, 483);
 			this->comseq->Name = L"comseq";
 			this->comseq->Size = System::Drawing::Size(41, 31);
 			this->comseq->TabIndex = 11;
@@ -2228,9 +2447,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->openyosys->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->openyosys->ForeColor = System::Drawing::Color::LightGray;
-			this->openyosys->Location = System::Drawing::Point(628, 59);
+			this->openyosys->Location = System::Drawing::Point(628, 77);
 			this->openyosys->Name = L"openyosys";
-			this->openyosys->Size = System::Drawing::Size(170, 58);
+			this->openyosys->Size = System::Drawing::Size(170, 61);
 			this->openyosys->TabIndex = 0;
 			this->openyosys->Text = L"OPEN YOSYS GENERATED FILE";
 			this->openyosys->UseVisualStyleBackColor = false;
@@ -2246,9 +2465,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->nextbutton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->nextbutton->ForeColor = System::Drawing::Color::LightGray;
-			this->nextbutton->Location = System::Drawing::Point(628, 418);
+			this->nextbutton->Location = System::Drawing::Point(293, 427);
 			this->nextbutton->Name = L"nextbutton";
-			this->nextbutton->Size = System::Drawing::Size(170, 53);
+			this->nextbutton->Size = System::Drawing::Size(164, 53);
 			this->nextbutton->TabIndex = 6;
 			this->nextbutton->Text = L"ATPG FOR EACH NODE>>";
 			this->nextbutton->UseVisualStyleBackColor = false;
@@ -2260,7 +2479,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->panel2->Controls->Add(this->showyosys);
 			this->panel2->Location = System::Drawing::Point(21, 59);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(584, 359);
+			this->panel2->Size = System::Drawing::Size(584, 339);
 			this->panel2->TabIndex = 4;
 			// 
 			// showyosys
@@ -2275,7 +2494,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->showyosys->Name = L"showyosys";
 			this->showyosys->ReadOnly = true;
 			this->showyosys->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->showyosys->Size = System::Drawing::Size(584, 359);
+			this->showyosys->Size = System::Drawing::Size(584, 339);
 			this->showyosys->TabIndex = 0;
 			// 
 			// convgnet
@@ -2288,9 +2507,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->convgnet->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->convgnet->ForeColor = System::Drawing::Color::LightGray;
-			this->convgnet->Location = System::Drawing::Point(628, 211);
+			this->convgnet->Location = System::Drawing::Point(628, 254);
 			this->convgnet->Name = L"convgnet";
-			this->convgnet->Size = System::Drawing::Size(170, 58);
+			this->convgnet->Size = System::Drawing::Size(170, 66);
 			this->convgnet->TabIndex = 1;
 			this->convgnet->Text = L"CONVERT TO GATE-LEVEL NETLIST";
 			this->convgnet->UseVisualStyleBackColor = false;
@@ -2309,7 +2528,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Size = System::Drawing::Size(833, 498);
 			this->tabPage4->TabIndex = 3;
-			this->tabPage4->Text = L"Home";
+			this->tabPage4->Text = L"1";
 			// 
 			// panel7
 			// 
@@ -2460,7 +2679,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->panel10->Controls->Add(this->homenext);
 			this->panel10->Controls->Add(this->userManualLabel);
 			this->panel10->Controls->Add(this->flowLayoutPanel2);
-			this->panel10->Location = System::Drawing::Point(9, 46);
+			this->panel10->Location = System::Drawing::Point(9, 48);
 			this->panel10->Name = L"panel10";
 			this->panel10->Size = System::Drawing::Size(434, 455);
 			this->panel10->TabIndex = 18;
@@ -2532,10 +2751,12 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabControl1->Controls->Add(this->tabPage5);
 			this->tabControl1->Controls->Add(this->tabPage6);
 			this->tabControl1->Controls->Add(this->tabPage7);
+			this->tabControl1->Controls->Add(this->tabPage8);
+			this->tabControl1->Controls->Add(this->tabPage9);
 			this->tabControl1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->tabControl1->Location = System::Drawing::Point(-5, 31);
+			this->tabControl1->Location = System::Drawing::Point(-5, 29);
 			this->tabControl1->Multiline = true;
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -2547,31 +2768,658 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->tabPage7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->tabPage7->Controls->Add(this->simulateBackButton);
+			this->tabPage7->Controls->Add(this->button30);
 			this->tabPage7->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tabPage7->Location = System::Drawing::Point(4, 32);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Size = System::Drawing::Size(833, 498);
 			this->tabPage7->TabIndex = 7;
-			this->tabPage7->Text = L"Simulate";
+			this->tabPage7->Text = L"7";
 			// 
-			// simulateBackButton
+			// button30
 			// 
-			this->simulateBackButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->simulateBackButton->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
-			this->simulateBackButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->simulateBackButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button30->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->button30->FlatAppearance->BorderColor = System::Drawing::Color::LightCoral;
+			this->button30->FlatAppearance->BorderSize = 2;
+			this->button30->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button30->ForeColor = System::Drawing::Color::LightGray;
+			this->button30->Location = System::Drawing::Point(329, 430);
+			this->button30->Name = L"button30";
+			this->button30->Size = System::Drawing::Size(167, 35);
+			this->button30->TabIndex = 22;
+			this->button30->Text = L"HOME";
+			this->button30->UseVisualStyleBackColor = false;
+			this->button30->Click += gcnew System::EventHandler(this, &fileconv::button30_Click);
+			// 
+			// tabPage8
+			// 
+			this->tabPage8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage8->Controls->Add(this->SelectingSTKtxt);
+			this->tabPage8->Controls->Add(this->label31);
+			this->tabPage8->Controls->Add(this->SelectedModule);
+			this->tabPage8->Controls->Add(this->SelectedTestVectorLable);
+			this->tabPage8->Controls->Add(this->GenerateSelectedVectorsButton);
+			this->tabPage8->Controls->Add(this->NextSelectedVecBUtt);
+			this->tabPage8->Controls->Add(this->label34);
+			this->tabPage8->Controls->Add(this->SelectingFaultyNodetxt);
+			this->tabPage8->Controls->Add(this->label35);
+			this->tabPage8->Controls->Add(this->button25);
+			this->tabPage8->Controls->Add(this->panel14);
+			this->tabPage8->Controls->Add(this->panel13);
+			this->tabPage8->Location = System::Drawing::Point(4, 32);
+			this->tabPage8->Name = L"tabPage8";
+			this->tabPage8->Size = System::Drawing::Size(833, 498);
+			this->tabPage8->TabIndex = 8;
+			this->tabPage8->Text = L"8";
+			// 
+			// SelectingSTKtxt
+			// 
+			this->SelectingSTKtxt->BackColor = System::Drawing::Color::LightGray;
+			this->SelectingSTKtxt->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->simulateBackButton->ForeColor = System::Drawing::Color::LightGray;
-			this->simulateBackButton->Location = System::Drawing::Point(51, 436);
-			this->simulateBackButton->Name = L"simulateBackButton";
-			this->simulateBackButton->Size = System::Drawing::Size(130, 34);
-			this->simulateBackButton->TabIndex = 10;
-			this->simulateBackButton->Text = L"<<BACK";
-			this->simulateBackButton->UseVisualStyleBackColor = false;
-			this->simulateBackButton->Click += gcnew System::EventHandler(this, &fileconv::simulateBackButton_Click);
+			this->SelectingSTKtxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingSTKtxt->Location = System::Drawing::Point(486, 282);
+			this->SelectingSTKtxt->Name = L"SelectingSTKtxt";
+			this->SelectingSTKtxt->Size = System::Drawing::Size(303, 30);
+			this->SelectingSTKtxt->TabIndex = 28;
+			// 
+			// label31
+			// 
+			this->label31->AutoSize = true;
+			this->label31->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label31->ForeColor = System::Drawing::Color::LightGray;
+			this->label31->Location = System::Drawing::Point(482, 116);
+			this->label31->Name = L"label31";
+			this->label31->Size = System::Drawing::Size(78, 23);
+			this->label31->TabIndex = 27;
+			this->label31->Text = L"Module :\r\n";
+			// 
+			// SelectedModule
+			// 
+			this->SelectedModule->AutoSize = true;
+			this->SelectedModule->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SelectedModule->ForeColor = System::Drawing::Color::LightGray;
+			this->SelectedModule->Location = System::Drawing::Point(566, 116);
+			this->SelectedModule->Name = L"SelectedModule";
+			this->SelectedModule->Size = System::Drawing::Size(69, 23);
+			this->SelectedModule->TabIndex = 26;
+			this->SelectedModule->Text = L"Module";
+			this->SelectedModule->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// SelectedTestVectorLable
+			// 
+			this->SelectedTestVectorLable->AutoSize = true;
+			this->SelectedTestVectorLable->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 11, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SelectedTestVectorLable->ForeColor = System::Drawing::Color::PowderBlue;
+			this->SelectedTestVectorLable->Location = System::Drawing::Point(523, 51);
+			this->SelectedTestVectorLable->Name = L"SelectedTestVectorLable";
+			this->SelectedTestVectorLable->Size = System::Drawing::Size(223, 50);
+			this->SelectedTestVectorLable->TabIndex = 25;
+			this->SelectedTestVectorLable->Text = L"Choose A Node Between\r\n1 and to Inject Fault";
+			this->SelectedTestVectorLable->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// GenerateSelectedVectorsButton
+			// 
+			this->GenerateSelectedVectorsButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->GenerateSelectedVectorsButton->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->GenerateSelectedVectorsButton->FlatAppearance->BorderSize = 3;
+			this->GenerateSelectedVectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->GenerateSelectedVectorsButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->GenerateSelectedVectorsButton->ForeColor = System::Drawing::Color::LightGray;
+			this->GenerateSelectedVectorsButton->Location = System::Drawing::Point(546, 338);
+			this->GenerateSelectedVectorsButton->Name = L"GenerateSelectedVectorsButton";
+			this->GenerateSelectedVectorsButton->Size = System::Drawing::Size(217, 51);
+			this->GenerateSelectedVectorsButton->TabIndex = 24;
+			this->GenerateSelectedVectorsButton->Text = L"GENRATE TEST VECTORS";
+			this->GenerateSelectedVectorsButton->UseVisualStyleBackColor = false;
+			this->GenerateSelectedVectorsButton->Click += gcnew System::EventHandler(this, &fileconv::GenerateSelectedVectorsButton_Click);
+			// 
+			// NextSelectedVecBUtt
+			// 
+			this->NextSelectedVecBUtt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->NextSelectedVecBUtt->Enabled = false;
+			this->NextSelectedVecBUtt->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->NextSelectedVecBUtt->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->NextSelectedVecBUtt->ForeColor = System::Drawing::Color::LightGray;
+			this->NextSelectedVecBUtt->Location = System::Drawing::Point(714, 411);
+			this->NextSelectedVecBUtt->Name = L"NextSelectedVecBUtt";
+			this->NextSelectedVecBUtt->Size = System::Drawing::Size(84, 51);
+			this->NextSelectedVecBUtt->TabIndex = 23;
+			this->NextSelectedVecBUtt->Text = L"NEXT>>";
+			this->NextSelectedVecBUtt->UseVisualStyleBackColor = false;
+			this->NextSelectedVecBUtt->Click += gcnew System::EventHandler(this, &fileconv::NextSelectedVecBUtt_Click);
+			// 
+			// label34
+			// 
+			this->label34->AutoSize = true;
+			this->label34->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label34->ForeColor = System::Drawing::Color::LightGray;
+			this->label34->Location = System::Drawing::Point(482, 230);
+			this->label34->Name = L"label34";
+			this->label34->Size = System::Drawing::Size(305, 46);
+			this->label34->TabIndex = 22;
+			this->label34->Text = L"Choose the Stuck-at Value Respective \r\nto the Above Nodes: (Ex: 1, 0, 1)";
+			// 
+			// SelectingFaultyNodetxt
+			// 
+			this->SelectingFaultyNodetxt->BackColor = System::Drawing::Color::LightGray;
+			this->SelectingFaultyNodetxt->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SelectingFaultyNodetxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
+				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingFaultyNodetxt->Location = System::Drawing::Point(486, 182);
+			this->SelectingFaultyNodetxt->Name = L"SelectingFaultyNodetxt";
+			this->SelectingFaultyNodetxt->Size = System::Drawing::Size(303, 30);
+			this->SelectingFaultyNodetxt->TabIndex = 21;
+			// 
+			// label35
+			// 
+			this->label35->AutoSize = true;
+			this->label35->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label35->ForeColor = System::Drawing::Color::LightGray;
+			this->label35->Location = System::Drawing::Point(482, 151);
+			this->label35->Name = L"label35";
+			this->label35->Size = System::Drawing::Size(326, 23);
+			this->label35->TabIndex = 19;
+			this->label35->Text = L"Enter the Faulty Nodes : (Ex: 205, 123, 92)\r\n";
+			// 
+			// button25
+			// 
+			this->button25->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->button25->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
+			this->button25->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button25->ForeColor = System::Drawing::Color::LightGray;
+			this->button25->Location = System::Drawing::Point(495, 411);
+			this->button25->Name = L"button25";
+			this->button25->Size = System::Drawing::Size(84, 51);
+			this->button25->TabIndex = 17;
+			this->button25->Text = L"<<BACK";
+			this->button25->UseVisualStyleBackColor = false;
+			this->button25->Click += gcnew System::EventHandler(this, &fileconv::button25_Click);
+			// 
+			// panel14
+			// 
+			this->panel14->Controls->Add(this->gatetext);
+			this->panel14->Location = System::Drawing::Point(27, 51);
+			this->panel14->Name = L"panel14";
+			this->panel14->Size = System::Drawing::Size(430, 411);
+			this->panel14->TabIndex = 16;
+			// 
+			// gatetext
+			// 
+			this->gatetext->BackColor = System::Drawing::Color::LightGray;
+			this->gatetext->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->gatetext->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->gatetext->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->gatetext->Location = System::Drawing::Point(0, 0);
+			this->gatetext->Multiline = true;
+			this->gatetext->Name = L"gatetext";
+			this->gatetext->ReadOnly = true;
+			this->gatetext->ScrollBars = System::Windows::Forms::ScrollBars::Both;
+			this->gatetext->Size = System::Drawing::Size(430, 411);
+			this->gatetext->TabIndex = 1;
+			// 
+			// panel13
+			// 
+			this->panel13->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel13->Controls->Add(this->label28);
+			this->panel13->Controls->Add(this->label29);
+			this->panel13->Controls->Add(this->button15);
+			this->panel13->Controls->Add(this->button20);
+			this->panel13->Controls->Add(this->label30);
+			this->panel13->Controls->Add(this->button21);
+			this->panel13->Controls->Add(this->button22);
+			this->panel13->Location = System::Drawing::Point(0, 0);
+			this->panel13->Name = L"panel13";
+			this->panel13->Size = System::Drawing::Size(832, 40);
+			this->panel13->TabIndex = 12;
+			// 
+			// label28
+			// 
+			this->label28->AutoSize = true;
+			this->label28->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label28->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label28->ForeColor = System::Drawing::Color::LightGray;
+			this->label28->Location = System::Drawing::Point(672, 14);
+			this->label28->Name = L"label28";
+			this->label28->Size = System::Drawing::Size(126, 20);
+			this->label28->TabIndex = 17;
+			this->label28->Text = L"FAULT TRACKING";
+			// 
+			// label29
+			// 
+			this->label29->AutoSize = true;
+			this->label29->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label29->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label29->ForeColor = System::Drawing::Color::LightGray;
+			this->label29->Location = System::Drawing::Point(73, 14);
+			this->label29->Name = L"label29";
+			this->label29->Size = System::Drawing::Size(53, 20);
+			this->label29->TabIndex = 17;
+			this->label29->Text = L"HOME";
+			// 
+			// button15
+			// 
+			this->button15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button15->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button15->Enabled = false;
+			this->button15->FlatAppearance->BorderSize = 0;
+			this->button15->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightSkyBlue;
+			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button15->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button15->ForeColor = System::Drawing::Color::LightGray;
+			this->button15->Location = System::Drawing::Point(621, 0);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(213, 40);
+			this->button15->TabIndex = 10;
+			this->button15->UseVisualStyleBackColor = false;
+			// 
+			// button20
+			// 
+			this->button20->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->button20->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button20->FlatAppearance->BorderSize = 0;
+			this->button20->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button20->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 11, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button20->ForeColor = System::Drawing::Color::LightGray;
+			this->button20->Location = System::Drawing::Point(414, 0);
+			this->button20->Name = L"button20";
+			this->button20->Size = System::Drawing::Size(207, 40);
+			this->button20->TabIndex = 9;
+			this->button20->Text = L"FAULT INJECTION";
+			this->button20->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->button20->UseVisualStyleBackColor = false;
+			// 
+			// label30
+			// 
+			this->label30->AutoSize = true;
+			this->label30->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label30->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label30->ForeColor = System::Drawing::Color::LightGray;
+			this->label30->Location = System::Drawing::Point(251, 13);
+			this->label30->Name = L"label30";
+			this->label30->Size = System::Drawing::Size(134, 20);
+			this->label30->TabIndex = 14;
+			this->label30->Text = L"FILE CONVERSION";
+			// 
+			// button21
+			// 
+			this->button21->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button21->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button21->Enabled = false;
+			this->button21->FlatAppearance->BorderSize = 0;
+			this->button21->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightSkyBlue;
+			this->button21->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button21->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button21->ForeColor = System::Drawing::Color::Transparent;
+			this->button21->Location = System::Drawing::Point(207, 0);
+			this->button21->Name = L"button21";
+			this->button21->Size = System::Drawing::Size(207, 40);
+			this->button21->TabIndex = 8;
+			this->button21->UseVisualStyleBackColor = false;
+			// 
+			// button22
+			// 
+			this->button22->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button22->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button22->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button22->Enabled = false;
+			this->button22->FlatAppearance->BorderSize = 0;
+			this->button22->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
+			this->button22->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightSkyBlue;
+			this->button22->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button22->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button22->ForeColor = System::Drawing::Color::LightGray;
+			this->button22->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->button22->Location = System::Drawing::Point(0, 0);
+			this->button22->Name = L"button22";
+			this->button22->Size = System::Drawing::Size(207, 40);
+			this->button22->TabIndex = 7;
+			this->button22->UseVisualStyleBackColor = false;
+			// 
+			// tabPage9
+			// 
+			this->tabPage9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->tabPage9->Controls->Add(this->SewlectedFaultsLabel);
+			this->tabPage9->Controls->Add(this->SelectedNodesLabel);
+			this->tabPage9->Controls->Add(this->label42);
+			this->tabPage9->Controls->Add(this->label32);
+			this->tabPage9->Controls->Add(this->GVFIMselected);
+			this->tabPage9->Controls->Add(this->NextSelectedfTrack);
+			this->tabPage9->Controls->Add(this->panel15);
+			this->tabPage9->Controls->Add(this->button28);
+			this->tabPage9->Controls->Add(this->panel16);
+			this->tabPage9->Controls->Add(this->label39);
+			this->tabPage9->Controls->Add(this->label41);
+			this->tabPage9->Controls->Add(this->button29);
+			this->tabPage9->Location = System::Drawing::Point(4, 32);
+			this->tabPage9->Name = L"tabPage9";
+			this->tabPage9->Size = System::Drawing::Size(833, 498);
+			this->tabPage9->TabIndex = 9;
+			this->tabPage9->Text = L"9";
+			// 
+			// SewlectedFaultsLabel
+			// 
+			this->SewlectedFaultsLabel->AutoSize = true;
+			this->SewlectedFaultsLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SewlectedFaultsLabel->ForeColor = System::Drawing::Color::LightGray;
+			this->SewlectedFaultsLabel->Location = System::Drawing::Point(211, 149);
+			this->SewlectedFaultsLabel->Name = L"SewlectedFaultsLabel";
+			this->SewlectedFaultsLabel->Size = System::Drawing::Size(54, 23);
+			this->SewlectedFaultsLabel->TabIndex = 31;
+			this->SewlectedFaultsLabel->Text = L"Faults";
+			// 
+			// SelectedNodesLabel
+			// 
+			this->SelectedNodesLabel->AutoSize = true;
+			this->SelectedNodesLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SelectedNodesLabel->ForeColor = System::Drawing::Color::LightGray;
+			this->SelectedNodesLabel->Location = System::Drawing::Point(209, 113);
+			this->SelectedNodesLabel->Name = L"SelectedNodesLabel";
+			this->SelectedNodesLabel->Size = System::Drawing::Size(59, 23);
+			this->SelectedNodesLabel->TabIndex = 30;
+			this->SelectedNodesLabel->Text = L"Nodes";
+			// 
+			// label42
+			// 
+			this->label42->AutoSize = true;
+			this->label42->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label42->ForeColor = System::Drawing::Color::LightGray;
+			this->label42->Location = System::Drawing::Point(42, 149);
+			this->label42->Name = L"label42";
+			this->label42->Size = System::Drawing::Size(163, 23);
+			this->label42->TabIndex = 29;
+			this->label42->Text = L"And Stuck-at Faults:";
+			// 
+			// label32
+			// 
+			this->label32->AutoSize = true;
+			this->label32->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label32->ForeColor = System::Drawing::Color::LightGray;
+			this->label32->Location = System::Drawing::Point(42, 345);
+			this->label32->Name = L"label32";
+			this->label32->Size = System::Drawing::Size(124, 23);
+			this->label32->TabIndex = 28;
+			this->label32->Text = L"For Simulation:";
+			// 
+			// GVFIMselected
+			// 
+			this->GVFIMselected->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->GVFIMselected->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->GVFIMselected->FlatAppearance->BorderSize = 3;
+			this->GVFIMselected->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->GVFIMselected->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->GVFIMselected->ForeColor = System::Drawing::Color::LightGray;
+			this->GVFIMselected->Location = System::Drawing::Point(172, 337);
+			this->GVFIMselected->Name = L"GVFIMselected";
+			this->GVFIMselected->Size = System::Drawing::Size(333, 41);
+			this->GVFIMselected->TabIndex = 27;
+			this->GVFIMselected->Text = L"GENERATE VERILOG FAULT INJECTED MODULE";
+			this->GVFIMselected->UseVisualStyleBackColor = false;
+			this->GVFIMselected->Click += gcnew System::EventHandler(this, &fileconv::GVFIMselected_Click);
+			// 
+			// NextSelectedfTrack
+			// 
+			this->NextSelectedfTrack->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->NextSelectedfTrack->Enabled = false;
+			this->NextSelectedfTrack->FlatAppearance->BorderColor = System::Drawing::Color::PowderBlue;
+			this->NextSelectedfTrack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->NextSelectedfTrack->ForeColor = System::Drawing::Color::LightGray;
+			this->NextSelectedfTrack->Location = System::Drawing::Point(519, 423);
+			this->NextSelectedfTrack->Name = L"NextSelectedfTrack";
+			this->NextSelectedfTrack->Size = System::Drawing::Size(167, 35);
+			this->NextSelectedfTrack->TabIndex = 24;
+			this->NextSelectedfTrack->Text = L"NEXT>>";
+			this->NextSelectedfTrack->UseVisualStyleBackColor = false;
+			this->NextSelectedfTrack->Click += gcnew System::EventHandler(this, &fileconv::NextSelectedfTrack_Click);
+			// 
+			// panel15
+			// 
+			this->panel15->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel15->Controls->Add(this->label36);
+			this->panel15->Controls->Add(this->button14);
+			this->panel15->Controls->Add(this->label37);
+			this->panel15->Controls->Add(this->button23);
+			this->panel15->Controls->Add(this->label38);
+			this->panel15->Controls->Add(this->button26);
+			this->panel15->Controls->Add(this->button27);
+			this->panel15->Location = System::Drawing::Point(0, 0);
+			this->panel15->Name = L"panel15";
+			this->panel15->Size = System::Drawing::Size(832, 40);
+			this->panel15->TabIndex = 22;
+			// 
+			// label36
+			// 
+			this->label36->AutoSize = true;
+			this->label36->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label36->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label36->ForeColor = System::Drawing::Color::LightGray;
+			this->label36->Location = System::Drawing::Point(456, 14);
+			this->label36->Name = L"label36";
+			this->label36->Size = System::Drawing::Size(129, 20);
+			this->label36->TabIndex = 14;
+			this->label36->Text = L"FAULT INJECTION";
+			// 
+			// button14
+			// 
+			this->button14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->button14->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button14->FlatAppearance->BorderSize = 0;
+			this->button14->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button14->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 11, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button14->ForeColor = System::Drawing::Color::LightGray;
+			this->button14->Location = System::Drawing::Point(621, 0);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(213, 40);
+			this->button14->TabIndex = 10;
+			this->button14->Text = L"FAULT TRACKING";
+			this->button14->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->button14->UseVisualStyleBackColor = false;
+			// 
+			// label37
+			// 
+			this->label37->AutoSize = true;
+			this->label37->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label37->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label37->ForeColor = System::Drawing::Color::LightGray;
+			this->label37->Location = System::Drawing::Point(251, 13);
+			this->label37->Name = L"label37";
+			this->label37->Size = System::Drawing::Size(134, 20);
+			this->label37->TabIndex = 19;
+			this->label37->Text = L"FILE CONVERSION";
+			// 
+			// button23
+			// 
+			this->button23->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button23->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button23->Enabled = false;
+			this->button23->FlatAppearance->BorderSize = 0;
+			this->button23->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightSkyBlue;
+			this->button23->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button23->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button23->ForeColor = System::Drawing::Color::LightGray;
+			this->button23->Location = System::Drawing::Point(414, 0);
+			this->button23->Name = L"button23";
+			this->button23->Size = System::Drawing::Size(207, 40);
+			this->button23->TabIndex = 9;
+			this->button23->UseVisualStyleBackColor = false;
+			// 
+			// label38
+			// 
+			this->label38->AutoSize = true;
+			this->label38->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label38->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label38->ForeColor = System::Drawing::Color::LightGray;
+			this->label38->Location = System::Drawing::Point(73, 14);
+			this->label38->Name = L"label38";
+			this->label38->Size = System::Drawing::Size(53, 20);
+			this->label38->TabIndex = 18;
+			this->label38->Text = L"HOME";
+			// 
+			// button26
+			// 
+			this->button26->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button26->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button26->Enabled = false;
+			this->button26->FlatAppearance->BorderSize = 0;
+			this->button26->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightSkyBlue;
+			this->button26->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button26->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button26->ForeColor = System::Drawing::Color::LightGray;
+			this->button26->Location = System::Drawing::Point(207, 0);
+			this->button26->Name = L"button26";
+			this->button26->Size = System::Drawing::Size(207, 40);
+			this->button26->TabIndex = 8;
+			this->button26->UseVisualStyleBackColor = false;
+			// 
+			// button27
+			// 
+			this->button27->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button27->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button27->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button27->Enabled = false;
+			this->button27->FlatAppearance->BorderSize = 0;
+			this->button27->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
+			this->button27->FlatAppearance->MouseOverBackColor = System::Drawing::Color::LightSkyBlue;
+			this->button27->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button27->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button27->ForeColor = System::Drawing::Color::LightGray;
+			this->button27->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->button27->Location = System::Drawing::Point(0, 0);
+			this->button27->Name = L"button27";
+			this->button27->Size = System::Drawing::Size(207, 40);
+			this->button27->TabIndex = 7;
+			this->button27->UseVisualStyleBackColor = false;
+			// 
+			// button28
+			// 
+			this->button28->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->button28->FlatAppearance->BorderColor = System::Drawing::Color::LightCoral;
+			this->button28->FlatAppearance->BorderSize = 2;
+			this->button28->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button28->ForeColor = System::Drawing::Color::LightGray;
+			this->button28->Location = System::Drawing::Point(328, 423);
+			this->button28->Name = L"button28";
+			this->button28->Size = System::Drawing::Size(167, 35);
+			this->button28->TabIndex = 21;
+			this->button28->Text = L"HOME";
+			this->button28->UseVisualStyleBackColor = false;
+			this->button28->Click += gcnew System::EventHandler(this, &fileconv::button28_Click);
+			// 
+			// panel16
+			// 
+			this->panel16->Controls->Add(this->ShowSelectedTestVectors);
+			this->panel16->Location = System::Drawing::Point(46, 188);
+			this->panel16->Name = L"panel16";
+			this->panel16->Size = System::Drawing::Size(731, 122);
+			this->panel16->TabIndex = 18;
+			// 
+			// ShowSelectedTestVectors
+			// 
+			this->ShowSelectedTestVectors->BackColor = System::Drawing::Color::LightGray;
+			this->ShowSelectedTestVectors->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->ShowSelectedTestVectors->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->ShowSelectedTestVectors->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ShowSelectedTestVectors->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
+				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->ShowSelectedTestVectors->Location = System::Drawing::Point(0, 0);
+			this->ShowSelectedTestVectors->Multiline = true;
+			this->ShowSelectedTestVectors->Name = L"ShowSelectedTestVectors";
+			this->ShowSelectedTestVectors->ReadOnly = true;
+			this->ShowSelectedTestVectors->Size = System::Drawing::Size(731, 122);
+			this->ShowSelectedTestVectors->TabIndex = 1;
+			// 
+			// label39
+			// 
+			this->label39->AutoSize = true;
+			this->label39->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label39->ForeColor = System::Drawing::Color::LightGray;
+			this->label39->Location = System::Drawing::Point(42, 113);
+			this->label39->Name = L"label39";
+			this->label39->Size = System::Drawing::Size(161, 23);
+			this->label39->TabIndex = 20;
+			this->label39->Text = L"For Selected Nodes:";
+			// 
+			// label41
+			// 
+			this->label41->AutoSize = true;
+			this->label41->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label41->ForeColor = System::Drawing::Color::PowderBlue;
+			this->label41->Location = System::Drawing::Point(252, 59);
+			this->label41->Name = L"label41";
+			this->label41->Size = System::Drawing::Size(338, 30);
+			this->label41->TabIndex = 16;
+			this->label41->Text = L"OPTIMUM INPUT TEST VECTORS";
+			// 
+			// button29
+			// 
+			this->button29->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->button29->FlatAppearance->BorderColor = System::Drawing::Color::PeachPuff;
+			this->button29->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button29->ForeColor = System::Drawing::Color::LightGray;
+			this->button29->Location = System::Drawing::Point(137, 423);
+			this->button29->Name = L"button29";
+			this->button29->Size = System::Drawing::Size(167, 35);
+			this->button29->TabIndex = 15;
+			this->button29->Text = L"<<BACK";
+			this->button29->UseVisualStyleBackColor = false;
+			this->button29->Click += gcnew System::EventHandler(this, &fileconv::button29_Click);
 			// 
 			// openFileDialog2
 			// 
@@ -2637,6 +3485,18 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 			this->panel10->PerformLayout();
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage7->ResumeLayout(false);
+			this->tabPage8->ResumeLayout(false);
+			this->tabPage8->PerformLayout();
+			this->panel14->ResumeLayout(false);
+			this->panel14->PerformLayout();
+			this->panel13->ResumeLayout(false);
+			this->panel13->PerformLayout();
+			this->tabPage9->ResumeLayout(false);
+			this->tabPage9->PerformLayout();
+			this->panel15->ResumeLayout(false);
+			this->panel15->PerformLayout();
+			this->panel16->ResumeLayout(false);
+			this->panel16->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -2716,6 +3576,9 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 		faultnode->Text = "";
 		errlabel->Visible = false;
 		stkat->SelectedIndex = -1;
+		NextEachTrack->Enabled = false;
+		NextEachTrack->Enabled = false;
+		nextTVGButton->Enabled = false;
 		//comseq->SelectedIndex = -1;
 		next2->Enabled = false;
 		P_func.clearfiles();
@@ -2780,6 +3643,8 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 		convgnet->Enabled = false;
 		//comseq->Enabled = false;
 		nextbutton->Enabled = false;
+		Next2SelectedVectorButton->Enabled = false;
+		Next2TVGtab->Enabled = false;
 		clear->Enabled = false;
 		//comseq->SelectedIndex = -1;
 		progressBar1->Value = 0;
@@ -2803,6 +3668,7 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 		System::String^ inputVeilogFileName = System::IO::Path::GetFileName(filepath);
 		ModuleTVGLabel->Text = inputVeilogFileName;
 		moduleNameLabel->Text = inputVeilogFileName;
+		SelectedModule->Text = inputVeilogFileName;
 		inputVeilogFileDirectory = "InsertedScanChainFile.v";
 
 		//if (selectedItem == "Combinational") {
@@ -2855,9 +3721,13 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 		String^ fileContents3 = System::IO::File::ReadAllText(filePath3);
 		gatenet->Text = fileContents3;
 		showyosys->Text = fileContents3;
+		gatetext->Text = fileContents3;
+		AllTextVectorTextBox->Text = fileContents3;
 
 		finalNodeNumberLabel->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
+		SelectedTestVectorLable->Text = System::Convert::ToString("CHOOSE A NODE BETWEEN 1 AND " + finalSignalNumber + "\n TO INJECT STUCK-AT FAULT: ");
 
+		Next2SelectedVectorButton->Enabled = true;
 		convgnet->Enabled = false;
 		Next2TVGtab->Enabled = true;
 	}
@@ -2917,6 +3787,8 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 		progressBar1->Value = 0;
 		progressBar2->Value = 0;
 		ScanChainInsertButton->Enabled = false;
+		Next2SelectedVectorButton->Enabled = false;
+		Next2TVGtab->Enabled = false;
 	}
 	private: System::Void faultnode_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		if (!Char::IsDigit(e->KeyChar) && !Char::IsControl(e->KeyChar)) {
@@ -3377,6 +4249,194 @@ private: System::Windows::Forms::Button^ OptimumTestVectorButton;
 		String^ filePath9 = System::IO::Path::Combine(appDirectory, fileName9);
 		String^ fileContents9 = System::IO::File::ReadAllText(filePath9);
 		AllTextVectorTextBox->Text = fileContents9;
+	}
+
+	private: System::Void GenerateSelectedVectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		clearfilesSelectedGenerateTestVector();
+		P_func.clearfiles();
+		String^ inputSelctedNodes = SelectingFaultyNodetxt->Text;
+		std::string inputSelctedNodesStr = msclr::interop::marshal_as<std::string>(inputSelctedNodes);
+		
+		std::istringstream inputStream1(inputSelctedNodesStr);
+		std::ofstream outputFile1("selectedfaultnodes.txt");
+		
+		if (outputFile1.is_open()) {
+			std::string number1;
+			while (std::getline(inputStream1, number1, ',')) {
+				try {
+					int num = std::stoi(number1);
+					outputFile1 << num << std::endl;
+				}
+				catch (std::invalid_argument&) {
+
+					return;
+				}
+			}
+
+			outputFile1.close();
+		}
+
+
+
+		String^ inputSelctedSTKfaults = SelectingSTKtxt->Text;
+		std::string inputSelctedSTKfaultsStr = msclr::interop::marshal_as<std::string>(inputSelctedSTKfaults);
+
+		std::istringstream inputStream2(inputSelctedSTKfaultsStr);
+		std::ofstream outputFile2("selectedSTKfaults.txt");
+
+		if (outputFile2.is_open()) {
+			std::string number2;
+			while (std::getline(inputStream2, number2, ',')) {
+				try {
+					int num = std::stoi(number2);
+					outputFile2 << num << std::endl;
+				}
+				catch (std::invalid_argument&) {
+
+					return;
+				}
+			}
+
+			outputFile2.close();
+		}
+
+
+		TestVectorsGenSelected();
+
+		FindOptimumVector();
+
+		
+		String^ appDirectory = Application::StartupPath;
+		String^ fileName10 = "OptimumTestVectors.txt";
+		String^ filePath10 = System::IO::Path::Combine(appDirectory, fileName10);
+		String^ fileContents10 = System::IO::File::ReadAllText(filePath10);
+		ShowSelectedTestVectors->Text = fileContents10;
+
+		SelectedNodesLabel->Text = SelectingFaultyNodetxt->Text;
+		SewlectedFaultsLabel->Text = SelectingSTKtxt->Text;
+
+
+		NextSelectedVecBUtt->Enabled = true;
+	}
+	private: System::Void button25_Click(System::Object^ sender, System::EventArgs^ e) {
+		SelectingFaultyNodetxt->Text = "";
+		SelectingSTKtxt->Text = "";
+		//comseq->SelectedIndex = -1;
+		convgnet->Enabled = false;
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		progressBar3->Value = 0;
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[1];
+		}
+	}
+	private: System::Void Next2SelectedVectorButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[7];
+		}
+	}
+	private: System::Void button29_Click(System::Object^ sender, System::EventArgs^ e) {
+				
+		DeleteTextfiles();
+		NextSelectedVecBUtt->Enabled = false;
+		next2->Enabled = false;
+		P_func.clearfiles();
+		
+		ShowSelectedTestVectors->Text = "";
+
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[7];
+		}
+	}
+	private: System::Void NextSelectedVecBUtt_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[8];
+		}
+	}
+	private: System::Void NextSelectedfTrack_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[6];
+			
+		}
+	}
+	private: System::Void NextEachTrack_Click(System::Object^ sender, System::EventArgs^ e) {
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[6];
+
+		}
+	}
+	private: System::Void button28_Click(System::Object^ sender, System::EventArgs^ e) {
+		faultnode->Text = "";
+		errlabel->Visible = false;
+		NextEachTrack->Enabled = false;
+		NextEachTrack->Enabled = false;
+		nextTVGButton->Enabled = false;
+		stkat->SelectedIndex = -1;
+		//comseq->SelectedIndex = -1;
+		next2->Enabled = false;
+		P_func.clearfiles();
+		pinodes->Text = "";
+		testvector->Text = "";
+		convgnet->Enabled = false;
+		// comseq->Enabled = false;
+		clear->Enabled = false;
+		nextbutton->Enabled = false;
+		showyosys->Text = "";
+		gatenet->Text = "";
+		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		progressBar3->Value = 0;
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[0];
+		}
+	}
+	private: System::Void button30_Click(System::Object^ sender, System::EventArgs^ e) {
+		faultnode->Text = "";
+		errlabel->Visible = false;
+		stkat->SelectedIndex = -1;
+		NextEachTrack->Enabled = false;
+		NextEachTrack->Enabled = false;
+		nextTVGButton->Enabled = false;
+		//comseq->SelectedIndex = -1;
+		next2->Enabled = false;
+		P_func.clearfiles();
+		pinodes->Text = "";
+		testvector->Text = "";
+		convgnet->Enabled = false;
+		// comseq->Enabled = false;
+		clear->Enabled = false;
+		nextbutton->Enabled = false;
+		showyosys->Text = "";
+		gatenet->Text = "";
+		progressBar1->Value = 0;
+		progressBar2->Value = 0;
+		progressBar3->Value = 0;
+		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
+		if (tabControl != nullptr) {
+			tabControl->SelectedTab = tabControl->TabPages[0];
+		}
+	}
+	private: System::Void GVFIMselected_Click(System::Object^ sender, System::EventArgs^ e) {
+		NextEachTrack->Enabled = true;
+		NextSelectedfTrack->Enabled = true;
+		nextTVGButton->Enabled = true;
+	}
+	private: System::Void GVFIMselectedEach_Click(System::Object^ sender, System::EventArgs^ e) {
+		NextEachTrack->Enabled = true;
+		NextSelectedfTrack->Enabled = true;
+		nextTVGButton->Enabled = true;
+	}
+	private: System::Void GVFIMAll_Click(System::Object^ sender, System::EventArgs^ e) {
+		nextTVGButton->Enabled = true;
+		NextSelectedfTrack->Enabled = true;
+		NextEachTrack->Enabled = true;
 	}
 };
 }
