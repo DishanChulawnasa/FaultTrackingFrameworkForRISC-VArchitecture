@@ -207,17 +207,26 @@
 </value>
   </data>
   <data name="yosysLabel.Text" xml:space="preserve">
-    <value>--------------------
-Load YOSYS Tool:
---------------------
-
+    <value>---------------------
+Load YOSYS Tool :
+---------------------
 1. Download oss-cad-suite from 
    https://sites.google.com/view/faulttrackingframework/home
 
 2. Extract the oss-cad-suite
 
 3. Load the start.bat file from the extracted oss-cad folder.
-    ex: ....\oss-cad-suite\start.bat</value>
+    ex: ....\oss-cad-suite\start.bat
+
+--------------------------------------------------
+OR YOU CAN USE LINUX ENVIRONMENT :
+--------------------------------------------------
+Download YOSYS for Linux:
+https://yosyshq.net/yosys/download.html
+
+Technology Map Library Available at: 
+https://sites.google.com/view/faulttrackingframework/home
+</value>
   </data>
   <data name="flowLayoutPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

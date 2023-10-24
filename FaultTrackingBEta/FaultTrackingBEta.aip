@@ -17,10 +17,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://sites.google.com/view/faulttrackingframework/home"/>
     <ROW Property="CTRLS" Value="1"/>
     <ROW Property="Manufacturer" Value="G05"/>
-    <ROW Property="ProductCode" Value="1033:{A861B778-B47A-47B0-9FB5-6066C6A5C67D} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{F91A6F62-EE83-4CF5-89F3-19CDA820DA58} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Fault Tracking Framework"/>
-    <ROW Property="ProductVersion" Value="1.5.0" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.6.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EE50C6CD-5F8B-4097-8FC1-D1EEE2773EF1}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>

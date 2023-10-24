@@ -9,6 +9,7 @@
 #include "GenerateTextVectors.h"
 #include "FindOptimumTestVectors.h"
 #include "GenerateTestVectorsSelected.h"
+#include "VerilogFaultGeneration.h"
 
 namespace FaultTrackin {
 
@@ -358,6 +359,18 @@ private: System::Windows::Forms::Label^ label32;
 private: System::Windows::Forms::Label^ label42;
 private: System::Windows::Forms::Label^ SewlectedFaultsLabel;
 private: System::Windows::Forms::Label^ SelectedNodesLabel;
+private: System::Windows::Forms::Label^ label43;
+private: System::Windows::Forms::Button^ button24;
+private: System::Windows::Forms::TextBox^ textBox1;
+
+private: System::Windows::Forms::Button^ button32;
+private: System::Windows::Forms::TextBox^ textBox2;
+private: System::Windows::Forms::Label^ label44;
+private: System::Windows::Forms::Button^ button31;
+private: System::Windows::Forms::Label^ label46;
+private: System::Windows::Forms::TextBox^ textBox4;
+private: System::Windows::Forms::Label^ label45;
+private: System::Windows::Forms::TextBox^ textBox3;
 
 
 
@@ -638,6 +651,17 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->button24 = (gcnew System::Windows::Forms::Button());
+			this->label43 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label44 = (gcnew System::Windows::Forms::Label());
+			this->button31 = (gcnew System::Windows::Forms::Button());
+			this->button32 = (gcnew System::Windows::Forms::Button());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->label45 = (gcnew System::Windows::Forms::Label());
+			this->label46 = (gcnew System::Windows::Forms::Label());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->titlepnael->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			this->panel11->SuspendLayout();
@@ -1087,10 +1111,12 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			this->yosysLabel->AutoSize = true;
 			this->yosysLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
 				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->yosysLabel->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->yosysLabel->ForeColor = System::Drawing::Color::LightGray;
 			this->yosysLabel->Location = System::Drawing::Point(3, 1);
 			this->yosysLabel->Name = L"yosysLabel";
-			this->yosysLabel->Size = System::Drawing::Size(489, 253);
+			this->yosysLabel->Size = System::Drawing::Size(384, 323);
 			this->yosysLabel->TabIndex = 20;
 			this->yosysLabel->Text = resources->GetString(L"yosysLabel.Text");
 			// 
@@ -1149,6 +1175,7 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			this->GVFIMAll->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->GVFIMAll->Enabled = false;
 			this->GVFIMAll->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
 			this->GVFIMAll->FlatAppearance->BorderSize = 3;
 			this->GVFIMAll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1447,9 +1474,12 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// AllTextVectorTextBox
 			// 
+			this->AllTextVectorTextBox->BackColor = System::Drawing::Color::LightGray;
 			this->AllTextVectorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->AllTextVectorTextBox->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->AllTextVectorTextBox->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
+				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->AllTextVectorTextBox->Location = System::Drawing::Point(222, 72);
 			this->AllTextVectorTextBox->Multiline = true;
 			this->AllTextVectorTextBox->Name = L"AllTextVectorTextBox";
@@ -1710,13 +1740,13 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// testvector
 			// 
-			this->testvector->BackColor = System::Drawing::Color::LightGray;
+			this->testvector->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->testvector->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->testvector->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->testvector->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->testvector->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->testvector->ForeColor = System::Drawing::Color::LightGray;
 			this->testvector->Location = System::Drawing::Point(0, 0);
 			this->testvector->Multiline = true;
 			this->testvector->Name = L"testvector";
@@ -1759,13 +1789,13 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// pinodes
 			// 
-			this->pinodes->BackColor = System::Drawing::Color::LightGray;
+			this->pinodes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->pinodes->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->pinodes->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pinodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pinodes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->pinodes->ForeColor = System::Drawing::Color::LightGray;
 			this->pinodes->Location = System::Drawing::Point(0, 0);
 			this->pinodes->Multiline = true;
 			this->pinodes->Name = L"pinodes";
@@ -2071,11 +2101,12 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// faultnode
 			// 
-			this->faultnode->BackColor = System::Drawing::Color::LightGray;
+			this->faultnode->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->faultnode->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->faultnode->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->faultnode->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->faultnode->ForeColor = System::Drawing::Color::LightGray;
 			this->faultnode->Location = System::Drawing::Point(703, 195);
 			this->faultnode->Name = L"faultnode";
 			this->faultnode->Size = System::Drawing::Size(85, 30);
@@ -2085,13 +2116,12 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// stkat
 			// 
-			this->stkat->BackColor = System::Drawing::Color::LightGray;
-			this->stkat->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->stkat->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->stkat->Enabled = false;
 			this->stkat->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->stkat->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->stkat->ForeColor = System::Drawing::Color::LightGray;
 			this->stkat->FormattingEnabled = true;
 			this->stkat->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"0", L"1" });
 			this->stkat->Location = System::Drawing::Point(703, 253);
@@ -2768,6 +2798,18 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			this->tabPage7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tabPage7->Controls->Add(this->label46);
+			this->tabPage7->Controls->Add(this->textBox4);
+			this->tabPage7->Controls->Add(this->label45);
+			this->tabPage7->Controls->Add(this->textBox3);
+			this->tabPage7->Controls->Add(this->button32);
+			this->tabPage7->Controls->Add(this->textBox2);
+			this->tabPage7->Controls->Add(this->label44);
+			this->tabPage7->Controls->Add(this->button31);
+			this->tabPage7->Controls->Add(this->textBox1);
+			this->tabPage7->Controls->Add(this->label43);
+			this->tabPage7->Controls->Add(this->button24);
 			this->tabPage7->Controls->Add(this->button30);
 			this->tabPage7->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -2817,11 +2859,12 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// SelectingSTKtxt
 			// 
-			this->SelectingSTKtxt->BackColor = System::Drawing::Color::LightGray;
+			this->SelectingSTKtxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingSTKtxt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->SelectingSTKtxt->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SelectingSTKtxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingSTKtxt->ForeColor = System::Drawing::Color::LightGray;
 			this->SelectingSTKtxt->Location = System::Drawing::Point(486, 282);
 			this->SelectingSTKtxt->Name = L"SelectingSTKtxt";
 			this->SelectingSTKtxt->Size = System::Drawing::Size(303, 30);
@@ -2913,11 +2956,12 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// SelectingFaultyNodetxt
 			// 
-			this->SelectingFaultyNodetxt->BackColor = System::Drawing::Color::LightGray;
+			this->SelectingFaultyNodetxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
+				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingFaultyNodetxt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->SelectingFaultyNodetxt->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SelectingFaultyNodetxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
-				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingFaultyNodetxt->ForeColor = System::Drawing::Color::LightGray;
 			this->SelectingFaultyNodetxt->Location = System::Drawing::Point(486, 182);
 			this->SelectingFaultyNodetxt->Name = L"SelectingFaultyNodetxt";
 			this->SelectingFaultyNodetxt->Size = System::Drawing::Size(303, 30);
@@ -2961,6 +3005,7 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// gatetext
 			// 
 			this->gatetext->BackColor = System::Drawing::Color::LightGray;
+			this->gatetext->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->gatetext->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->gatetext->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -3368,7 +3413,8 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			// ShowSelectedTestVectors
 			// 
-			this->ShowSelectedTestVectors->BackColor = System::Drawing::Color::LightGray;
+			this->ShowSelectedTestVectors->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
+				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->ShowSelectedTestVectors->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->ShowSelectedTestVectors->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->ShowSelectedTestVectors->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -3429,6 +3475,167 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			// 
 			this->openFileDialog3->FileName = L"openFileDialog3";
 			// 
+			// button24
+			// 
+			this->button24->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button24->FlatAppearance->BorderColor = System::Drawing::Color::LightGray;
+			this->button24->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button24->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button24->ForeColor = System::Drawing::Color::LightGray;
+			this->button24->Location = System::Drawing::Point(642, 267);
+			this->button24->Name = L"button24";
+			this->button24->Size = System::Drawing::Size(23, 30);
+			this->button24->TabIndex = 23;
+			this->button24->Text = L":";
+			this->button24->UseVisualStyleBackColor = false;
+			// 
+			// label43
+			// 
+			this->label43->AutoSize = true;
+			this->label43->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label43->ForeColor = System::Drawing::Color::LightGray;
+			this->label43->Location = System::Drawing::Point(33, 270);
+			this->label43->Name = L"label43";
+			this->label43->Size = System::Drawing::Size(374, 23);
+			this->label43->TabIndex = 27;
+			this->label43->Text = L"OPEN FAULT-FREE MODULE OUTPUT STREAM: ";
+			this->label43->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// textBox1
+			// 
+			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBox1->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->textBox1->ForeColor = System::Drawing::Color::LightGray;
+			this->textBox1->Location = System::Drawing::Point(413, 267);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->ReadOnly = true;
+			this->textBox1->Size = System::Drawing::Size(229, 30);
+			this->textBox1->TabIndex = 28;
+			// 
+			// textBox2
+			// 
+			this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBox2->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->textBox2->ForeColor = System::Drawing::Color::LightGray;
+			this->textBox2->Location = System::Drawing::Point(413, 315);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->ReadOnly = true;
+			this->textBox2->Size = System::Drawing::Size(229, 30);
+			this->textBox2->TabIndex = 31;
+			// 
+			// label44
+			// 
+			this->label44->AutoSize = true;
+			this->label44->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label44->ForeColor = System::Drawing::Color::LightGray;
+			this->label44->Location = System::Drawing::Point(33, 318);
+			this->label44->Name = L"label44";
+			this->label44->Size = System::Drawing::Size(341, 23);
+			this->label44->TabIndex = 30;
+			this->label44->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
+			this->label44->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// button31
+			// 
+			this->button31->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->button31->FlatAppearance->BorderColor = System::Drawing::Color::LightGray;
+			this->button31->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button31->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button31->ForeColor = System::Drawing::Color::LightGray;
+			this->button31->Location = System::Drawing::Point(642, 315);
+			this->button31->Name = L"button31";
+			this->button31->Size = System::Drawing::Size(23, 30);
+			this->button31->TabIndex = 29;
+			this->button31->Text = L":";
+			this->button31->UseVisualStyleBackColor = false;
+			// 
+			// button32
+			// 
+			this->button32->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->button32->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->button32->FlatAppearance->BorderSize = 3;
+			this->button32->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button32->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button32->ForeColor = System::Drawing::Color::LightGray;
+			this->button32->Location = System::Drawing::Point(688, 279);
+			this->button32->Name = L"button32";
+			this->button32->Size = System::Drawing::Size(103, 61);
+			this->button32->TabIndex = 32;
+			this->button32->Text = L"COMPARE";
+			this->button32->UseVisualStyleBackColor = false;
+			// 
+			// textBox3
+			// 
+			this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBox3->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->textBox3->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox3->ForeColor = System::Drawing::Color::LightCoral;
+			this->textBox3->Location = System::Drawing::Point(413, 373);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->ReadOnly = true;
+			this->textBox3->Size = System::Drawing::Size(252, 30);
+			this->textBox3->TabIndex = 33;
+			this->textBox3->Text = L"FAULT DETECTED";
+			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label45
+			// 
+			this->label45->AutoSize = true;
+			this->label45->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label45->ForeColor = System::Drawing::Color::LightGray;
+			this->label45->Location = System::Drawing::Point(33, 375);
+			this->label45->Name = L"label45";
+			this->label45->Size = System::Drawing::Size(341, 23);
+			this->label45->TabIndex = 34;
+			this->label45->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
+			this->label45->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label46
+			// 
+			this->label46->AutoSize = true;
+			this->label46->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label46->ForeColor = System::Drawing::Color::LightGray;
+			this->label46->Location = System::Drawing::Point(33, 220);
+			this->label46->Name = L"label46";
+			this->label46->Size = System::Drawing::Size(341, 23);
+			this->label46->TabIndex = 36;
+			this->label46->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
+			this->label46->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// textBox4
+			// 
+			this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBox4->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->textBox4->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox4->ForeColor = System::Drawing::Color::PowderBlue;
+			this->textBox4->Location = System::Drawing::Point(413, 218);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
+			this->textBox4->Size = System::Drawing::Size(252, 30);
+			this->textBox4->TabIndex = 35;
+			this->textBox4->Text = L"FAULT DETECTED";
+			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
 			// fileconv
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
@@ -3437,8 +3644,8 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->titlepnael);
 			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->titlepnael);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -3485,6 +3692,7 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 			this->panel10->PerformLayout();
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage7->ResumeLayout(false);
+			this->tabPage7->PerformLayout();
 			this->tabPage8->ResumeLayout(false);
 			this->tabPage8->PerformLayout();
 			this->panel14->ResumeLayout(false);
@@ -4146,7 +4354,6 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 		AllTextVectorTextBox->Text = fileContents7;
 
 		saveTestVectors->Enabled = false;
-		nextTVGButton->Enabled = true;
 		button13->Enabled = true;
 		generateTestVectorsButton->Enabled = false;
 		OptimumTestVectorButton->Enabled = true;
@@ -4175,6 +4382,11 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 		}
 	}
 	private: System::Void backTVGButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		clearfilesSelectedGenerateTestVector();
+		DeleteTextfiles();
+		P_func.clearfiles();
+
+		GVFIMAll->Enabled = false;
 		AllTextVectorTextBox->Text = "";
 		convgnet->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
@@ -4192,6 +4404,11 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 
 	}
 	private: System::Void nextTVGButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		clearfilesSelectedGenerateTestVector();
+		DeleteTextfiles();
+		P_func.clearfiles();
+
+		GVFIMAll->Enabled = false;
 		TabControl^ tabControl = dynamic_cast<TabControl^>(Controls["tabControl1"]);
 		if (tabControl != nullptr) {
 			tabControl->SelectedTab = tabControl->TabPages[6];
@@ -4221,6 +4438,11 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 		}
 	}
 	private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
+		clearfilesSelectedGenerateTestVector();
+		DeleteTextfiles();
+		P_func.clearfiles();
+
+		GVFIMAll->Enabled = false;
 		AllTextVectorTextBox->Text = "";
 		button13->Enabled = false;
 		FindNodes->Enabled = true;
@@ -4242,7 +4464,9 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 	private: System::Void OptimumTestVectorButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		FindOptimumVector();
 
+		OptimumTestVectorButton->Enabled = false;
 		saveTestVectors->Enabled = true;
+		GVFIMAll->Enabled = true;
 
 		String^ appDirectory = Application::StartupPath;
 		String^ fileName9 = "OptimumTestVectors.txt";
@@ -4338,11 +4562,13 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 		}
 	}
 	private: System::Void button29_Click(System::Object^ sender, System::EventArgs^ e) {
-				
+		clearfilesSelectedGenerateTestVector();
 		DeleteTextfiles();
+		P_func.clearfiles();
+
 		NextSelectedVecBUtt->Enabled = false;
 		next2->Enabled = false;
-		P_func.clearfiles();
+		
 		
 		ShowSelectedTestVectors->Text = "";
 
@@ -4437,6 +4663,9 @@ private: System::Windows::Forms::Label^ SelectedNodesLabel;
 		nextTVGButton->Enabled = true;
 		NextSelectedfTrack->Enabled = true;
 		NextEachTrack->Enabled = true;
+
+		GenerateVerilogFaultyModule();
+		GVFIMAll->Enabled = false;
 	}
 };
 }

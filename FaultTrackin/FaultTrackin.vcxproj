@@ -124,6 +124,7 @@
     <ClCompile Include="fileconv.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComparatorTool.h" />
     <ClInclude Include="fileconv.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -133,6 +134,7 @@
     <ClInclude Include="GenerateTextVectors.h" />
     <ClInclude Include="podem.h" />
     <ClInclude Include="SequentialToCombinational.h" />
+    <ClInclude Include="VerilogFaultGeneration.h" />
     <ClInclude Include="VerilogToText.h" />
     <ClInclude Include="YosysModuleExporter.h" />
   </ItemGroup>

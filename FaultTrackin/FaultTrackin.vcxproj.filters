@@ -47,5 +47,11 @@
     <ClInclude Include="GenerateTestVectorsSelected.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VerilogFaultGeneration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComparatorTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
