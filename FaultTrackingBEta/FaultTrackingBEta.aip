@@ -17,10 +17,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://sites.google.com/view/faulttrackingframework/home"/>
     <ROW Property="CTRLS" Value="1"/>
     <ROW Property="Manufacturer" Value="G05"/>
-    <ROW Property="ProductCode" Value="1033:{F91A6F62-EE83-4CF5-89F3-19CDA820DA58} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{50386191-AF6D-4A5A-9039-C07EED522A59} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Fault Tracking Framework"/>
-    <ROW Property="ProductVersion" Value="1.6.0" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.7.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EE50C6CD-5F8B-4097-8FC1-D1EEE2773EF1}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -37,9 +37,11 @@
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="FaultTrackin_Dir" Directory_Parent="APPDIR" DefaultDir="FAULTT~1|FaultTrackin"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="SampleTestbenches_Dir" Directory_Parent="FaultTrackin_Dir" DefaultDir="SAMPLE~1|Sample Testbenches"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="ADDER.v" ComponentId="{D55AF1AD-B8AA-4A53-8C7F-8F62952F53E8}" Directory_="SampleTestbenches_Dir" Attributes="0" KeyPath="ADDER.v" Type="0"/>
     <ROW Component="APPDIR" ComponentId="{266846BF-6B0D-49A2-A77B-2CF4E5EAFFC7}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="FaultTrackin_PrimaryOutput" ComponentId="{89F04832-6F8E-460D-BD7F-279BACBBB44C}" Directory_="FaultTrackin_Dir" Attributes="256" KeyPath="FaultTrackin.exe"/>
     <ROW Component="FaultTrackin_SymbolsOutput" ComponentId="{846B1E53-CF83-4BFD-A707-78B2804B1B20}" Directory_="FaultTrackin_Dir" Attributes="0" KeyPath="FaultTrackin.pdb"/>
@@ -62,6 +64,10 @@
     <ROW File="counter.v" Component_="Readme.rtf" FileName="counter.v" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\counter.v" SelfReg="false"/>
     <ROW File="counter.ys" Component_="Readme.rtf" FileName="counter.ys" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\counter.ys" SelfReg="false"/>
     <ROW File="counter_tb.v" Component_="Readme.rtf" FileName="COUNTE~1.V|counter_tb.v" Attributes="0" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\5 - Second Sem Project Files\Project\lib\counter_tb.v" SelfReg="false"/>
+    <ROW File="ADDER.v" Component_="ADDER.v" FileName="ADDER.v" Attributes="0" SourcePath="..\x64\Debug\Sample Testbenches\ADDER.v" SelfReg="false"/>
+    <ROW File="ADDERF.v" Component_="ADDER.v" FileName="ADDERF.v" Attributes="0" SourcePath="..\x64\Debug\Sample Testbenches\ADDERF.v" SelfReg="false"/>
+    <ROW File="tb_ADDER.v" Component_="ADDER.v" FileName="tb_ADDER.v" Attributes="0" SourcePath="..\x64\Debug\Sample Testbenches\tb_ADDER.v" SelfReg="false"/>
+    <ROW File="tb_ADDERF.v" Component_="ADDER.v" FileName="TB_ADD~1.V|tb_ADDERF.v" Attributes="0" SourcePath="..\x64\Debug\Sample Testbenches\tb_ADDERF.v" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_FaultTrackin.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_FaultTrackin.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_FaultTrackin.exe]" Type="2" Content="0"/>
@@ -162,6 +168,7 @@
     <ROW Feature_="MainFeature" Component_="FaultTrackin_SymbolsOutput"/>
     <ROW Feature_="MainFeature" Component_="Readme.rtf"/>
     <ROW Feature_="MainFeature" Component_="Readme.rtf_1"/>
+    <ROW Feature_="MainFeature" Component_="ADDER.v"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="icons8circuit64_1.exe" SourcePath="D:\Semester 8\EE406(CC) - Undergraduate Project II (3)\7 - GUI App\GUI icons\icons8-circuit-64.ico" Index="0"/>
