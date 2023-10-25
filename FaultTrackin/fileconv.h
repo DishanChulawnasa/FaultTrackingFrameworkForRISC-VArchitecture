@@ -10,6 +10,8 @@
 #include "FindOptimumTestVectors.h"
 #include "GenerateTestVectorsSelected.h"
 #include "VerilogFaultGeneration.h"
+#include "ComparatorTool.h"
+
 
 namespace FaultTrackin {
 
@@ -360,17 +362,41 @@ private: System::Windows::Forms::Label^ label42;
 private: System::Windows::Forms::Label^ SewlectedFaultsLabel;
 private: System::Windows::Forms::Label^ SelectedNodesLabel;
 private: System::Windows::Forms::Label^ label43;
-private: System::Windows::Forms::Button^ button24;
-private: System::Windows::Forms::TextBox^ textBox1;
+private: System::Windows::Forms::Button^ OpenOutputFFree;
+private: System::Windows::Forms::TextBox^ OutptFFreeName;
 
-private: System::Windows::Forms::Button^ button32;
-private: System::Windows::Forms::TextBox^ textBox2;
+
+private: System::Windows::Forms::Button^ CompareButton;
+private: System::Windows::Forms::TextBox^ OutputFName;
+
+
+
 private: System::Windows::Forms::Label^ label44;
-private: System::Windows::Forms::Button^ button31;
+private: System::Windows::Forms::Button^ OpenOutputF;
+
 private: System::Windows::Forms::Label^ label46;
-private: System::Windows::Forms::TextBox^ textBox4;
+private: System::Windows::Forms::TextBox^ CompareModule;
+
 private: System::Windows::Forms::Label^ label45;
-private: System::Windows::Forms::TextBox^ textBox3;
+private: System::Windows::Forms::TextBox^ CompareDetection;
+
+private: System::Windows::Forms::OpenFileDialog^ openFileDialog4;
+private: System::Windows::Forms::OpenFileDialog^ openFileDialog5;
+
+
+
+
+private: System::Windows::Forms::Panel^ panel17;
+private: System::Windows::Forms::Label^ label48;
+private: System::Windows::Forms::Panel^ panel18;
+private: System::Windows::Forms::Button^ EDAPalyground;
+private: System::Windows::Forms::Label^ SampleDirectory;
+
+
+
+
+
+
 
 
 
@@ -604,7 +630,23 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->EDAPalyground = (gcnew System::Windows::Forms::Button());
+			this->SampleDirectory = (gcnew System::Windows::Forms::Label());
+			this->panel17 = (gcnew System::Windows::Forms::Panel());
+			this->label48 = (gcnew System::Windows::Forms::Label());
+			this->label46 = (gcnew System::Windows::Forms::Label());
+			this->CompareModule = (gcnew System::Windows::Forms::TextBox());
+			this->label45 = (gcnew System::Windows::Forms::Label());
+			this->CompareDetection = (gcnew System::Windows::Forms::TextBox());
+			this->CompareButton = (gcnew System::Windows::Forms::Button());
+			this->OutputFName = (gcnew System::Windows::Forms::TextBox());
+			this->label44 = (gcnew System::Windows::Forms::Label());
+			this->OpenOutputF = (gcnew System::Windows::Forms::Button());
+			this->OutptFFreeName = (gcnew System::Windows::Forms::TextBox());
+			this->label43 = (gcnew System::Windows::Forms::Label());
+			this->OpenOutputFFree = (gcnew System::Windows::Forms::Button());
 			this->button30 = (gcnew System::Windows::Forms::Button());
+			this->panel18 = (gcnew System::Windows::Forms::Panel());
 			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
 			this->SelectingSTKtxt = (gcnew System::Windows::Forms::TextBox());
 			this->label31 = (gcnew System::Windows::Forms::Label());
@@ -651,17 +693,8 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->button24 = (gcnew System::Windows::Forms::Button());
-			this->label43 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->label44 = (gcnew System::Windows::Forms::Label());
-			this->button31 = (gcnew System::Windows::Forms::Button());
-			this->button32 = (gcnew System::Windows::Forms::Button());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->label45 = (gcnew System::Windows::Forms::Label());
-			this->label46 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->openFileDialog4 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->openFileDialog5 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->titlepnael->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			this->panel11->SuspendLayout();
@@ -683,6 +716,7 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->panel10->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage7->SuspendLayout();
+			this->panel17->SuspendLayout();
 			this->tabPage8->SuspendLayout();
 			this->panel14->SuspendLayout();
 			this->panel13->SuspendLayout();
@@ -1740,13 +1774,13 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// testvector
 			// 
-			this->testvector->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->testvector->BackColor = System::Drawing::Color::LightGray;
 			this->testvector->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->testvector->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->testvector->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->testvector->ForeColor = System::Drawing::Color::LightGray;
+			this->testvector->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->testvector->Location = System::Drawing::Point(0, 0);
 			this->testvector->Multiline = true;
 			this->testvector->Name = L"testvector";
@@ -1789,13 +1823,13 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// pinodes
 			// 
-			this->pinodes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->pinodes->BackColor = System::Drawing::Color::LightGray;
 			this->pinodes->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->pinodes->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pinodes->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pinodes->ForeColor = System::Drawing::Color::LightGray;
+			this->pinodes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->pinodes->Location = System::Drawing::Point(0, 0);
 			this->pinodes->Multiline = true;
 			this->pinodes->Name = L"pinodes";
@@ -2101,12 +2135,12 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// faultnode
 			// 
-			this->faultnode->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->faultnode->BackColor = System::Drawing::Color::LightGray;
 			this->faultnode->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->faultnode->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->faultnode->ForeColor = System::Drawing::Color::LightGray;
+			this->faultnode->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->faultnode->Location = System::Drawing::Point(703, 195);
 			this->faultnode->Name = L"faultnode";
 			this->faultnode->Size = System::Drawing::Size(85, 30);
@@ -2116,12 +2150,12 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// stkat
 			// 
-			this->stkat->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->stkat->BackColor = System::Drawing::Color::LightGray;
 			this->stkat->Enabled = false;
 			this->stkat->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->stkat->ForeColor = System::Drawing::Color::LightGray;
+			this->stkat->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->stkat->FormattingEnabled = true;
 			this->stkat->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"0", L"1" });
 			this->stkat->Location = System::Drawing::Point(703, 253);
@@ -2797,19 +2831,23 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			this->tabPage7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->tabPage7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->tabPage7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->tabPage7->Controls->Add(this->panel17);
+			this->tabPage7->Controls->Add(this->SampleDirectory);
+			this->tabPage7->Controls->Add(this->EDAPalyground);
+			this->tabPage7->Controls->Add(this->panel18);
 			this->tabPage7->Controls->Add(this->label46);
-			this->tabPage7->Controls->Add(this->textBox4);
+			this->tabPage7->Controls->Add(this->CompareModule);
 			this->tabPage7->Controls->Add(this->label45);
-			this->tabPage7->Controls->Add(this->textBox3);
-			this->tabPage7->Controls->Add(this->button32);
-			this->tabPage7->Controls->Add(this->textBox2);
+			this->tabPage7->Controls->Add(this->CompareDetection);
+			this->tabPage7->Controls->Add(this->CompareButton);
+			this->tabPage7->Controls->Add(this->OutputFName);
 			this->tabPage7->Controls->Add(this->label44);
-			this->tabPage7->Controls->Add(this->button31);
-			this->tabPage7->Controls->Add(this->textBox1);
+			this->tabPage7->Controls->Add(this->OpenOutputF);
+			this->tabPage7->Controls->Add(this->OutptFFreeName);
 			this->tabPage7->Controls->Add(this->label43);
-			this->tabPage7->Controls->Add(this->button24);
+			this->tabPage7->Controls->Add(this->OpenOutputFFree);
 			this->tabPage7->Controls->Add(this->button30);
 			this->tabPage7->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -2819,6 +2857,230 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->tabPage7->TabIndex = 7;
 			this->tabPage7->Text = L"7";
 			// 
+			// EDAPalyground
+			// 
+			this->EDAPalyground->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->EDAPalyground->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"EDAPalyground.BackgroundImage")));
+			this->EDAPalyground->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->EDAPalyground->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->EDAPalyground->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->EDAPalyground->FlatAppearance->BorderSize = 2;
+			this->EDAPalyground->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->EDAPalyground->ForeColor = System::Drawing::Color::Black;
+			this->EDAPalyground->Location = System::Drawing::Point(681, 54);
+			this->EDAPalyground->Name = L"EDAPalyground";
+			this->EDAPalyground->Size = System::Drawing::Size(121, 118);
+			this->EDAPalyground->TabIndex = 4;
+			this->EDAPalyground->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
+			this->EDAPalyground->UseMnemonic = false;
+			this->EDAPalyground->UseVisualStyleBackColor = false;
+			this->EDAPalyground->Click += gcnew System::EventHandler(this, &fileconv::EDAPalyground_Click);
+			// 
+			// SampleDirectory
+			// 
+			this->SampleDirectory->AutoSize = true;
+			this->SampleDirectory->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->SampleDirectory->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->SampleDirectory->ForeColor = System::Drawing::SystemColors::ActiveCaption;
+			this->SampleDirectory->Location = System::Drawing::Point(673, 176);
+			this->SampleDirectory->Name = L"SampleDirectory";
+			this->SampleDirectory->Size = System::Drawing::Size(164, 40);
+			this->SampleDirectory->TabIndex = 44;
+			this->SampleDirectory->Text = L"ACCESS SAMPLE \r\nTESTBENCH MODULES";
+			this->SampleDirectory->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->SampleDirectory->Click += gcnew System::EventHandler(this, &fileconv::SampleDirectory_Click);
+			// 
+			// panel17
+			// 
+			this->panel17->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->panel17->Controls->Add(this->label48);
+			this->panel17->Location = System::Drawing::Point(-1, -1);
+			this->panel17->Name = L"panel17";
+			this->panel17->Size = System::Drawing::Size(829, 49);
+			this->panel17->TabIndex = 41;
+			// 
+			// label48
+			// 
+			this->label48->AutoSize = true;
+			this->label48->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->label48->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label48->ForeColor = System::Drawing::Color::LightGray;
+			this->label48->Location = System::Drawing::Point(333, 10);
+			this->label48->Name = L"label48";
+			this->label48->Size = System::Drawing::Size(190, 32);
+			this->label48->TabIndex = 40;
+			this->label48->Text = L"FAULT TRACKER";
+			// 
+			// label46
+			// 
+			this->label46->AutoSize = true;
+			this->label46->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label46->ForeColor = System::Drawing::Color::LightGray;
+			this->label46->Location = System::Drawing::Point(33, 225);
+			this->label46->Name = L"label46";
+			this->label46->Size = System::Drawing::Size(84, 23);
+			this->label46->TabIndex = 36;
+			this->label46->Text = L"MODULE:";
+			this->label46->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// CompareModule
+			// 
+			this->CompareModule->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->CompareModule->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->CompareModule->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->CompareModule->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CompareModule->ForeColor = System::Drawing::Color::PowderBlue;
+			this->CompareModule->Location = System::Drawing::Point(413, 223);
+			this->CompareModule->Name = L"CompareModule";
+			this->CompareModule->ReadOnly = true;
+			this->CompareModule->Size = System::Drawing::Size(252, 30);
+			this->CompareModule->TabIndex = 35;
+			this->CompareModule->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label45
+			// 
+			this->label45->AutoSize = true;
+			this->label45->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label45->ForeColor = System::Drawing::Color::LightGray;
+			this->label45->Location = System::Drawing::Point(33, 372);
+			this->label45->Name = L"label45";
+			this->label45->Size = System::Drawing::Size(71, 23);
+			this->label45->TabIndex = 34;
+			this->label45->Text = L"STATUS:";
+			this->label45->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// CompareDetection
+			// 
+			this->CompareDetection->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->CompareDetection->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->CompareDetection->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->CompareDetection->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CompareDetection->ForeColor = System::Drawing::Color::LightCoral;
+			this->CompareDetection->Location = System::Drawing::Point(413, 370);
+			this->CompareDetection->Name = L"CompareDetection";
+			this->CompareDetection->ReadOnly = true;
+			this->CompareDetection->Size = System::Drawing::Size(252, 30);
+			this->CompareDetection->TabIndex = 33;
+			this->CompareDetection->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// CompareButton
+			// 
+			this->CompareButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(39)));
+			this->CompareButton->Enabled = false;
+			this->CompareButton->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
+			this->CompareButton->FlatAppearance->BorderSize = 3;
+			this->CompareButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->CompareButton->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CompareButton->ForeColor = System::Drawing::Color::LightGray;
+			this->CompareButton->Location = System::Drawing::Point(688, 282);
+			this->CompareButton->Name = L"CompareButton";
+			this->CompareButton->Size = System::Drawing::Size(103, 61);
+			this->CompareButton->TabIndex = 32;
+			this->CompareButton->Text = L"COMPARE";
+			this->CompareButton->UseVisualStyleBackColor = false;
+			this->CompareButton->Click += gcnew System::EventHandler(this, &fileconv::CompareButton_Click);
+			// 
+			// OutputFName
+			// 
+			this->OutputFName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->OutputFName->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->OutputFName->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->OutputFName->ForeColor = System::Drawing::Color::LightGray;
+			this->OutputFName->Location = System::Drawing::Point(413, 320);
+			this->OutputFName->Name = L"OutputFName";
+			this->OutputFName->ReadOnly = true;
+			this->OutputFName->Size = System::Drawing::Size(229, 30);
+			this->OutputFName->TabIndex = 31;
+			this->OutputFName->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label44
+			// 
+			this->label44->AutoSize = true;
+			this->label44->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label44->ForeColor = System::Drawing::Color::LightGray;
+			this->label44->Location = System::Drawing::Point(33, 323);
+			this->label44->Name = L"label44";
+			this->label44->Size = System::Drawing::Size(341, 23);
+			this->label44->TabIndex = 30;
+			this->label44->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
+			this->label44->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OpenOutputF
+			// 
+			this->OpenOutputF->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->OpenOutputF->FlatAppearance->BorderColor = System::Drawing::Color::LightGray;
+			this->OpenOutputF->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->OpenOutputF->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->OpenOutputF->ForeColor = System::Drawing::Color::LightGray;
+			this->OpenOutputF->Location = System::Drawing::Point(642, 320);
+			this->OpenOutputF->Name = L"OpenOutputF";
+			this->OpenOutputF->Size = System::Drawing::Size(23, 30);
+			this->OpenOutputF->TabIndex = 29;
+			this->OpenOutputF->Text = L":";
+			this->OpenOutputF->UseVisualStyleBackColor = false;
+			this->OpenOutputF->Click += gcnew System::EventHandler(this, &fileconv::OpenOutputF_Click);
+			// 
+			// OutptFFreeName
+			// 
+			this->OutptFFreeName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->OutptFFreeName->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->OutptFFreeName->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->OutptFFreeName->ForeColor = System::Drawing::Color::LightGray;
+			this->OutptFFreeName->Location = System::Drawing::Point(413, 272);
+			this->OutptFFreeName->Name = L"OutptFFreeName";
+			this->OutptFFreeName->ReadOnly = true;
+			this->OutptFFreeName->Size = System::Drawing::Size(229, 30);
+			this->OutptFFreeName->TabIndex = 28;
+			this->OutptFFreeName->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label43
+			// 
+			this->label43->AutoSize = true;
+			this->label43->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label43->ForeColor = System::Drawing::Color::LightGray;
+			this->label43->Location = System::Drawing::Point(33, 275);
+			this->label43->Name = L"label43";
+			this->label43->Size = System::Drawing::Size(374, 23);
+			this->label43->TabIndex = 27;
+			this->label43->Text = L"OPEN FAULT-FREE MODULE OUTPUT STREAM: ";
+			this->label43->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// OpenOutputFFree
+			// 
+			this->OpenOutputFFree->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->OpenOutputFFree->FlatAppearance->BorderColor = System::Drawing::Color::LightGray;
+			this->OpenOutputFFree->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->OpenOutputFFree->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->OpenOutputFFree->ForeColor = System::Drawing::Color::LightGray;
+			this->OpenOutputFFree->Location = System::Drawing::Point(642, 272);
+			this->OpenOutputFFree->Name = L"OpenOutputFFree";
+			this->OpenOutputFFree->Size = System::Drawing::Size(23, 30);
+			this->OpenOutputFFree->TabIndex = 23;
+			this->OpenOutputFFree->Text = L":";
+			this->OpenOutputFFree->UseVisualStyleBackColor = false;
+			this->OpenOutputFFree->Click += gcnew System::EventHandler(this, &fileconv::OpenOutputFFree_Click);
+			// 
 			// button30
 			// 
 			this->button30->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
@@ -2827,13 +3089,22 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->button30->FlatAppearance->BorderSize = 2;
 			this->button30->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button30->ForeColor = System::Drawing::Color::LightGray;
-			this->button30->Location = System::Drawing::Point(329, 430);
+			this->button30->Location = System::Drawing::Point(355, 433);
 			this->button30->Name = L"button30";
 			this->button30->Size = System::Drawing::Size(167, 35);
 			this->button30->TabIndex = 22;
 			this->button30->Text = L"HOME";
 			this->button30->UseVisualStyleBackColor = false;
 			this->button30->Click += gcnew System::EventHandler(this, &fileconv::button30_Click);
+			// 
+			// panel18
+			// 
+			this->panel18->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel18.BackgroundImage")));
+			this->panel18->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->panel18->Location = System::Drawing::Point(6, 41);
+			this->panel18->Name = L"panel18";
+			this->panel18->Size = System::Drawing::Size(667, 171);
+			this->panel18->TabIndex = 43;
 			// 
 			// tabPage8
 			// 
@@ -2859,12 +3130,12 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// SelectingSTKtxt
 			// 
-			this->SelectingSTKtxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingSTKtxt->BackColor = System::Drawing::Color::LightGray;
 			this->SelectingSTKtxt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->SelectingSTKtxt->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SelectingSTKtxt->ForeColor = System::Drawing::Color::LightGray;
+			this->SelectingSTKtxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
+				static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->SelectingSTKtxt->Location = System::Drawing::Point(486, 282);
 			this->SelectingSTKtxt->Name = L"SelectingSTKtxt";
 			this->SelectingSTKtxt->Size = System::Drawing::Size(303, 30);
@@ -2956,12 +3227,12 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// SelectingFaultyNodetxt
 			// 
-			this->SelectingFaultyNodetxt->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
-				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->SelectingFaultyNodetxt->BackColor = System::Drawing::Color::LightGray;
 			this->SelectingFaultyNodetxt->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->SelectingFaultyNodetxt->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SelectingFaultyNodetxt->ForeColor = System::Drawing::Color::LightGray;
+			this->SelectingFaultyNodetxt->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
+				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
 			this->SelectingFaultyNodetxt->Location = System::Drawing::Point(486, 182);
 			this->SelectingFaultyNodetxt->Name = L"SelectingFaultyNodetxt";
 			this->SelectingFaultyNodetxt->Size = System::Drawing::Size(303, 30);
@@ -3413,8 +3684,7 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			// ShowSelectedTestVectors
 			// 
-			this->ShowSelectedTestVectors->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)),
-				static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(32)));
+			this->ShowSelectedTestVectors->BackColor = System::Drawing::Color::LightGray;
 			this->ShowSelectedTestVectors->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->ShowSelectedTestVectors->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->ShowSelectedTestVectors->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -3475,166 +3745,13 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			// 
 			this->openFileDialog3->FileName = L"openFileDialog3";
 			// 
-			// button24
+			// openFileDialog4
 			// 
-			this->button24->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->button24->FlatAppearance->BorderColor = System::Drawing::Color::LightGray;
-			this->button24->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button24->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button24->ForeColor = System::Drawing::Color::LightGray;
-			this->button24->Location = System::Drawing::Point(642, 267);
-			this->button24->Name = L"button24";
-			this->button24->Size = System::Drawing::Size(23, 30);
-			this->button24->TabIndex = 23;
-			this->button24->Text = L":";
-			this->button24->UseVisualStyleBackColor = false;
+			this->openFileDialog4->FileName = L"openFileDialog4";
 			// 
-			// label43
+			// openFileDialog5
 			// 
-			this->label43->AutoSize = true;
-			this->label43->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label43->ForeColor = System::Drawing::Color::LightGray;
-			this->label43->Location = System::Drawing::Point(33, 270);
-			this->label43->Name = L"label43";
-			this->label43->Size = System::Drawing::Size(374, 23);
-			this->label43->TabIndex = 27;
-			this->label43->Text = L"OPEN FAULT-FREE MODULE OUTPUT STREAM: ";
-			this->label43->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// textBox1
-			// 
-			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->textBox1->ForeColor = System::Drawing::Color::LightGray;
-			this->textBox1->Location = System::Drawing::Point(413, 267);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(229, 30);
-			this->textBox1->TabIndex = 28;
-			// 
-			// textBox2
-			// 
-			this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox2->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->textBox2->ForeColor = System::Drawing::Color::LightGray;
-			this->textBox2->Location = System::Drawing::Point(413, 315);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(229, 30);
-			this->textBox2->TabIndex = 31;
-			// 
-			// label44
-			// 
-			this->label44->AutoSize = true;
-			this->label44->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label44->ForeColor = System::Drawing::Color::LightGray;
-			this->label44->Location = System::Drawing::Point(33, 318);
-			this->label44->Name = L"label44";
-			this->label44->Size = System::Drawing::Size(341, 23);
-			this->label44->TabIndex = 30;
-			this->label44->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
-			this->label44->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// button31
-			// 
-			this->button31->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->button31->FlatAppearance->BorderColor = System::Drawing::Color::LightGray;
-			this->button31->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button31->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button31->ForeColor = System::Drawing::Color::LightGray;
-			this->button31->Location = System::Drawing::Point(642, 315);
-			this->button31->Name = L"button31";
-			this->button31->Size = System::Drawing::Size(23, 30);
-			this->button31->TabIndex = 29;
-			this->button31->Text = L":";
-			this->button31->UseVisualStyleBackColor = false;
-			// 
-			// button32
-			// 
-			this->button32->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(32)),
-				static_cast<System::Int32>(static_cast<System::Byte>(39)));
-			this->button32->FlatAppearance->BorderColor = System::Drawing::Color::SkyBlue;
-			this->button32->FlatAppearance->BorderSize = 3;
-			this->button32->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button32->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button32->ForeColor = System::Drawing::Color::LightGray;
-			this->button32->Location = System::Drawing::Point(688, 279);
-			this->button32->Name = L"button32";
-			this->button32->Size = System::Drawing::Size(103, 61);
-			this->button32->TabIndex = 32;
-			this->button32->Text = L"COMPARE";
-			this->button32->UseVisualStyleBackColor = false;
-			// 
-			// textBox3
-			// 
-			this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox3->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox3->ForeColor = System::Drawing::Color::LightCoral;
-			this->textBox3->Location = System::Drawing::Point(413, 373);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->ReadOnly = true;
-			this->textBox3->Size = System::Drawing::Size(252, 30);
-			this->textBox3->TabIndex = 33;
-			this->textBox3->Text = L"FAULT DETECTED";
-			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// label45
-			// 
-			this->label45->AutoSize = true;
-			this->label45->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label45->ForeColor = System::Drawing::Color::LightGray;
-			this->label45->Location = System::Drawing::Point(33, 375);
-			this->label45->Name = L"label45";
-			this->label45->Size = System::Drawing::Size(341, 23);
-			this->label45->TabIndex = 34;
-			this->label45->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
-			this->label45->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// label46
-			// 
-			this->label46->AutoSize = true;
-			this->label46->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label46->ForeColor = System::Drawing::Color::LightGray;
-			this->label46->Location = System::Drawing::Point(33, 220);
-			this->label46->Name = L"label46";
-			this->label46->Size = System::Drawing::Size(341, 23);
-			this->label46->TabIndex = 36;
-			this->label46->Text = L"OPEN FAULTY MODULE OUTPUT STREAM: ";
-			this->label46->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// textBox4
-			// 
-			this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(21)),
-				static_cast<System::Int32>(static_cast<System::Byte>(32)));
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox4->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox4->ForeColor = System::Drawing::Color::PowderBlue;
-			this->textBox4->Location = System::Drawing::Point(413, 218);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(252, 30);
-			this->textBox4->TabIndex = 35;
-			this->textBox4->Text = L"FAULT DETECTED";
-			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->openFileDialog5->FileName = L"openFileDialog5";
 			// 
 			// fileconv
 			// 
@@ -3644,8 +3761,8 @@ private: System::Windows::Forms::TextBox^ textBox3;
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->ClientSize = System::Drawing::Size(828, 559);
 			this->ControlBox = false;
-			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->titlepnael);
+			this->Controls->Add(this->tabControl1);
 			this->Font = (gcnew System::Drawing::Font(L"Yu Gothic UI", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -3653,7 +3770,6 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->Name = L"fileconv";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Fault Tracking Framework";
-			this->TransparencyKey = System::Drawing::Color::Transparent;
 			this->titlepnael->ResumeLayout(false);
 			this->titlepnael->PerformLayout();
 			this->tabPage6->ResumeLayout(false);
@@ -3693,6 +3809,8 @@ private: System::Windows::Forms::TextBox^ textBox3;
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage7->ResumeLayout(false);
 			this->tabPage7->PerformLayout();
+			this->panel17->ResumeLayout(false);
+			this->panel17->PerformLayout();
 			this->tabPage8->ResumeLayout(false);
 			this->tabPage8->PerformLayout();
 			this->panel14->ResumeLayout(false);
@@ -3877,6 +3995,7 @@ private: System::Windows::Forms::TextBox^ textBox3;
 		ModuleTVGLabel->Text = inputVeilogFileName;
 		moduleNameLabel->Text = inputVeilogFileName;
 		SelectedModule->Text = inputVeilogFileName;
+		CompareModule->Text = inputVeilogFileName;
 		inputVeilogFileDirectory = "InsertedScanChainFile.v";
 
 		//if (selectedItem == "Combinational") {
@@ -4345,6 +4464,9 @@ private: System::Windows::Forms::TextBox^ textBox3;
 	}
 	private: System::Void generateTestVectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		
+		clearfilesSelectedGenerateTestVector();
+		P_func.clearfiles();
+
 		TestVectorsGen();
 		
 		String^ appDirectory = Application::StartupPath;
@@ -4462,6 +4584,9 @@ private: System::Windows::Forms::TextBox^ textBox3;
 		}
 	}
 	private: System::Void OptimumTestVectorButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		clearfilesSelectedGenerateTestVector();
+		P_func.clearfiles();
+		
 		FindOptimumVector();
 
 		OptimumTestVectorButton->Enabled = false;
@@ -4666,6 +4791,51 @@ private: System::Windows::Forms::TextBox^ textBox3;
 
 		GenerateVerilogFaultyModule();
 		GVFIMAll->Enabled = false;
+	}
+	private: System::Void OpenOutputFFree_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		if (openFileDialog4->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			System::String^ OutputFFreeTexttemp = openFileDialog4->FileName;
+			System::String^ OutputFFreeTextName = System::IO::Path::GetFileName(OutputFFreeTexttemp);
+			faultfreefile = msclr::interop::marshal_as<std::string>(OutputFFreeTexttemp);
+			OutptFFreeName->Text = OutputFFreeTextName;
+			checkfiles = 1;
+			if (checkfiles2 == 1) {
+				CompareButton->Enabled = true;
+			}
+		}
+	}
+	private: System::Void OpenOutputF_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		if (openFileDialog5->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			System::String^ OutputFTexttemp = openFileDialog5->FileName;
+			System::String^ OutputFTextName = System::IO::Path::GetFileName(OutputFTexttemp);
+			faultyfile = msclr::interop::marshal_as<std::string>(OutputFTexttemp);
+			OutputFName->Text = OutputFTextName;
+			checkfiles2 = 1;
+			if (checkfiles == 1) {
+				CompareButton->Enabled = true;
+			}
+		}
+	}
+	private: System::Void CompareButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		CompareModules();
+		checkfiles = 0;
+		checkfiles2 = 0;
+		if (faultDetectResult == 1) {
+			CompareDetection-> Text = "FAULT DETECTED!";
+		}
+		else if (faultDetectResult == 2) {
+			CompareDetection->Text = "FAULT-FREE MODULE!";
+		}
+		CompareButton->Enabled = false;
+	}
+	private: System::Void EDAPalyground_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("https://edaplayground.com/home");
+	}
+	private: System::Void SampleDirectory_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("https://edaplayground.com/x/XbuX");
 	}
 };
 }

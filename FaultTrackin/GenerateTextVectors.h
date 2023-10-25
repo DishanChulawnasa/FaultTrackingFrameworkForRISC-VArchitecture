@@ -11,7 +11,7 @@
 
 using namespace std;
 
-
+vector<int> faultsVector;
 
 
 void divideAndWriteToFile(const vector<string>& inputVector, int elementsPerLine, const std::string& outputFile)
@@ -46,7 +46,7 @@ void divideAndWriteToFile(const vector<string>& inputVector, int elementsPerLine
 int TestVectorsGen() {
 
     P_func.readFile();
-    vector<int> faultsVector;
+    
     string filename = "faultnodes.txt";
 
     faultsVector = ReadUniqueIntegersFromFile(filename);

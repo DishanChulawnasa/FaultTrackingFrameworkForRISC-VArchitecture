@@ -3,6 +3,12 @@
 #include <fstream>
 #include <string>
 
+std::string faultfreefile;
+std::string faultyfile;
+int faultDetectResult = 0;
+int checkfiles = 0;
+int checkfiles2 = 0;
+
 bool areFilesEqual(const std::string& filename1, const std::string& filename2) {
     std::ifstream file1(filename1);
     std::ifstream file2(filename2);
@@ -28,14 +34,13 @@ bool areFilesEqual(const std::string& filename1, const std::string& filename2) {
 }
 
 int CompareModules() {
-    std::string faultfreefile = "ADDER.txt"; // Replace with the actual filename of your first text file
-    std::string faultyfile = "ADDERF2.txt"; // Replace with the actual filename of your second text file
+
 
     if (areFilesEqual(faultfreefile, faultyfile)) {
-        std::cout << "The files are equal." << std::endl;
+        faultDetectResult = 2;
     }
     else {
-        std::cout << "The files are not equal." << std::endl;
+        faultDetectResult = 1;
     }
 
     return 0;

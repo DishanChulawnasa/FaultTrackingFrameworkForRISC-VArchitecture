@@ -61,6 +61,8 @@ void DeleteTextfiles() {
 }
 
 void clearfilesSelectedGenerateTestVector() {
+    faultsVector.clear();
+
     stkfaults1.clear();
     faultsVector1.clear();
     inputVectors.clear();
